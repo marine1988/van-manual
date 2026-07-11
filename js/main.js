@@ -48,6 +48,64 @@
     });
   }
 
+  /* ---------- Language Switcher ---------- */
+  const langCurrent = document.querySelector(".language-switcher__current");
+  const langDropdown = document.querySelector(".language-switcher__dropdown");
+  const langItems = document.querySelectorAll(
+    '.language-switcher__dropdown li[data-lang]'
+  );
+
+  if (langCurrent && langDropdown) {
+    /* Toggle dropdown no clique do botão */
+    langCurrent.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isOpen = langCurrent.getAttribute("aria-expanded") === "true";
+      langCurrent.setAttribute("aria-expanded", isOpen ? "false" : "true");
+    });
+
+    /* Fechar dropdown ao clicar fora */
+    document.addEventListener("click", function () {
+      if (langCurrent.getAttribute("aria-expanded") === "true") {
+        langCurrent.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    /* Selecionar idioma */
+    langItems.forEach(function (item) {
+      item.addEventListener("click", function () {
+        const lang = item.getAttribute("data-lang");
+        if (typeof applyTranslations === "function") {
+          applyTranslations(lang);
+        }
+
+        /* Atualizar botão: bandeira + código */
+        const flag = item.querySelector(".language-switcher__flag");
+        const codeSpan = langCurrent.querySelector(
+          ".language-switcher__code"
+        );
+        const flagCurrent = langCurrent.querySelector(
+          ".language-switcher__flag"
+        );
+        if (flag && flagCurrent) {
+          flagCurrent.textContent = flag.textContent;
+        }
+        if (codeSpan) {
+          const codeMatch = item.textContent.match(/[A-Z]{2}/);
+          if (codeMatch) codeSpan.textContent = codeMatch[0];
+        }
+
+        /* Atualizar aria-selected */
+        langItems.forEach(function (li) {
+          li.setAttribute("aria-selected", "false");
+        });
+        item.setAttribute("aria-selected", "true");
+
+        /* Fechar dropdown */
+        langCurrent.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
   /* ---------- Accordion ---------- */
   const accordions = document.querySelectorAll(".accordion");
 
@@ -72,6 +130,21 @@
         header.setAttribute("aria-expanded", "true");
         body.classList.add("is-open");
       }
+    });
+  });
+
+  /* ---------- FAQ Accordion ---------- */
+  const faqQuestions = document.querySelectorAll(".faq-item__question");
+
+  faqQuestions.forEach(function (question) {
+    question.addEventListener("click", function () {
+      const isOpen = question.getAttribute("aria-expanded") === "true";
+      const answer = question.nextElementSibling;
+
+      if (!answer || !answer.classList.contains("faq-item__answer")) return;
+
+      question.setAttribute("aria-expanded", isOpen ? "false" : "true");
+      answer.setAttribute("aria-hidden", isOpen ? "true" : "false");
     });
   });
 

@@ -707,6 +707,15 @@ ul {
 .hero__subtitle { font-size: 1rem; }
 .hero__cta { font-size: 0.95rem; padding: 12px 20px; }
 
+/* Language switcher dropdown: hidden by default, shown via aria-expanded */
+.language-switcher__dropdown {
+  display: none;
+}
+
+.language-switcher__current[aria-expanded="true"] ~ .language-switcher__dropdown {
+  display: block;
+}
+
 /* Mobile language switcher: always show dropdown above other content */
 @media (max-width: 768px) {
   .header__controls { position: relative; z-index: 100; }
