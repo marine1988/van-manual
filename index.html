@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Manual da Van — Tudo o que precisas de saber sobre a tua van">
-  <title>Manual da Van</title>
+  <meta name="description" content="Manual da campervan — tudo o que precisas de saber para a tua viagem.">
+  <title>Manual da Campervan</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
   <!-- Header Fixo -->
   <header class="header">
     <div class="header__container">
-      <a href="#hero" class="header__logo">🚐 Manual da Van</a>
+      <a href="#hero" class="header__logo" data-i18n="site.title">🚐 Manual da Campervan</a>
       <button class="header__hamburger" aria-label="Abrir menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -20,102 +20,134 @@
       </button>
       <nav class="header__nav" role="navigation" aria-label="Navegação principal">
         <ul class="header__nav-list">
-          <li><a href="#agua" class="header__nav-link">Água</a></li>
-          <li><a href="#eletricidade" class="header__nav-link">Eletricidade</a></li>
-          <li><a href="#gas" class="header__nav-link">Gás</a></li>
-          <li><a href="#campervan" class="header__nav-link">Campervan</a></li>
-          <li><a href="#checklist" class="header__nav-link">Checklist</a></li>
-          <li><a href="#manutencao" class="header__nav-link">Manutenção</a></li>
-          <li><a href="#dicas" class="header__nav-link">Dicas</a></li>
+          <li><a href="#eletrico" class="header__nav-link" data-i18n="nav.eletrico">Elétrico</a></li>
+          <li><a href="#agua" class="header__nav-link" data-i18n="nav.agua">Água</a></li>
+          <li><a href="#aquecimento" class="header__nav-link" data-i18n="nav.aquecimento">Aquecimento</a></li>
+          <li><a href="#cozinha" class="header__nav-link" data-i18n="nav.cozinha">Cozinha</a></li>
+          <li><a href="#cama" class="header__nav-link" data-i18n="nav.cama">Cama</a></li>
+          <li><a href="#wc" class="header__nav-link" data-i18n="nav.wc">WC</a></li>
+          <li><a href="#ventilacao" class="header__nav-link" data-i18n="nav.ventilacao">Ventilação</a></li>
+          <li><a href="#exterior" class="header__nav-link" data-i18n="nav.exterior">Exterior</a></li>
+          <li><a href="#controlo" class="header__nav-link" data-i18n="nav.controlo">Controlo</a></li>
         </ul>
       </nav>
-      <button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
-        <span class="theme-toggle__icon">🌙</span>
-      </button>
+      <div class="header__controls">
+        <div class="language-switcher" role="group" aria-label="Seletor de idioma">
+          <button class="language-switcher__current" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma atual: Português">
+            <span class="language-switcher__flag">🇵🇹</span>
+            <span class="language-switcher__code">PT</span>
+            <span class="language-switcher__arrow">▼</span>
+          </button>
+          <ul class="language-switcher__dropdown" role="listbox" tabindex="-1">
+            <li role="option" data-lang="pt" aria-selected="true"><span class="language-switcher__flag">🇵🇹</span> <span>Português</span></li>
+            <li role="option" data-lang="en" aria-selected="false"><span class="language-switcher__flag">🇬🇧</span> <span>English</span></li>
+            <li role="option" data-lang="fr" aria-selected="false"><span class="language-switcher__flag">🇫🇷</span> <span>Français</span></li>
+            <li role="option" data-lang="es" aria-selected="false"><span class="language-switcher__flag">🇪🇸</span> <span>Español</span></li>
+            <li role="option" data-lang="de" aria-selected="false"><span class="language-switcher__flag">🇩🇪</span> <span>Deutsch</span></li>
+          </ul>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
+          <span class="theme-toggle__icon">🌙</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero">
+      <div class="hero__overlay"></div>
       <div class="hero__content">
-        <h1 class="hero__title">Manual da Van</h1>
-        <p class="hero__subtitle">
-          Tudo o que precisas de saber para viver e viajar na tua van —
-          água, eletricidade, gás e muito mais.
+        <h1 class="hero__title" data-i18n="hero.title">Furgão Transformado de Rogério</h1>
+        <p class="hero__subtitle" data-i18n="hero.subtitle">
+          Renault Master 2.5 dCi — Tour Completo
         </p>
+        <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="hero__cta" data-i18n="hero.cta">
+          🚐 Alugar no Yescapa
+        </a>
       </div>
-      <div class="hero__video">
-        <div class="hero__video-wrapper">
-          <!-- TODO: substituir pelo link real do YouTube
-               src="https://www.youtube.com/embed/XXXXXXXXXXX?rel=0&modestbranding=1" -->
+    </section>
+
+    <!-- Vídeo Tour -->
+    <section id="video" class="video-section">
+      <div class="video-section__container">
+        <header class="video-section__header">
+          <h2 class="video-section__title" data-i18n="video.title">Tour Completo em Vídeo</h2>
+          <p class="video-section__intro" data-i18n="video.intro">
+            Veja tudo sobre o furgão num passeio guiado de ~23 minutos por Rogério Figueiredo.
+          </p>
+        </header>
+        <div class="video-section__wrapper">
           <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
-            title="Tour pela Van"
+            src="https://www.youtube.com/embed/daK41KZls5Y"
+            title="Tour pela Campervan"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
             loading="lazy"
           ></iframe>
         </div>
+        <p class="video-section__caption" data-i18n="video.caption">
+          🎥 <strong>Tour completo</strong> por Rogério Figueiredo (~23 min)
+        </p>
       </div>
     </section>
 
-    <!-- Secção de Apresentação da Campervan -->
-    <section id="campervan" class="campervan">
-      <div class="campervan__container">
-        <header class="campervan__header">
-          <h2 class="campervan__title">Conhece a Campervan</h2>
-          <p class="campervan__intro">
-            Se procuras liberdade sem abdicar do conforto, este furgão foi desenhado para casais que querem explorar o mundo com estilo e praticidade.
+    <!-- Sobre esta Van -->
+    <section id="sobre" class="about-van">
+      <div class="about-van__container">
+        <header class="about-van__header">
+          <h2 class="about-van__title" data-i18n="about.title">Sobre esta Van</h2>
+          <p class="about-van__intro" data-i18n="about.intro">
+            Furgão transformado (van aménagée), com todo o conforto de autocaravana num chassis ágil de 3,3 toneladas — carta B.
           </p>
         </header>
 
-        <div class="campervan__video">
-          <div class="campervan__video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/daK41KZls5Y?rel=0&modestbranding=1"
-              title="Campervan por Rogério Figueiredo (~23 min)"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
-          <p class="campervan__video-caption">
-            🎥 <strong>Campervan</strong> por Rogério Figueiredo (~23 min)
-          </p>
-        </div>
-
-        <div class="campervan__content">
-          <div class="campervan__profile">
-            <h3 class="campervan__subtitle">Furgão transformado de Rogério — Quinta do Conde, Portugal</h3>
+        <div class="about-van__content">
+          <div class="about-van__description">
+            <h3 data-i18n="about.descriptionTitle">Descrição do anúncio Yescapa</h3>
+            <p data-i18n="about.description.p1">
+              Esta campervan é um <strong>Renault Master 2.5 dCi</strong> de <strong>2010</strong>, totalmente transformado para viagens em autonomia.
+              Tem <strong>3 lugares cinto</strong> e <strong>3 dormidas</strong>, com cama conjugável a partir da área de jantar.
+            </p>
+            <p data-i18n="about.description.p2">
+              O furgão está equipado com painéis solares de <strong>590 W</strong>, bateria de lítio de <strong>315 Ah</strong>, aquecimento a gasóleo,
+              água quente, cozinha completa, casa de banho com duche, e múltiplas formas de carregar (solar, alternador e 220 V).
+              Ideal para quem quer liberdade sem abdicar do conforto.
+            </p>
+            <p data-i18n="about.description.p3">
+              O anúncio de aluguer está publicado na <strong>Yescapa</strong>, plataforma que gere o seguro, assistência 24/7 e pagamento seguro.
+            </p>
           </div>
 
-          <div class="campervan__highlights">
-            <h4>Destaques</h4>
+          <div class="about-van__specs">
+            <h3 data-i18n="about.specsTitle">Dados técnicos</h3>
             <ul>
-              <li>☀️ <strong>Autonomia Total (True Off-Grid):</strong> Painéis solares 590W + bateria 315Ah</li>
-              <li>🛏️ <strong>Conforto e Sono:</strong> Cama conjugável 145×184cm, isolamento térmico, clarabóia com ventoinha</li>
-              <li>🚿 <strong>Praticidade:</strong> Chuveiro interior água quente, chuveiro exterior, aquecimento a gasóleo</li>
-              <li>☕ <strong>Cozinha:</strong> Máquina de café, fogão 2 bicos, frigorífico 93L</li>
-              <li>💻 <strong>20 portas USB</strong> (8 USB-C) com cabos incluídos</li>
-              <li>🚗 <strong>Renault Master 2.5 dCi 100cv</strong> — fácil condução, carta B, câmara marcha-atrás</li>
+              <li data-i18n="about.specs.model"><strong>Modelo:</strong> Renault Master 2.5 dCi 100 cv</li>
+              <li data-i18n="about.specs.year"><strong>Ano:</strong> 2010</li>
+              <li data-i18n="about.specs.weight"><strong>Peso bruto (PB):</strong> 3300 kg</li>
+              <li data-i18n="about.specs.license"><strong>Carta de condução:</strong> B</li>
+              <li data-i18n="about.specs.seats"><strong>Lugares cinto:</strong> 3</li>
+              <li data-i18n="about.specs.beds"><strong>Dormidas:</strong> 3</li>
+              <li data-i18n="about.specs.bedSize"><strong>Cama:</strong> 145 × 184 cm (transversal)</li>
+              <li data-i18n="about.specs.height"><strong>Altura:</strong> ~1,9 m</li>
             </ul>
           </div>
 
-          <div class="campervan__specs">
-            <h4>Especificações</h4>
+          <div class="about-van__conditions">
+            <h3 data-i18n="about.conditionsTitle">Condições de aluguer</h3>
             <ul>
-              <li>3 lugares (cintos), 3 dormidas</li>
-              <li>Animais autorizados, viagens estrangeiro autorizadas</li>
-              <li>Não fumador</li>
+              <li data-i18n="about.conditions.pets"><strong>Animais:</strong> autorizados</li>
+              <li data-i18n="about.conditions.smoking"><strong>Fumador:</strong> não autorizado</li>
+              <li data-i18n="about.conditions.abroad"><strong>Viagem ao estrangeiro:</strong> autorizada</li>
+              <li data-i18n="about.conditions.deposit"><strong>Caução:</strong> 500 €</li>
             </ul>
           </div>
 
-          <div class="campervan__cta">
-            <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="campervan__cta-button">
+          <div class="about-van__cta">
+            <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="about-van__cta-button" data-i18n="about.cta">
               🚐 Alugar esta campervan no Yescapa
             </a>
-            <p class="campervan__cta-note">
+            <p class="about-van__cta-note" data-i18n="about.ctaNote">
               Aluguer gerido com segurança pela Yescapa — seguro incluído, assistência 24/7, pagamento seguro.
             </p>
           </div>
@@ -127,312 +159,276 @@
     <section class="manual">
       <div class="manual__container">
 
-        <!-- 1. Água -->
-        <article id="agua" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">💧</span>
-            <span class="accordion__title">Água</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h3>Sistema de Água</h3>
-              <p>
-                A van está equipada com um depósito de água limpa de 100 litros
-                e um depósito de águas cinzentas de 80 litros. O sistema inclui
-                bomba de água de 12V, filtro de partículas e esquentador
-                elétrico.
-              </p>
-              <h4>Depósito de Água Limpa</h4>
-              <ul>
-                <li>Capacidade: 100 L</li>
-                <li>Material: PEAD alimentar (aprovado para água potável)</li>
-                <li>Localização: debaixo do banco traseiro</li>
-                <li>Encher através da tomada de água lateral (mangueira 1/2")</li>
-                <li>Drenagem: válvula de escoamento no exterior (lado direito)</li>
-              </ul>
-              <h4>Depósito de Águas Cinzentas</h4>
-              <ul>
-                <li>Capacidade: 80 L</li>
-                <li>Localização: debaixo da van (protegido termicamente)</li>
-                <li>Esvaziar: válvula na parte inferior — usar luvas</li>
-                <li><strong>Importante:</strong> nunca deixar o depósito cheio em temperaturas negativas</li>
-              </ul>
-              <h4>Bomba de Água</h4>
-              <ul>
-                <li>Tipo: submersível 12V, 8 L/min</li>
-                <li>Interruptor: painel de controlo (junto à porta)</li>
-                <li>Funciona automaticamente quando abre uma torneira</li>
-                <li>Protetor de funcionamento a seco (desliga se o depósito estiver vazio)</li>
-              </ul>
-              <p class="accordion__tip">
-                💡 <strong>Dica:</strong> No inverno, se a van for parar por mais de 24h,
-                esvaziar TODO o sistema — depósitos, tubagens e esquentador.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <!-- 2. Eletricidade -->
-        <article id="eletricidade" class="accordion">
+        <!-- 1. Elétrico -->
+        <article id="eletrico" class="accordion">
           <button class="accordion__header" aria-expanded="false">
             <span class="accordion__icon">⚡</span>
-            <span class="accordion__title">Eletricidade</span>
+            <span class="accordion__title" data-i18n="sections.eletrico.title">Sistema Elétrico</span>
             <span class="accordion__arrow">▼</span>
           </button>
           <div class="accordion__body">
             <div class="accordion__content">
-              <h3>Sistema Elétrico</h3>
-              <p>
-                Sistema de 12V com bateria auxiliar de lítio LiFePO₄ de 200 Ah,
-                painel solar de 300 W e carregador de bateria inteligente.
-                Inversor 1500 W para tomadas 230V.
+              <p data-i18n="sections.eletrico.p1">
+                A campervan tem três formas de carregar a bateria: painéis solares (590 W), alternador da viatura e ligação à rede 220 V.
               </p>
-              <h4>Bateria Auxiliar</h4>
+              <h4 data-i18n="sections.eletrico.usbTitle">USB e tomadas</h4>
               <ul>
-                <li>Tipo: LiFePO₄ 200 Ah (aprox. 2560 Wh utilizáveis)</li>
-                <li>Localização: debaixo do assento do condutor</li>
-                <li>BMS integrado com proteção contra sobrecarga, descarga total e curto-circuito</li>
-                <li>Tensão nominal: 12,8 V | Tensão máxima de carga: 14,6 V</li>
-                <li>Nunca descarregar abaixo de 20% (o BMS desliga automaticamente)</li>
+                <li data-i18n="sections.eletrico.usb.1">20 portas USB no total, sendo 8 USB-C.</li>
+                <li data-i18n="sections.eletrico.usb.2">Conjuntos de USB-C e USB-A junto à cama e na cozinha.</li>
+                <li data-i18n="sections.eletrico.usb.3">Disponíveis cabos tipo-C, micro USB e outros para uso imediato.</li>
+                <li data-i18n="sections.eletrico.usb.4">Algumas tomadas USB têm botão de ligar/desligar.</li>
               </ul>
-              <h4>Painel Solar</h4>
+              <h4 data-i18n="sections.eletrico.lightsTitle">Luzes</h4>
               <ul>
-                <li>Potência: 300 W (painel monocristalino flexível)</li>
-                <li>Controlador: MPPT 30 A</li>
-                <li>Produção típica: ~1200 Wh/dia (verão), ~400 Wh/dia (inverno)</li>
-                <li>Limpar o painel a cada 2 semanas (especialmente em estrada com pó)</li>
+                <li data-i18n="sections.eletrico.lights.1">Luzes interiores: vermelha, azul e laranja (ambiente).</li>
+                <li data-i18n="sections.eletrico.lights.2">Luz específica para a cozinha.</li>
+                <li data-i18n="sections.eletrico.lights.3">Luz exterior.</li>
+                <li data-i18n="sections.eletrico.lights.4">Luz no compartimento dos sapatos e no painel de água.</li>
               </ul>
-              <h4>Inversor</h4>
+              <h4 data-i18n="sections.eletrico.socketsTitle">Tomadas 220 V / 12 V</h4>
               <ul>
-                <li>Potência: 1500 W (onda pura modificada)</li>
-                <li>Consumo em standby: ~0,8 A</li>
-                <li>Desligar quando não estiver a usar (consome bateria mesmo sem carga)</li>
+                <li data-i18n="sections.eletrico.sockets.1">Tomadas 220 V para máquina de café, fogão elétrico e micro-ondas.</li>
+                <li data-i18n="sections.eletrico.sockets.2">Apenas um destes aparelhos pode funcionar de cada vez.</li>
+                <li data-i18n="sections.eletrico.sockets.3">Tomada 12 V disponível na casa de banho.</li>
               </ul>
-              <p class="accordion__tip">
-                💡 <strong>Dica:</strong> No inverno, a produção solar cai para ⅓.
-                Planeia estadias com eletricidade (campings) ou leva um gerador portátil.
-              </p>
             </div>
           </div>
         </article>
 
-        <!-- 3. Gás -->
-        <article id="gas" class="accordion">
+        <!-- 2. Água -->
+        <article id="agua" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🚿</span>
+            <span class="accordion__title" data-i18n="sections.agua.title">Água & Chuveiro</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.agua.cleanTitle">Depósito de água limpa</h4>
+              <ul>
+                <li data-i18n="sections.agua.clean.1">Entrega sempre cheio.</li>
+                <li data-i18n="sections.agua.clean.2">Encher pela entrada exterior até a água começar a sair — não encher até ao topo para evitar fugas.</li>
+                <li data-i18n="sections.agua.clean.3">Botão de segurança da bomba: desliga a bomba se ficar sem água ou a bomba não parar.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.hotTitle">Água quente</h4>
+              <ul>
+                <li data-i18n="sections.agua.hot.1">Ligar o esquentador no painel interior.</li>
+                <li data-i18n="sections.agua.hot.2">Demora cerca de 1 hora a aquecer.</li>
+                <li data-i18n="sections.agua.hot.3">Desligar após o duche, exceto se houver sol abundante e bateria suficiente.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.showerTitle">Chuveiros</h4>
+              <ul>
+                <li data-i18n="sections.agua.shower.1">Chuveiro interior com água quente e fria na casa de banho.</li>
+                <li data-i18n="sections.agua.shower.2">Chuveiro exterior de água fria na mala traseira (opcional de alugar).</li>
+                <li data-i18n="sections.agua.shower.3">Usar a cortina da casa de banho para não molhar o interior.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.greyTitle">Águas cinzentas</h4>
+              <ul>
+                <li data-i18n="sections.agua.grey.1">Depósito de águas cinzentas na parte inferior traseira do lado direito.</li>
+                <li data-i18n="sections.agua.grey.2">Abrir a válvula para esvaziar.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Aquecimento -->
+        <article id="aquecimento" class="accordion">
           <button class="accordion__header" aria-expanded="false">
             <span class="accordion__icon">🔥</span>
-            <span class="accordion__title">Gás</span>
+            <span class="accordion__title" data-i18n="sections.aquecimento.title">Aquecimento</span>
             <span class="accordion__arrow">▼</span>
           </button>
           <div class="accordion__body">
             <div class="accordion__content">
-              <h3>Sistema de Gás</h3>
-              <p>
-                A van tem uma botija de gás butano/propano de 11 kg instalada
-                num compartimento ventilado para o exterior. Alimenta o fogão
-                e o aquecimento.
+              <p data-i18n="sections.aquecimento.p1">
+                Aquecimento a gasóleo (diesel heater) com saída de ar quente no interior.
               </p>
-              <h4>Botija de Gás</h4>
               <ul>
-                <li>Capacidade: 11 kg (butano ou propano)</li>
-                <li>Localização: compartimento exterior com ventilação</li>
-                <li>Válvula de segurança com corte automático</li>
-                <li>Autonomia: ~6 semanas (uso normal: cozinhar + aquecer)</li>
+                <li data-i18n="sections.aquecimento.1">Premir o botão durante cerca de 5 segundos para ligar.</li>
+                <li data-i18n="sections.aquecimento.2">Regular a temperatura ambiente no comando.</li>
+                <li data-i18n="sections.aquecimento.3">O ar quente sai pela parte inferior.</li>
+                <li data-i18n="sections.aquecimento.4">Pode demorar alguns segundos a arrancar; o barulho exterior da bomba é normal.</li>
+                <li data-i18n="sections.aquecimento.5">Para desligar, premir até aparecer "off" — a ventoinha pode continuar 1-2 minutos, o que é normal.</li>
               </ul>
-              <h4>Regras de Segurança</h4>
-              <ul>
-                <li>Sempre ventilar o compartimento da botija</li>
-                <li>Fechar a torneira da botija quando a van está em movimento</li>
-                <li>Nunca usar o fogão para aquecer a van (risco de monóxido de carbono)</li>
-                <li>Verificar a mangueira e abraçadeiras a cada 6 meses</li>
-                <li>Detetor de gás instalado no interior — testar mensalmente</li>
-              </ul>
-              <h4>Fogão</h4>
-              <ul>
-                <li>2 bicos + acendimento piezoelétrico</li>
-                <li>Necessita de 2 palmos de espaço livre acima para circulação de ar</li>
-                <li>Nunca usar dentro de casa sem extração</li>
-              </ul>
-              <p class="accordion__tip">
-                💡 <strong>Dica:</strong> No inverno, o butano congela a ~0°C.
-                Se fores para zonas muito frias, usa propano (funciona até -42°C).
-              </p>
             </div>
           </div>
         </article>
 
-        <!-- 4. Checklist Pré-Viagem -->
-        <article id="checklist" class="accordion">
+        <!-- 4. Cozinha -->
+        <article id="cozinha" class="accordion">
           <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">✅</span>
-            <span class="accordion__title">Checklist Pré-Viagem</span>
+            <span class="accordion__icon">☕</span>
+            <span class="accordion__title" data-i18n="sections.cozinha.title">Cozinha</span>
             <span class="accordion__arrow">▼</span>
           </button>
           <div class="accordion__body">
             <div class="accordion__content">
-              <h3>Antes de Arrancar</h3>
-              <ul class="checklist">
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Verificar pressão dos pneus (incluindo suplente)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Níveis de óleo, líquido de refrigeração e travão</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Fechar e trancar todos os armários</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Fechar torneira da botija de gás</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Guardar objetos soltos (mesa, cadeiras, etc.)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Esvaziar águas cinzentas (se possível)</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Nível da bateria auxiliar > 50%</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Água limpa — verificar nível suficiente</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Documentos: carta, seguro, livrete</span>
-                  </label>
-                </li>
-                <li>
-                  <label>
-                    <input type="checkbox" class="checklist__input">
-                    <span class="checklist__label">Kit de primeiros socorros e triângulo</span>
-                  </label>
-                </li>
+              <h4 data-i18n="sections.cozinha.fridgeTitle">Frigorífico</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.fridge.1">Frigorífico de 93 L a 220 V.</li>
+                <li data-i18n="sections.cozinha.fridge.2">Parte inferior para refrigerados, parte superior para congelados.</li>
+                <li data-i18n="sections.cozinha.fridge.3">Tem uma cinta de segurança — colocar antes de conduzir.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.coffeeTitle">Máquina de café</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.coffee.1">Funciona com cápsulas próprias (Continente).</li>
+                <li data-i18n="sections.cozinha.coffee.2">Deixadas algumas cápsulas para começar; é possível comprar mais.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.cookerTitle">Fogão elétrico</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.cooker.1">2 bicos elétricos.</li>
+                <li data-i18n="sections.cozinha.cooker.2">Se usar os dois bicos, regular até ao nível 3 (máximo).</li>
+                <li data-i18n="sections.cozinha.cooker.3">Se usar um bico, pode usar até ao nível 4 ou 5.</li>
+                <li data-i18n="sections.cozinha.cooker.4">Nunca colocar no máximo — a eletricidade pode cair e é necessário esperar que volte.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.utensilsTitle">Louça e utensílios</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.utensils.1">Talheres completos: garfos, facas, colheres, etc.</li>
+                <li data-i18n="sections.cozinha.utensils.2">Copos e taças.</li>
+                <li data-i18n="sections.cozinha.utensils.3">Abridor de vinho, cortadores e outros acessórios.</li>
+                <li data-i18n="sections.cozinha.utensils.4">Papel de cozinha e produtos de limpeza.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.powerTitle">Restrições de energia</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.power.1">Máquina de café, fogão elétrico e micro-ondas funcionam um de cada vez.</li>
+                <li data-i18n="sections.cozinha.power.2">Cuidado com o nível da bateria ao usar estes aparelhos.</li>
               </ul>
             </div>
           </div>
         </article>
 
-        <!-- 5. Manutenção -->
-        <article id="manutencao" class="accordion">
+        <!-- 5. Cama -->
+        <article id="cama" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🛏️</span>
+            <span class="accordion__title" data-i18n="sections.cama.title">Cama & Mesa</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.cama.tableTitle">Mesa</h4>
+              <ul>
+                <li data-i18n="sections.cama.table.1">A mesa pode ser removida para converter o espaço em cama.</li>
+                <li data-i18n="sections.cama.table.2">Desapertar, premir e rodar o mecanismo para soltar o tampo.</li>
+                <li data-i18n="sections.cama.table.3">Retirar a perna e guardar as partes.</li>
+              </ul>
+              <h4 data-i18n="sections.cama.bedTitle">Como fazer a cama</h4>
+              <ul>
+                <li data-i18n="sections.cama.bed.1">Retirar o tampo da mesa e colocá-lo no espaço entre os sofás.</li>
+                <li data-i18n="sections.cama.bed.2">O maior sofá fica do lado da água; o menor do lado elétrico.</li>
+                <li data-i18n="sections.cama.bed.3">Colocar as chapas de madeira e depois os lençóis.</li>
+                <li data-i18n="sections.cama.bed.4">A cama deve ser desfeita durante o dia para permitir o uso da mesa.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. WC -->
+        <article id="wc" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🚽</span>
+            <span class="accordion__title" data-i18n="sections.wc.title">WC</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.wc.toiletTitle">Sanita</h4>
+              <ul>
+                <li data-i18n="sections.wc.toilet.1">Abrir a sanita antes de usar.</li>
+                <li data-i18n="sections.wc.toilet.2">Usar o líquido azul para descarga e controlo de odores.</li>
+                <li data-i18n="sections.wc.toilet.3">Papel higiénico disponível.</li>
+              </ul>
+              <h4 data-i18n="sections.wc.showerTitle">Chuveiro</h4>
+              <ul>
+                <li data-i18n="sections.wc.shower.1">Chuveiro interior com água quente e fria.</li>
+                <li data-i18n="sections.wc.shower.2">Usar a cortina para reter a água dentro da zona de duche.</li>
+                <li data-i18n="sections.wc.shower.3">As paredes da zona de duche são preparadas para água; as restantes não.</li>
+              </ul>
+              <h4 data-i18n="sections.wc.storageTitle">Arrumação</h4>
+              <ul>
+                <li data-i18n="sections.wc.storage.1">Ganchos para toalhas e objetos.</li>
+                <li data-i18n="sections.wc.storage.2">Prateleira para champô e produtos.</li>
+                <li data-i18n="sections.wc.storage.3">Lixeira e produtos de limpeza.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7. Ventilação -->
+        <article id="ventilacao" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🌬️</span>
+            <span class="accordion__title" data-i18n="sections.ventilacao.title">Ventilação</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.ventilacao.roofTitle">Clarabóia</h4>
+              <ul>
+                <li data-i18n="sections.ventilacao.roof.1">Clarabóia com ventoinha elétrica e comando remoto.</li>
+                <li data-i18n="sections.ventilacao.roof.2">Botão grande para abrir até à posição desejada.</li>
+                <li data-i18n="sections.ventilacao.roof.3">Modo de entrada de ar (interior) ou saída de ar (exterior).</li>
+                <li data-i18n="sections.ventilacao.roof.4">Recomendado modo saída ao duchar; modo entrada ao cozinhar (com janela aberta).</li>
+                <li data-i18n="sections.ventilacao.roof.5">Modo blackout para bloquear a luz exterior.</li>
+                <li data-i18n="sections.ventilacao.roof.6">Modo rede para manter aberta sem insetos.</li>
+              </ul>
+              <h4 data-i18n="sections.ventilacao.windowsTitle">Janelas</h4>
+              <ul>
+                <li data-i18n="sections.ventilacao.windows.1">Janelas com abertura em duas posições clicáveis.</li>
+                <li data-i18n="sections.ventilacao.windows.2">Modo blackout e modo rede anti-insetos.</li>
+                <li data-i18n="sections.ventilacao.windows.3">Para fechar, puxar para cima em vez de empurrar.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8. Exterior -->
+        <article id="exterior" class="accordion">
           <button class="accordion__header" aria-expanded="false">
             <span class="accordion__icon">🔧</span>
-            <span class="accordion__title">Manutenção</span>
+            <span class="accordion__title" data-i18n="sections.exterior.title">Exterior</span>
             <span class="accordion__arrow">▼</span>
           </button>
           <div class="accordion__body">
             <div class="accordion__content">
-              <h3>Manutenção Regular</h3>
-              <p>
-                Uma van bem mantida é uma van feliz. Segue este calendário
-                para evitar surpresas.
-              </p>
-              <h4>Semanalmente</h4>
+              <h4 data-i18n="sections.exterior.connectionsTitle">Ligações</h4>
               <ul>
-                <li>Verificar nível da bateria auxiliar</li>
-                <li>Limpar painel solar (se em estrada de terra/pó)</li>
-                <li>Verificar se há condensação na cama e janelas</li>
+                <li data-i18n="sections.exterior.connections.1">Conector 220 V para ligar à rede elétrica (cabo e adaptadores na mala).</li>
+                <li data-i18n="sections.exterior.connections.2">Entrada de água limpa.</li>
+                <li data-i18n="sections.exterior.connections.3">Entrada de gasóleo — não confundir com a entrada de água.</li>
+                <li data-i18n="sections.exterior.connections.4">Câmara de marcha-atrás.</li>
               </ul>
-              <h4>Mensalmente</h4>
+              <h4 data-i18n="sections.exterior.trunkTitle">Mala traseira</h4>
               <ul>
-                <li>Testar detetor de gás e monóxido de carbono</li>
-                <li>Verificar vedantes das portas e janelas</li>
-                <li>Inspecionar fusíveis do sistema elétrico</li>
-                <li>Limpar filtro da bomba de água</li>
+                <li data-i18n="sections.exterior.trunk.1">Mesa desmontável e cadeiras (3 cadeiras: 1 pequena + 2 grandes).</li>
+                <li data-i18n="sections.exterior.trunk.2">Calços para nivelar as rodas.</li>
+                <li data-i18n="sections.exterior.trunk.3">Cordas para transporte de carga exterior (ex: scooter).</li>
+                <li data-i18n="sections.exterior.trunk.4">Tenda (nova, opcional de alugar) e chuveiro exterior.</li>
+                <li data-i18n="sections.exterior.trunk.5">Pá, ferramentas básicas e acessórios de água/eletricidade.</li>
+                <li data-i18n="sections.exterior.trunk.6">Guarda-sol.</li>
               </ul>
-              <h4>A Cada 6 Meses</h4>
-              <ul>
-                <li>Verificar mangueira de gás e abraçadeiras</li>
-                <li>Inspecionar estado da bateria auxiliar (terminais, corrosão)</li>
-                <li>Verificar aperto dos parafusos da estrutura da cama e armários</li>
-                <li>Lubrificar dobradiças das portas dos armários</li>
-              </ul>
-              <h4>Anualmente</h4>
-              <ul>
-                <li>Revisão geral da viatura (óleo, filtros, correias)</li>
-                <li>Verificar e substituir vedantes do teto (evitar infiltrações)</li>
-                <li>Verificar estado da bateria de arranque</li>
-                <li>Inspeção do sistema de gás por técnico credenciado</li>
-              </ul>
-              <p class="accordion__tip">
-                💡 <strong>Dica:</strong> Cria um alarme no telemóvel para cada
-                tarefa. É fácil esqueceres-te da manutenção quando estás a
-                aproveitar a viagem!
-              </p>
             </div>
           </div>
         </article>
 
-        <!-- 6. Dicas -->
-        <article id="dicas" class="accordion">
+        <!-- 9. Controlo -->
+        <article id="controlo" class="accordion">
           <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">💡</span>
-            <span class="accordion__title">Dicas</span>
+            <span class="accordion__icon">📊</span>
+            <span class="accordion__title" data-i18n="sections.controlo.title">Controlo Elétrico</span>
             <span class="accordion__arrow">▼</span>
           </button>
           <div class="accordion__body">
             <div class="accordion__content">
-              <h3>Dicas de Vida na Van</h3>
+              <p data-i18n="sections.controlo.p1">
+                Painel de controlo elétrico no lado direito da viatura, junto aos sofás.
+              </p>
               <ul>
-                <li>
-                  <strong>Nivelamento:</strong> Sempre que parares, nivela a van
-                  de lado a lado e de frente para trás. O frigorífico agradece
-                  e dormes melhor.
-                </li>
-                <li>
-                  <strong>Condensação:</strong> Dormir com uma fresta aberta.
-                  A condensação é a maior inimiga das vans — causa bolor e
-                  cheiros.
-                </li>
-                <li>
-                  <strong>Estacionamento:</strong> Usa apps como Park4Night ou
-                  iOverlander para encontrar sítios. Lê os comentários recentes
-                  — um sítio ótimo em 2023 pode estar cheio de câmaras
-                  municipais em 2025.
-                </li>
-                <li>
-                  <strong>Água:</strong> Leva sempre 10 L extra num jerrican.
-                  Podes ficar sem água no depósito e precisar de ir buscar sem
-                  mover a van.
-                </li>
-                <li>
-                  <strong>Eletricidade no inverno:</strong> Se fores para o
-                  frio, considera comprar um gerador a gasolina portátil.
-                  O sol não aparece todos os dias.
-                </li>
-                <li>
-                  <strong>Wi-Fi:</strong> Um router 4G/5G com antena exterior é
-                  um game-changer para trabalho remoto na van.
-                </li>
-                <li>
-                  <strong>Aquecimento:</strong> Um aquecedor a diesel
-                  (Webasto/Eberspächer) consome pouco e aquece muito mais que
-                  um aquecedor elétrico, sem gastar bateria.
-                </li>
+                <li data-i18n="sections.controlo.1">Mostra o consumo, produção solar e nível da bateria (315 Ah).</li>
+                <li data-i18n="sections.controlo.2">Corte geral (botão vermelho): desliga toda a eletricidade da campervan em emergência.</li>
+                <li data-i18n="sections.controlo.3">Botão do inversor 220 V: ligar/desligar a parte 220 V e solar.</li>
+                <li data-i18n="sections.controlo.4">Se houver erro no painel solar/inversor, desligar e voltar a ligar.</li>
+                <li data-i18n="sections.controlo.5">Sensores de fumo e água instalados.</li>
               </ul>
             </div>
           </div>
@@ -445,11 +441,12 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="footer__container">
-      <p class="footer__text">Feito por Rogério</p>
-      <p class="footer__meta">Manual da Van — 2025</p>
+      <p class="footer__text" data-i18n="footer.madeBy">Feito por Rogério</p>
+      <p class="footer__meta" data-i18n="footer.copyright">Manual da Campervan — 2025</p>
     </div>
   </footer>
 
+  <script src="js/translations.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
