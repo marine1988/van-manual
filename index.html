@@ -30,6 +30,7 @@
           <li><a href="#exterior" class="header__nav-link" data-i18n="nav.exterior">Exterior</a></li>
           <li><a href="#controlo" class="header__nav-link" data-i18n="nav.controlo">Controlo</a></li>
           <li><a href="#bms" class="header__nav-link">📱 BMS</a></li>
+          <li><a href="#faq" class="header__nav-link">❓ FAQ</a></li>
         </ul>
       </nav>
       <div class="header__controls">
@@ -439,52 +440,126 @@
     </section>
 
     <!-- BMS App -->
-    <section id="bms" class="bms-section">
+    <section id="bms" class="bms-section" style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('img/van/van-02.jpg') center/cover;">
       <div class="bms-section__container">
-        <h2 class="bms-section__title">📱 App JBD BMS — Monitorização da Bateria</h2>
-        <p class="bms-section__intro">Liga o telemóvel por <strong>Bluetooth</strong> à placa BMS da bateria de lítio para veres o estado em tempo real.</p>
+        <h2 class="bms-section__title">📱 Ver a Bateria da Carrinha</h2>
+        <p class="bms-section__intro">Saca a app <strong>JBD BMS</strong> e liga o telemóvel por Bluetooth para saberes quanta bateria tens — como ver a percentagem do telemóvel, mas para a carrinha.</p>
 
         <div class="bms-section__steps">
-          <h3>Como Ligar</h3>
+          <h3>Como Funciona (é fácil!)</h3>
           <ol>
-            <li>Abre a app <strong>JBD BMS</strong> (antes chamada Xiaoxiang BMS)</li>
-            <li>Entra como <strong>Guest</strong> (convidado) — não precisas de conta</li>
-            <li>Liga o <strong>Bluetooth</strong> do telemóvel</li>
-            <li>A app procura dispositivos automaticamente</li>
-            <li>Seleciona o dispositivo e clica <strong>Connect</strong></li>
-            <li>Vês o dashboard com todos os dados da bateria!</li>
+            <li>Saca a app <strong>JBD BMS</strong> na loja do telemóvel</li>
+            <li>Abre a app e entra como <strong>Guest</strong> (não precisas de conta)</li>
+            <li>Liga o <strong>Bluetooth</strong></li>
+            <li>A app encontra a bateria da carrinha — clica <strong>Connect</strong></li>
+            <li>Pronto! Vês a percentagem da bateria e tudo o resto</li>
           </ol>
         </div>
 
         <div class="bms-section__data">
-          <h3>O que podes ver</h3>
+          <h3>O que Vês no Ecrã</h3>
           <ul>
-            <li>🔋 Estado de carga (SOC %) — mostrador circular grande</li>
-            <li>⚡ Tensão total da bateria e corrente em tempo real</li>
-            <li>📊 Tensão individual de cada célula (4 células LiFePO4)</li>
-            <li>🌡️ Temperatura da bateria e MOSFETs</li>
-            <li>🛡️ Estado das proteções de carga/descarga</li>
-            <li>⚖️ Balanceamento ativo das células</li>
+            <li>🔋 <strong>Percentagem da bateria</strong> — tipo o telemóvel, mas maior</li>
+            <li>⚡ Se está a carregar ou a gastar</li>
+            <li>🌡️ Temperatura da bateria</li>
+            <li>⏱️ Quanto tempo dura com o que está ligado</li>
           </ul>
         </div>
 
         <div class="bms-section__screenshots">
-          <h3>Screenshots da App</h3>
+          <h3>Aspecto da App</h3>
           <div class="bms-section__gallery">
-            <figure><img src="img/bms/bms-03.webp" alt="Lista de dispositivos Bluetooth" loading="lazy"><figcaption>Lista de dispositivos</figcaption></figure>
-            <figure><img src="img/bms/bms-04.webp" alt="Dashboard principal — SOC 85%" loading="lazy"><figcaption>Dashboard — SOC 85%</figcaption></figure>
-            <figure><img src="img/bms/bms-05.webp" alt="Dashboard com alarmes" loading="lazy"><figcaption>Visão com alarmes</figcaption></figure>
-            <figure><img src="img/bms/bms-06.webp" alt="Dashboard — bateria 100%" loading="lazy"><figcaption>Bateria a 100%</figcaption></figure>
+            <figure><img src="img/bms/bms-03.webp" alt="Lista de dispositivos Bluetooth" loading="lazy"><figcaption>Procurar dispositivos</figcaption></figure>
+            <figure><img src="img/bms/bms-04.webp" alt="Dashboard principal" loading="lazy"><figcaption>Ecrã principal — 85%</figcaption></figure>
+            <figure><img src="img/bms/bms-05.webp" alt="Dashboard com alarmes" loading="lazy"><figcaption>Alertas de bateria</figcaption></figure>
+            <figure><img src="img/bms/bms-06.webp" alt="Dashboard completo" loading="lazy"><figcaption>Bateria cheia — 100%</figcaption></figure>
           </div>
         </div>
 
         <div class="bms-section__links">
-          <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn">
-            📲 Instalar no Google Play
-          </a>
-          <a href="http://www.jiabaida.com" target="_blank" rel="noopener noreferrer" class="bms-section__btn bms-section__btn--outline">
-            🌐 jiabaida.com
-          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn">🤖 Android (Google Play)</a>
+          <a href="https://apps.apple.com/app/jbd-bms/id6449322803" target="_blank" rel="noopener noreferrer" class="bms-section__btn">🍎 iPhone (App Store)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('img/van/van-06.jpg') center/cover;">
+      <div class="faq-section__container">
+        <h2 class="faq-section__title">❓ Perguntas Frequentes</h2>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🔋 Como sei quanta bateria tenho?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Saca a app <strong>JBD BMS</strong> (grátis) e liga por Bluetooth. Vês logo a percentagem no ecrã principal. <a href="#bms">Ver instruções ↑</a></p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🚿 A água quente chega para quantos banhos?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>O depósito de água quente (≈10L) dá para <strong>2 duches rápidos</strong>. Se estiver sol e a bateria cheia, podes ligar o esquentador outra vez (demora ~1h). Dica: duches de marinheiro — molhar, fechar água, ensaboar, enxaguar.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>⚡ Quanto tempo dura a bateria sem sol?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Com a bateria de <strong>315Ah</strong> e consumo normal (frigorífico, luzes, USB), dura <strong>3-5 dias</strong> sem carregar. Com aquecimento ligado à noite, ~2 dias. Os painéis solares (590W) carregam num dia de sol.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🛏️ Como se faz a cama?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>Tiras o tampo da mesa (desapertar + rodar), colocas no espaço entre os sofás, pões as chapas de madeira e os lençóis. <strong>2 minutos</strong>. De manhã, desfaz-se para usar a mesa. <a href="#cama">Ver instruções completas ↑</a></p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🐶 Posso levar o meu cão?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p><strong>Sim!</strong> Animais são bem-vindos. Só pedimos que tragas uma manta para proteger os bancos e aspires os pêlos antes de devolveres.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🅿️ Preciso de carta especial?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p><strong>Não!</strong> A carrinha pesa 3300kg — a <strong>carta B</strong> (a normal de carro) chega. Conduz-se como uma carrinha de trabalho, só que muito mais confortável.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>🌍 Posso ir ao estrangeiro?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p><strong>Sim!</strong> Viagens ao estrangeiro são autorizadas. A Yescapa trata do seguro que cobre toda a Europa. Só tens de avisar no momento do aluguer para onde vais.</p>
+            </div>
+          </article>
+
+          <article class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <span>📶 Tem Wi-Fi?</span><span class="faq-item__arrow">▼</span>
+            </button>
+            <div class="faq-item__answer">
+              <p>A carrinha não tem Wi-Fi próprio, mas tens <strong>20 portas USB</strong> (8 USB-C) para manteres tudo carregado. O ideal é usares os dados do telemóvel ou comprares um hotspot 4G.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>

@@ -928,3 +928,75 @@ ul {
   background: var(--color-primary);
   color: white;
 }
+
+/* ============================================
+   FAQ Section
+   ============================================ */
+.faq-section {
+  padding: 4rem 1.5rem;
+  color: #fff;
+}
+.faq-section__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq-section__title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.faq-item {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.faq-item__question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-item__question:hover { background: rgba(255,255,255,0.15); }
+.faq-item__arrow { transition: transform 0.3s; font-size: 0.8rem; }
+.faq-item__question[aria-expanded="true"] .faq-item__arrow { transform: rotate(180deg); }
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 1.25rem;
+}
+.faq-item__answer[aria-hidden="false"] {
+  max-height: 20rem;
+  padding: 0 1.25rem 1rem;
+}
+.faq-item__answer p { margin: 0; line-height: 1.6; opacity: 0.9; }
+.faq-item__answer a { color: #ffb74d; }
+
+/* BMS section with dark overlay — text white */
+.bms-section[style*="background"] { color: #fff; }
+.bms-section[style*="background"] .bms-section__title { color: #fff; }
+.bms-section[style*="background"] .bms-section__intro { color: rgba(255,255,255,0.85); }
+.bms-section[style*="background"] .bms-section__btn--outline { color: #fff; border-color: #fff; }
+.bms-section[style*="background"] .bms-section__btn--outline:hover { background: #fff; color: #333; }
+
+/* Background photos on sections */
+#sobre.about-van {
+  background: linear-gradient(rgba(255,255,255,0.92),rgba(255,255,255,0.92)), url('img/van/van-01.jpg') center/cover;
+}
+#video.video-section {
+  background: linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)), url('img/van/van-05.jpg') center/cover;
+}
