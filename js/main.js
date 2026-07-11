@@ -61,6 +61,12 @@
       e.stopPropagation();
       const isOpen = langCurrent.getAttribute("aria-expanded") === "true";
       langCurrent.setAttribute("aria-expanded", isOpen ? "false" : "true");
+
+      /* Em mobile, fechar hamburger se estiver aberto */
+      if (nav && nav.classList.contains("is-open") && hamburger) {
+        nav.classList.remove("is-open");
+        hamburger.setAttribute("aria-expanded", "false");
+      }
     });
 
     /* Fechar dropdown ao clicar fora */
@@ -193,6 +199,11 @@
       const isOpen = hamburger.getAttribute("aria-expanded") === "true";
       hamburger.setAttribute("aria-expanded", isOpen ? "false" : "true");
       nav.classList.toggle("is-open");
+
+      /* Fechar language dropdown se estiver aberto (especialmente em mobile) */
+      if (langCurrent && langCurrent.getAttribute("aria-expanded") === "true") {
+        langCurrent.setAttribute("aria-expanded", "false");
+      }
     });
 
     /* Fechar menu ao clicar fora */

@@ -183,7 +183,13 @@ ul {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* --- Theme Toggle --- */
+.header__controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Theme Toggle */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -770,6 +776,10 @@ ul {
     display: flex;
   }
 
+  .header__container {
+    gap: 8px;
+  }
+
   .header__nav {
     position: fixed;
     top: var(--header-height);
@@ -783,7 +793,8 @@ ul {
   }
 
   .header__nav.is-open {
-    max-height: 400px;
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
   }
 
   .header__nav-list {
@@ -795,6 +806,28 @@ ul {
   .header__nav-link {
     width: 100%;
     padding: 12px 14px;
+  }
+}
+
+/* Very small screens (<360px) */
+@media (max-width: 360px) {
+  .header__logo {
+    font-size: 1rem;
+  }
+
+  .header__controls {
+    gap: 4px;
+  }
+
+  .language-switcher__current {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 }
 
