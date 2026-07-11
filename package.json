@@ -1,0 +1,15 @@
+{
+  "name": "van-manual",
+  "version": "1.0.0",
+  "description": "Site estático single-page com o manual completo da van — água, eletricidade, gás, checklist pré-viagem, manutenção e dicas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1"
+  }
+}
