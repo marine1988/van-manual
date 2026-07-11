@@ -29,6 +29,7 @@
           <li><a href="#ventilacao" class="header__nav-link" data-i18n="nav.ventilacao">Ventilação</a></li>
           <li><a href="#exterior" class="header__nav-link" data-i18n="nav.exterior">Exterior</a></li>
           <li><a href="#controlo" class="header__nav-link" data-i18n="nav.controlo">Controlo</a></li>
+          <li><a href="#bms" class="header__nav-link">📱 BMS</a></li>
         </ul>
       </nav>
       <div class="header__controls">
@@ -436,6 +437,58 @@
 
       </div>
     </section>
+
+    <!-- BMS App -->
+    <section id="bms" class="bms-section">
+      <div class="bms-section__container">
+        <h2 class="bms-section__title">📱 App JBD BMS — Monitorização da Bateria</h2>
+        <p class="bms-section__intro">Liga o telemóvel por <strong>Bluetooth</strong> à placa BMS da bateria de lítio para veres o estado em tempo real.</p>
+
+        <div class="bms-section__steps">
+          <h3>Como Ligar</h3>
+          <ol>
+            <li>Abre a app <strong>JBD BMS</strong> (antes chamada Xiaoxiang BMS)</li>
+            <li>Entra como <strong>Guest</strong> (convidado) — não precisas de conta</li>
+            <li>Liga o <strong>Bluetooth</strong> do telemóvel</li>
+            <li>A app procura dispositivos automaticamente</li>
+            <li>Seleciona o dispositivo e clica <strong>Connect</strong></li>
+            <li>Vês o dashboard com todos os dados da bateria!</li>
+          </ol>
+        </div>
+
+        <div class="bms-section__data">
+          <h3>O que podes ver</h3>
+          <ul>
+            <li>🔋 Estado de carga (SOC %) — mostrador circular grande</li>
+            <li>⚡ Tensão total da bateria e corrente em tempo real</li>
+            <li>📊 Tensão individual de cada célula (4 células LiFePO4)</li>
+            <li>🌡️ Temperatura da bateria e MOSFETs</li>
+            <li>🛡️ Estado das proteções de carga/descarga</li>
+            <li>⚖️ Balanceamento ativo das células</li>
+          </ul>
+        </div>
+
+        <div class="bms-section__screenshots">
+          <h3>Screenshots da App</h3>
+          <div class="bms-section__gallery">
+            <figure><img src="img/bms/bms-03.webp" alt="Lista de dispositivos Bluetooth" loading="lazy"><figcaption>Lista de dispositivos</figcaption></figure>
+            <figure><img src="img/bms/bms-04.webp" alt="Dashboard principal — SOC 85%" loading="lazy"><figcaption>Dashboard — SOC 85%</figcaption></figure>
+            <figure><img src="img/bms/bms-05.webp" alt="Dashboard com alarmes" loading="lazy"><figcaption>Visão com alarmes</figcaption></figure>
+            <figure><img src="img/bms/bms-06.webp" alt="Dashboard — bateria 100%" loading="lazy"><figcaption>Bateria a 100%</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="bms-section__links">
+          <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn">
+            📲 Instalar no Google Play
+          </a>
+          <a href="http://www.jiabaida.com" target="_blank" rel="noopener noreferrer" class="bms-section__btn bms-section__btn--outline">
+            🌐 jiabaida.com
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
