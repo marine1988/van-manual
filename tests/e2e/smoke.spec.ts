@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const BASE_URL = process.env.BASE_URL || 'http://localhost:3000'
+const BASE_URL = process.env.BASE_URL || 'https://van-manual.vercel.app'
 
 test.describe('Manual da Van — Smoke Tests', () => {
   test('página carrega sem erros HTTP', async ({ page }) => {
@@ -24,7 +24,7 @@ test.describe('Manual da Van — Smoke Tests', () => {
     const navLinks = page.locator('.header__nav-link')
     await expect(navLinks).toHaveCount(11)
 
-    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Controlo', 'BMS', 'FAQ']
+    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Controlo', 'Bateria', 'FAQ']
     const linkTexts = await navLinks.allTextContents()
     for (const expected of expectedLinks) {
       expect(linkTexts.some(t => t.includes(expected))).toBeTruthy()
