@@ -465,3 +465,26 @@
 [23:13] English not being perfect. Uh and if you
 [23:16] have any doubt, just send me a message
 [23:18] on WhatsApp or then I will reply to you.
+
+## 🖼️ Imagens Reais (Yescapa)
+
+| Ficheiro | Descrição | Secção do Manual |
+|----------|-----------|-----------------|
+| `img/van/van-01.jpg` | Interior — área de jantar com mesa, bancos, portátil | 🛏️ Cama & Mesa / ☕ Cozinha |
+| `img/van/van-02.jpg` | Interior — cama traseira (colchão às riscas), ventoinha Maxxair, painéis madeira | 🛏️ Cama & Mesa / 🌬️ Ventilação |
+| `img/van/van-03.jpg` | Exterior — vista lateral com rack tejadilho, toldo, suporte bicicletas | 🔧 Exterior |
+| `img/van/van-04.jpg` | Exterior — van ao pôr-do-sol na praia | 🚐 Hero / Header |
+| `img/van/van-05.jpg` | Interior — portas traseiras abertas, área lounge com bancos e mesa | 🛏️ Cama & Mesa |
+| `img/van/van-06.jpg` | Exterior — van na falésia com vista mar, pessoa no tejadilho | 🚐 Hero / Header |
+
+**⚠️ Verificar**: As imagens 04 e 06 podem ser genéricas do Yescapa — o Rogério deve confirmar quais são realmente da van dele.
+
+**URLs originais (Yescapa CDN):**
+```
+https://yescapa.twic.pics/rental/picture/36d5fb3c-a403-424a-af97-30b366fd25ce_1781013440?twic=v1/cover=1200x800
+https://yescapa.twic.pics/rental/picture/3eeb9d1c-6916-4f5b-bd48-b5f8b3e9d6ce_1781013440?twic=v1/cover=1200x800
+https://yescapa.twic.pics/rental/picture/4d533d1c-59f4-4a02-b55f-f9d1aacf7fe0_1781013440?twic=v1/cover=1200x800
+https://yescapa.twic.pics/rental/picture/53064a25-a91c-4280-b898-0057e8e6ce34_1781013440?twic=v1/cover=1200x800
+https://yescapa.twic.pics/rental/picture/913dc77f-57e8-4d1c-8db2-0ddc8fe26684_1781013440?twic=v1/cover=1200x800
+https://yescapa.twic.pics/rental/picture/ea488ba8-61eb-422a-8e5f-2d1bb286ff68_1781013440?twic=v1/cover=1200x800
+```
