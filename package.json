@@ -1,10 +1,11 @@
 {
   "name": "van-manual",
   "version": "1.0.0",
-  "description": "Site estático single-page com o manual completo da van — água, eletricidade, gás, checklist pré-viagem, manutenção e dicas.",
+  "description": "Site est\u00e1tico single-page com o manual completo da van \u2014 \u00e1gua, eletricidade, g\u00e1s, checklist pr\u00e9-viagem, manuten\u00e7\u00e3o e dicas.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test",
+    "test:smoke": "npx playwright test tests/e2e/smoke.spec.ts"
   },
   "keywords": [],
   "author": "",
