@@ -719,6 +719,7 @@ ul {
 /* Mobile language switcher: always show dropdown above other content */
 @media (max-width: 768px) {
   .header__controls { position: relative; z-index: 100; }
+  .language-switcher { position: relative; }
   .language-switcher__dropdown {
     position: absolute;
     right: 0;
