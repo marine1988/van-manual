@@ -20,11 +20,11 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(logo).toBeVisible()
     await expect(logo).toHaveText(/Manual da Van/)
 
-    // Navegação com links para as 6 secções
+    // Navegação com links para as 7 secções
     const navLinks = page.locator('.header__nav-link')
-    await expect(navLinks).toHaveCount(6)
+    await expect(navLinks).toHaveCount(7)
 
-    const expectedLinks = ['Água', 'Eletricidade', 'Gás', 'Checklist', 'Manutenção', 'Dicas']
+    const expectedLinks = ['Água', 'Eletricidade', 'Gás', 'Campervan', 'Checklist', 'Manutenção', 'Dicas']
     const linkTexts = await navLinks.allTextContents()
     for (const expected of expectedLinks) {
       expect(linkTexts.some(t => t.includes(expected))).toBeTruthy()
@@ -47,11 +47,19 @@ test.describe('Manual da Van — Smoke Tests', () => {
   test('video iframe do YouTube está presente', async ({ page }) => {
     await page.goto(BASE_URL)
 
-    // O iframe com loading="lazy" — verificamos presença e atributos
+    // Existem dois iframes do YouTube: hero e secção campervan
     const iframe = page.locator('iframe[src*="youtube.com/embed"]')
-    await expect(iframe).toHaveCount(1)
-    await expect(iframe).toHaveAttribute('src', /youtube\.com\/embed\//)
-    await expect(iframe).toHaveAttribute('loading', 'lazy')
+    await expect(iframe).toHaveCount(2)
+
+    // Hero video
+    const heroIframe = page.locator('.hero__video-wrapper iframe')
+    await expect(heroIframe).toHaveAttribute('src', /youtube\.com\/embed\//)
+    await expect(heroIframe).toHaveAttribute('loading', 'lazy')
+
+    // Campervan tour video
+    const campervanIframe = page.locator('.campervan__video-wrapper iframe')
+    await expect(campervanIframe).toHaveAttribute('src', /youtube\.com\/embed\/daK41KZls5Y/)
+    await expect(campervanIframe).toHaveAttribute('loading', 'lazy')
 
     // O wrapper existe no DOM (animação fadeInUp afecta visibilidade CSS)
     const wrapper = page.locator('.hero__video-wrapper')
