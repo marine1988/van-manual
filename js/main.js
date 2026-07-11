@@ -72,7 +72,9 @@
 
     /* Selecionar idioma */
     langItems.forEach(function (item) {
-      item.addEventListener("click", function () {
+      item.addEventListener("click", function (e) {
+        e.stopPropagation();
+
         const lang = item.getAttribute("data-lang");
         if (typeof applyTranslations === "function") {
           applyTranslations(lang);
@@ -90,8 +92,7 @@
           flagCurrent.textContent = flag.textContent;
         }
         if (codeSpan) {
-          const codeMatch = item.textContent.match(/[A-Z]{2}/);
-          if (codeMatch) codeSpan.textContent = codeMatch[0];
+          codeSpan.textContent = lang.toUpperCase();
         }
 
         /* Atualizar aria-selected */
