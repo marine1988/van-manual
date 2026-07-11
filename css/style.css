@@ -214,10 +214,7 @@ ul {
   justify-content: center;
   padding: calc(var(--header-height) + 40px) 20px 60px;
   text-align: center;
-  background-image: url('../img/van/van-04.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
   color: var(--color-text-on-primary);
 }
 
@@ -705,6 +702,26 @@ ul {
 
 /* --- Responsivo: Mobile-first --- */
 
+/* Fix mobile hero text sizing */
+.hero__title { font-size: 2rem; }
+.hero__subtitle { font-size: 1rem; }
+.hero__cta { font-size: 0.95rem; padding: 12px 20px; }
+
+/* Mobile language switcher: always show dropdown above other content */
+@media (max-width: 768px) {
+  .header__controls { position: relative; z-index: 100; }
+  .language-switcher__dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    min-width: 180px;
+  }
+}
+
 /* Tablets (≥640px) */
 @media (min-width: 640px) {
   .hero__title {
@@ -934,7 +951,7 @@ ul {
    ============================================ */
 .faq-section {
   padding: 4rem 1.5rem;
-  color: #fff;
+  background: var(--color-bg-alt);
 }
 .faq-section__container {
   max-width: 800px;
@@ -944,6 +961,7 @@ ul {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 2rem;
+  color: var(--color-primary);
 }
 .faq-list {
   display: flex;
@@ -951,8 +969,8 @@ ul {
   gap: 0.75rem;
 }
 .faq-item {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(8px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
   overflow: hidden;
 }
@@ -964,13 +982,13 @@ ul {
   padding: 1rem 1.25rem;
   background: none;
   border: none;
-  color: #fff;
+  color: var(--color-text);
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
   text-align: left;
 }
-.faq-item__question:hover { background: rgba(255,255,255,0.15); }
+.faq-item__question:hover { background: var(--color-bg-alt); }
 .faq-item__arrow { transition: transform 0.3s; font-size: 0.8rem; }
 .faq-item__question[aria-expanded="true"] .faq-item__arrow { transform: rotate(180deg); }
 .faq-item__answer {
@@ -983,20 +1001,7 @@ ul {
   max-height: 20rem;
   padding: 0 1.25rem 1rem;
 }
-.faq-item__answer p { margin: 0; line-height: 1.6; opacity: 0.9; }
-.faq-item__answer a { color: #ffb74d; }
+.faq-item__answer p { margin: 0; line-height: 1.6; color: var(--color-text-muted); }
+.faq-item__answer a { color: var(--color-primary); }
 
 /* BMS section with dark overlay — text white */
-.bms-section[style*="background"] { color: #fff; }
-.bms-section[style*="background"] .bms-section__title { color: #fff; }
-.bms-section[style*="background"] .bms-section__intro { color: rgba(255,255,255,0.85); }
-.bms-section[style*="background"] .bms-section__btn--outline { color: #fff; border-color: #fff; }
-.bms-section[style*="background"] .bms-section__btn--outline:hover { background: #fff; color: #333; }
-
-/* Background photos on sections */
-#sobre.about-van {
-  background: linear-gradient(rgba(255,255,255,0.92),rgba(255,255,255,0.92)), url('img/van/van-01.jpg') center/cover;
-}
-#video.video-section {
-  background: linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)), url('img/van/van-05.jpg') center/cover;
-}
