@@ -22,9 +22,9 @@ test.describe('Manual da Van — Smoke Tests', () => {
 
     // Navegação com links para as 9 secções
     const navLinks = page.locator('.header__nav-link')
-    await expect(navLinks).toHaveCount(10)
+    await expect(navLinks).toHaveCount(11)
 
-    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Controlo', 'BMS']
+    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Controlo', 'BMS', 'FAQ']
     const linkTexts = await navLinks.allTextContents()
     for (const expected of expectedLinks) {
       expect(linkTexts.some(t => t.includes(expected))).toBeTruthy()
