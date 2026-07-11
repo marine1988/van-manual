@@ -488,3 +488,49 @@ https://yescapa.twic.pics/rental/picture/53064a25-a91c-4280-b898-0057e8e6ce34_17
 https://yescapa.twic.pics/rental/picture/913dc77f-57e8-4d1c-8db2-0ddc8fe26684_1781013440?twic=v1/cover=1200x800
 https://yescapa.twic.pics/rental/picture/ea488ba8-61eb-422a-8e5f-2d1bb286ff68_1781013440?twic=v1/cover=1200x800
 ```
+
+## 📱 App BMS — Monitorização da Bateria (Bluetooth)
+
+**App**: JBD BMS (Dongguan Jiabaida Electronic Technology Co., Ltd.)
+**Google Play**: https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud
+**Website**: http://www.jiabaida.com
+**Versão**: Updated Jul 7, 2026
+
+### Para que serve
+A app JBD BMS liga-se por **Bluetooth** à placa de proteção da bateria de lítio (BMS). Permite ver em tempo real:
+- 🔋 Estado de carga (SOC %) — indicador circular grande
+- ⚡ Tensão total da bateria (Bat Volt)
+- 🔌 Corrente de carga/descarga (Bat Curr)
+- 🌡️ Temperatura da bateria e MOSFETs
+- 📊 Tensão individual de cada célula (Cell Volt)
+- 🛡️ Estado das proteções (carga/descarga)
+- ⚖️ Balanceamento ativo das células
+- 📜 Histórico de dispositivos ligados
+- 🔧 Configuração de parâmetros (corrente máx, tensão corte, etc.)
+
+### Como ligar
+1. Abrir a app **JBD BMS**
+2. Fazer login como **Guest** (convidado) — não precisa de conta
+3. Ligar o **Bluetooth** do telemóvel
+4. A app procura dispositivos BMS próximos automaticamente
+5. Selecionar o dispositivo (ex: "A1-CL21-E5314" ou nome semelhante)
+6. Clicar **Connect** — a app mostra o dashboard com todos os dados da bateria
+
+### Screenshots da App
+
+| Imagem | Ecrã | Descrição |
+|--------|------|-----------|
+| `img/bms/bms-01.webp` | Ícone | Logótipo da app (elefante azul) |
+| `img/bms/bms-02.webp` | Login | Ecrã de entrada — usar "Guest" |
+| `img/bms/bms-03.webp` | Dispositivos | Lista de devices Bluetooth — clicar "Connect" |
+| `img/bms/bms-04.webp` | Dashboard | Painel principal com SOC 85%, tensão, células |
+| `img/bms/bms-05.webp` | Dashboard | Visão alternativa com SOC 3%, alarmes, atalhos |
+| `img/bms/bms-06.webp` | Dashboard | Pack a 100%, proteções, tabela de dados |
+
+### Dados da Bateria da Van (exemplo real)
+- **SOC**: ~85% (normal de funcionamento)
+- **Tensão pack**: ~13V (4S LiFePO4)
+- **Células**: 3.37-3.41V por célula (balanceadas)
+- **Corrente**: ~1.17A (consumo normal)
+- **Temperatura**: 19°C
+- **Modelo BMS**: JBD A1-CL21
