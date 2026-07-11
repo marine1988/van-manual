@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-PT" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manual da Van — Tudo o que precisas de saber sobre a tua van">
+  <title>Manual da Van</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header Fixo -->
+  <header class="header">
+    <div class="header__container">
+      <a href="#hero" class="header__logo">🚐 Manual da Van</a>
+      <button class="header__hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="header__nav" role="navigation" aria-label="Navegação principal">
+        <ul class="header__nav-list">
+          <li><a href="#agua" class="header__nav-link">Água</a></li>
+          <li><a href="#eletricidade" class="header__nav-link">Eletricidade</a></li>
+          <li><a href="#gas" class="header__nav-link">Gás</a></li>
+          <li><a href="#checklist" class="header__nav-link">Checklist</a></li>
+          <li><a href="#manutencao" class="header__nav-link">Manutenção</a></li>
+          <li><a href="#dicas" class="header__nav-link">Dicas</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero__content">
+        <h1 class="hero__title">Manual da Van</h1>
+        <p class="hero__subtitle">
+          Tudo o que precisas de saber para viver e viajar na tua van —
+          água, eletricidade, gás e muito mais.
+        </p>
+      </div>
+      <div class="hero__video">
+        <div class="hero__video-wrapper">
+          <!-- TODO: substituir pelo link real do YouTube
+               src="https://www.youtube.com/embed/XXXXXXXXXXX?rel=0&modestbranding=1" -->
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1"
+            title="Tour pela Van"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Secções do Manual (Accordion) -->
+    <section class="manual">
+      <div class="manual__container">
+
+        <!-- 1. Água -->
+        <article id="agua" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">💧</span>
+            <span class="accordion__title">Água</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Sistema de Água</h3>
+              <p>
+                A van está equipada com um depósito de água limpa de 100 litros
+                e um depósito de águas cinzentas de 80 litros. O sistema inclui
+                bomba de água de 12V, filtro de partículas e esquentador
+                elétrico.
+              </p>
+              <h4>Depósito de Água Limpa</h4>
+              <ul>
+                <li>Capacidade: 100 L</li>
+                <li>Material: PEAD alimentar (aprovado para água potável)</li>
+                <li>Localização: debaixo do banco traseiro</li>
+                <li>Encher através da tomada de água lateral (mangueira 1/2")</li>
+                <li>Drenagem: válvula de escoamento no exterior (lado direito)</li>
+              </ul>
+              <h4>Depósito de Águas Cinzentas</h4>
+              <ul>
+                <li>Capacidade: 80 L</li>
+                <li>Localização: debaixo da van (protegido termicamente)</li>
+                <li>Esvaziar: válvula na parte inferior — usar luvas</li>
+                <li><strong>Importante:</strong> nunca deixar o depósito cheio em temperaturas negativas</li>
+              </ul>
+              <h4>Bomba de Água</h4>
+              <ul>
+                <li>Tipo: submersível 12V, 8 L/min</li>
+                <li>Interruptor: painel de controlo (junto à porta)</li>
+                <li>Funciona automaticamente quando abre uma torneira</li>
+                <li>Protetor de funcionamento a seco (desliga se o depósito estiver vazio)</li>
+              </ul>
+              <p class="accordion__tip">
+                💡 <strong>Dica:</strong> No inverno, se a van for parar por mais de 24h,
+                esvaziar TODO o sistema — depósitos, tubagens e esquentador.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Eletricidade -->
+        <article id="eletricidade" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">⚡</span>
+            <span class="accordion__title">Eletricidade</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Sistema Elétrico</h3>
+              <p>
+                Sistema de 12V com bateria auxiliar de lítio LiFePO₄ de 200 Ah,
+                painel solar de 300 W e carregador de bateria inteligente.
+                Inversor 1500 W para tomadas 230V.
+              </p>
+              <h4>Bateria Auxiliar</h4>
+              <ul>
+                <li>Tipo: LiFePO₄ 200 Ah (aprox. 2560 Wh utilizáveis)</li>
+                <li>Localização: debaixo do assento do condutor</li>
+                <li>BMS integrado com proteção contra sobrecarga, descarga total e curto-circuito</li>
+                <li>Tensão nominal: 12,8 V | Tensão máxima de carga: 14,6 V</li>
+                <li>Nunca descarregar abaixo de 20% (o BMS desliga automaticamente)</li>
+              </ul>
+              <h4>Painel Solar</h4>
+              <ul>
+                <li>Potência: 300 W (painel monocristalino flexível)</li>
+                <li>Controlador: MPPT 30 A</li>
+                <li>Produção típica: ~1200 Wh/dia (verão), ~400 Wh/dia (inverno)</li>
+                <li>Limpar o painel a cada 2 semanas (especialmente em estrada com pó)</li>
+              </ul>
+              <h4>Inversor</h4>
+              <ul>
+                <li>Potência: 1500 W (onda pura modificada)</li>
+                <li>Consumo em standby: ~0,8 A</li>
+                <li>Desligar quando não estiver a usar (consome bateria mesmo sem carga)</li>
+              </ul>
+              <p class="accordion__tip">
+                💡 <strong>Dica:</strong> No inverno, a produção solar cai para ⅓.
+                Planeia estadias com eletricidade (campings) ou leva um gerador portátil.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Gás -->
+        <article id="gas" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🔥</span>
+            <span class="accordion__title">Gás</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Sistema de Gás</h3>
+              <p>
+                A van tem uma botija de gás butano/propano de 11 kg instalada
+                num compartimento ventilado para o exterior. Alimenta o fogão
+                e o aquecimento.
+              </p>
+              <h4>Botija de Gás</h4>
+              <ul>
+                <li>Capacidade: 11 kg (butano ou propano)</li>
+                <li>Localização: compartimento exterior com ventilação</li>
+                <li>Válvula de segurança com corte automático</li>
+                <li>Autonomia: ~6 semanas (uso normal: cozinhar + aquecer)</li>
+              </ul>
+              <h4>Regras de Segurança</h4>
+              <ul>
+                <li>Sempre ventilar o compartimento da botija</li>
+                <li>Fechar a torneira da botija quando a van está em movimento</li>
+                <li>Nunca usar o fogão para aquecer a van (risco de monóxido de carbono)</li>
+                <li>Verificar a mangueira e abraçadeiras a cada 6 meses</li>
+                <li>Detetor de gás instalado no interior — testar mensalmente</li>
+              </ul>
+              <h4>Fogão</h4>
+              <ul>
+                <li>2 bicos + acendimento piezoelétrico</li>
+                <li>Necessita de 2 palmos de espaço livre acima para circulação de ar</li>
+                <li>Nunca usar dentro de casa sem extração</li>
+              </ul>
+              <p class="accordion__tip">
+                💡 <strong>Dica:</strong> No inverno, o butano congela a ~0°C.
+                Se fores para zonas muito frias, usa propano (funciona até -42°C).
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Checklist Pré-Viagem -->
+        <article id="checklist" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">✅</span>
+            <span class="accordion__title">Checklist Pré-Viagem</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Antes de Arrancar</h3>
+              <ul class="checklist">
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Verificar pressão dos pneus (incluindo suplente)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Níveis de óleo, líquido de refrigeração e travão</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Fechar e trancar todos os armários</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Fechar torneira da botija de gás</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Guardar objetos soltos (mesa, cadeiras, etc.)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Esvaziar águas cinzentas (se possível)</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Nível da bateria auxiliar > 50%</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Água limpa — verificar nível suficiente</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Documentos: carta, seguro, livrete</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" class="checklist__input">
+                    <span class="checklist__label">Kit de primeiros socorros e triângulo</span>
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5. Manutenção -->
+        <article id="manutencao" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">🔧</span>
+            <span class="accordion__title">Manutenção</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Manutenção Regular</h3>
+              <p>
+                Uma van bem mantida é uma van feliz. Segue este calendário
+                para evitar surpresas.
+              </p>
+              <h4>Semanalmente</h4>
+              <ul>
+                <li>Verificar nível da bateria auxiliar</li>
+                <li>Limpar painel solar (se em estrada de terra/pó)</li>
+                <li>Verificar se há condensação na cama e janelas</li>
+              </ul>
+              <h4>Mensalmente</h4>
+              <ul>
+                <li>Testar detetor de gás e monóxido de carbono</li>
+                <li>Verificar vedantes das portas e janelas</li>
+                <li>Inspecionar fusíveis do sistema elétrico</li>
+                <li>Limpar filtro da bomba de água</li>
+              </ul>
+              <h4>A Cada 6 Meses</h4>
+              <ul>
+                <li>Verificar mangueira de gás e abraçadeiras</li>
+                <li>Inspecionar estado da bateria auxiliar (terminais, corrosão)</li>
+                <li>Verificar aperto dos parafusos da estrutura da cama e armários</li>
+                <li>Lubrificar dobradiças das portas dos armários</li>
+              </ul>
+              <h4>Anualmente</h4>
+              <ul>
+                <li>Revisão geral da viatura (óleo, filtros, correias)</li>
+                <li>Verificar e substituir vedantes do teto (evitar infiltrações)</li>
+                <li>Verificar estado da bateria de arranque</li>
+                <li>Inspeção do sistema de gás por técnico credenciado</li>
+              </ul>
+              <p class="accordion__tip">
+                💡 <strong>Dica:</strong> Cria um alarme no telemóvel para cada
+                tarefa. É fácil esqueceres-te da manutenção quando estás a
+                aproveitar a viagem!
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6. Dicas -->
+        <article id="dicas" class="accordion">
+          <button class="accordion__header" aria-expanded="false">
+            <span class="accordion__icon">💡</span>
+            <span class="accordion__title">Dicas</span>
+            <span class="accordion__arrow">▼</span>
+          </button>
+          <div class="accordion__body">
+            <div class="accordion__content">
+              <h3>Dicas de Vida na Van</h3>
+              <ul>
+                <li>
+                  <strong>Nivelamento:</strong> Sempre que parares, nivela a van
+                  de lado a lado e de frente para trás. O frigorífico agradece
+                  e dormes melhor.
+                </li>
+                <li>
+                  <strong>Condensação:</strong> Dormir com uma fresta aberta.
+                  A condensação é a maior inimiga das vans — causa bolor e
+                  cheiros.
+                </li>
+                <li>
+                  <strong>Estacionamento:</strong> Usa apps como Park4Night ou
+                  iOverlander para encontrar sítios. Lê os comentários recentes
+                  — um sítio ótimo em 2023 pode estar cheio de câmaras
+                  municipais em 2025.
+                </li>
+                <li>
+                  <strong>Água:</strong> Leva sempre 10 L extra num jerrican.
+                  Podes ficar sem água no depósito e precisar de ir buscar sem
+                  mover a van.
+                </li>
+                <li>
+                  <strong>Eletricidade no inverno:</strong> Se fores para o
+                  frio, considera comprar um gerador a gasolina portátil.
+                  O sol não aparece todos os dias.
+                </li>
+                <li>
+                  <strong>Wi-Fi:</strong> Um router 4G/5G com antena exterior é
+                  um game-changer para trabalho remoto na van.
+                </li>
+                <li>
+                  <strong>Aquecimento:</strong> Um aquecedor a diesel
+                  (Webasto/Eberspächer) consome pouco e aquece muito mais que
+                  um aquecedor elétrico, sem gastar bateria.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+      <p class="footer__text">Feito por Rogério</p>
+      <p class="footer__meta">Manual da Van — 2025</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
