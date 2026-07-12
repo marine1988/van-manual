@@ -220,14 +220,21 @@ ul {
   justify-content: center;
   padding: calc(var(--header-height) + 40px) 20px 60px;
   text-align: center;
-  background: linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
+  background:
+    linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
+  background-image:
+    url('../img/van/van-04.jpg'),
+    linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--color-text-on-primary);
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 61, 26, 0.78) 0%, rgba(45, 90, 39, 0.70) 50%, rgba(20, 40, 18, 0.75) 100%);
+  background: linear-gradient(135deg, rgba(30, 61, 26, 0.82) 0%, rgba(45, 90, 39, 0.72) 50%, rgba(10, 20, 8, 0.80) 100%);
   z-index: 1;
 }
 
@@ -1047,5 +1054,135 @@ ul {
 }
 .faq-item__answer p { margin: 0; line-height: 1.6; color: var(--color-text-muted); }
 .faq-item__answer a { color: var(--color-primary); }
+
+/* ============================================
+   Galeria de Imagens
+   ============================================ */
+.gallery-section {
+  padding: 80px 20px;
+  background: var(--color-bg);
+  transition: background var(--transition);
+}
+
+.gallery-section__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.gallery-section__header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.gallery-section__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+[data-theme="dark"] .gallery-section__title {
+  color: var(--color-primary-light);
+}
+
+.gallery-section__intro {
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+}
+
+.gallery-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-section__item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+  background: var(--color-surface);
+}
+
+.gallery-section__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.gallery-section__item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-section__caption {
+  padding: 12px 16px 16px;
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.gallery-section__caption strong {
+  color: var(--color-primary);
+}
+
+/* Interior image within accordion sections */
+.accordion__img {
+  margin: 16px 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion__img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Interior image within about-van */
+.about-van__img {
+  margin: 20px 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.about-van__img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tablets (≥640px) */
+@media (min-width: 640px) {
+  .gallery-section__title {
+    font-size: 2.5rem;
+  }
+
+  .gallery-section__grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .gallery-section__item img {
+    height: 280px;
+  }
+}
+
+/* Desktop (≥960px) */
+@media (min-width: 960px) {
+  .gallery-section {
+    padding: 100px 20px;
+  }
+
+  .gallery-section__title {
+    font-size: 3rem;
+  }
+}
 
 /* BMS section with dark overlay — text white */

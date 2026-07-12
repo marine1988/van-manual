@@ -17,6 +17,9 @@ const translations = {
     "video.intro": "See everything about the van in a ~23 minute guided tour by Rogério Figueiredo.",
     "video.caption": "🎥 <strong>Complete tour</strong> by Rogério Figueiredo (~23 min)",
 
+    "gallery.title": "Van Gallery",
+    "gallery.intro": "Photos of the van's interior and exterior — exactly as equipped to welcome you.",
+
     "about.title": "About this Van",
     "about.intro": "Converted van (van aménagée), with all the comfort of a motorhome on an agile 3.3-ton chassis — standard driving licence.",
     "about.descriptionTitle": "Yescapa Listing Description",
@@ -48,6 +51,7 @@ const translations = {
     "nav.wc": "Toilet",
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Exterior",
+    "nav.galeria": "📸 Gallery",
     "nav.controlo": "Controls",
 
     "sections.eletrico.title": "Electrical System",
@@ -230,6 +234,9 @@ const translations = {
     "video.intro": "Découvrez tout sur le van lors d'une visite guidée d'environ 23 minutes par Rogério Figueiredo.",
     "video.caption": "🎥 <strong>Visite complète</strong> par Rogério Figueiredo (~23 min)",
 
+    "gallery.title": "Galerie du Van",
+    "gallery.intro": "Photos de l'intérieur et de l'extérieur du van — tel qu'il est équipé pour vous accueillir.",
+
     "about.title": "À Propos de ce Van",
     "about.intro": "Van aménagé, avec tout le confort d'un camping-car sur un châssis agile de 3,3 tonnes — permis B.",
     "about.descriptionTitle": "Description de l'annonce Yescapa",
@@ -261,6 +268,7 @@ const translations = {
     "nav.wc": "WC",
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Extérieur",
+    "nav.galeria": "📸 Galerie",
     "nav.controlo": "Contrôles",
 
     "sections.eletrico.title": "Système Électrique",
@@ -443,6 +451,9 @@ const translations = {
     "video.intro": "Ve todo sobre la furgoneta en un tour guiado de ~23 minutos por Rogério Figueiredo.",
     "video.caption": "🎥 <strong>Tour completo</strong> por Rogério Figueiredo (~23 min)",
 
+    "gallery.title": "Galería del Van",
+    "gallery.intro": "Fotos del interior y exterior de la furgoneta — tal como está equipada para recibirte.",
+
     "about.title": "Sobre esta Furgoneta",
     "about.intro": "Furgoneta camperizada (van aménagée), con todo el confort de una autocaravana en un chasis ágil de 3,3 toneladas — carné B.",
     "about.descriptionTitle": "Descripción del anuncio Yescapa",
@@ -474,6 +485,7 @@ const translations = {
     "nav.wc": "Baño",
     "nav.ventilacao": "Ventilación",
     "nav.exterior": "Exterior",
+    "nav.galeria": "📸 Galería",
     "nav.controlo": "Controles",
 
     "sections.eletrico.title": "Sistema Eléctrico",
@@ -656,6 +668,9 @@ const translations = {
     "video.intro": "Sieh dir alles über den Van in einer ~23-minütigen Führung von Rogério Figueiredo an.",
     "video.caption": "🎥 <strong>Komplette Tour</strong> von Rogério Figueiredo (~23 Min.)",
 
+    "gallery.title": "Foto-Galerie",
+    "gallery.intro": "Fotos vom Innen- und Außenbereich des Wohnmobils — genau so, wie es für dich ausgestattet ist.",
+
     "about.title": "Über diesen Van",
     "about.intro": "Ausgebauter Van (van aménagée) mit dem Komfort eines Wohnmobils auf einem agilen 3,3-Tonnen-Fahrgestell — Führerschein B.",
     "about.descriptionTitle": "Yescapa-Anzeigenbeschreibung",
@@ -687,6 +702,7 @@ const translations = {
     "nav.wc": "WC",
     "nav.ventilacao": "Lüftung",
     "nav.exterior": "Außen",
+    "nav.galeria": "📸 Galerie",
     "nav.controlo": "Bedienelemente",
 
     "sections.eletrico.title": "Elektriksystem",

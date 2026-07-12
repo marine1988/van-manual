@@ -20,11 +20,11 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(logo).toBeVisible()
     await expect(logo).toHaveText(/Manual da Campervan/)
 
-    // Navegação com links para as 9 secções
+    // Navegação com links para as 12 secções
     const navLinks = page.locator('.header__nav-link')
-    await expect(navLinks).toHaveCount(11)
+    await expect(navLinks).toHaveCount(12)
 
-    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Controlo', 'Bateria', 'FAQ']
+    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Galeria', 'Controlo', 'Bateria', 'FAQ']
     const linkTexts = await navLinks.allTextContents()
     for (const expected of expectedLinks) {
       expect(linkTexts.some(t => t.includes(expected))).toBeTruthy()
@@ -149,5 +149,27 @@ test.describe('Manual da Van — Smoke Tests', () => {
 
     // Verificar que fizemos scroll para a secção #agua
     await expect(page.locator('#agua')).toBeVisible()
+  })
+
+  test('galeria de imagens está presente com 6 fotos', async ({ page }) => {
+    await page.goto(BASE_URL)
+
+    // Secção galeria existe
+    const gallerySection = page.locator('#galeria')
+    await expect(gallerySection).toBeVisible()
+
+    // Título visível
+    await expect(page.locator('.gallery-section__title')).toBeVisible()
+
+    // Grid com 6 imagens
+    const galleryItems = page.locator('.gallery-section__item')
+    await expect(galleryItems).toHaveCount(6)
+
+    // Todas as imagens têm loading=lazy
+    const images = page.locator('.gallery-section__item img')
+    const imgCount = await images.count()
+    for (let i = 0; i < imgCount; i++) {
+      await expect(images.nth(i)).toHaveAttribute('loading', 'lazy')
+    }
   })
 })
