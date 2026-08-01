@@ -11,6 +11,7 @@ const translations = {
     "about.return.grey": "<strong>Águas cinzentas não despejadas:</strong> debitar 20 € da caução",
     "about.return.wc": "<strong>WC não limpa:</strong> debitar 50 € da caução",
     "about.return.diesel": "<strong>Depósito de diesel não atestado:</strong> debitar 30 € mais o custo do diesel necessário para atestar, da caução",
+    "about.return.viaverde": "<strong>Via Verde (portagens):</strong> a carrinha tem Via Verde para passares nas portagens sem parar. Após a entrega, são retidos 100 € da caução para portagens durante uma semana. Se não houver gastos, o valor é devolvido na totalidade; se houver (ex.: 50 € em portagens), é devolvido o restante (ex.: 50 €).",
   }, // português é o default (texto no HTML)
 
   en: {
@@ -53,6 +54,7 @@ const translations = {
     "about.return.grey": "<strong>Grey water not emptied:</strong> €20 deducted from the deposit",
     "about.return.wc": "<strong>Toilet not cleaned:</strong> €50 deducted from the deposit",
     "about.return.diesel": "<strong>Diesel tank not refilled:</strong> €30 plus the cost of the diesel needed to refill it, deducted from the deposit",
+    "about.return.viaverde": "<strong>Via Verde (tolls):</strong> the van has Via Verde so you can pass tolls without stopping. After returning the van, €100 is withheld from the deposit for tolls for one week. If there are no toll charges, the full amount is refunded; if there are (e.g. €50 in tolls), the remainder (e.g. €50) is refunded.",
     "about.cta": "🚐 Rent this campervan on Yescapa",
     "about.ctaNote": "Rental securely managed by Yescapa — insurance included, 24/7 assistance, secure payment.",
 
@@ -177,6 +179,7 @@ const translations = {
     "sections.exterior.connections.2": "Clean water inlet.",
     "sections.exterior.connections.3": "Diesel inlet — do not confuse with the water inlet.",
     "sections.exterior.connections.4": "Rear-view camera.",
+    "sections.exterior.connections.5": "Via Verde — pass tolls without stopping. Tolls are then deducted from the deposit (see \"Return Conditions\").",
     "sections.exterior.trunkTitle": "Rear Trunk",
     "sections.exterior.trunk.1": "Foldable table and chairs (3 chairs: 1 small + 2 large).",
     "sections.exterior.trunk.2": "Wheel chocks for levelling.",
@@ -278,6 +281,7 @@ const translations = {
     "about.return.grey": "<strong>Eaux grises non vidangées :</strong> 20 € débités de la caution",
     "about.return.wc": "<strong>WC non nettoyé :</strong> 50 € débités de la caution",
     "about.return.diesel": "<strong>Réservoir de diesel non refait :</strong> 30 € plus le coût du diesel nécessaire pour faire le plein, débités de la caution",
+    "about.return.viaverde": "<strong>Via Verde (péages) :</strong> le fourgon est équipé de Via Verde pour passer les péages sans s'arrêter. Après la restitution, 100 € sont retenus sur la caution pour les péages pendant une semaine. S'il n'y a pas de frais de péage, le montant est intégralement remboursé ; s'il y en a (ex. : 50 € de péages), le reste (ex. : 50 €) est remboursé.",
     "about.cta": "🚐 Louer ce camping-car sur Yescapa",
     "about.ctaNote": "Location gérée en toute sécurité par Yescapa — assurance incluse, assistance 24/7, paiement sécurisé.",
 
@@ -402,6 +406,7 @@ const translations = {
     "sections.exterior.connections.2": "Entrée d'eau propre.",
     "sections.exterior.connections.3": "Entrée gazole — ne pas confondre avec l'entrée d'eau.",
     "sections.exterior.connections.4": "Caméra de recul.",
+    "sections.exterior.connections.5": "Via Verde — passez les péages sans vous arrêter. Les péages sont ensuite débités de la caution (voir « Conditions de retour »).",
     "sections.exterior.trunkTitle": "Coffre Arrière",
     "sections.exterior.trunk.1": "Table pliante et chaises (3 chaises : 1 petite + 2 grandes).",
     "sections.exterior.trunk.2": "Calages pour mettre de niveau.",
@@ -503,6 +508,7 @@ const translations = {
     "about.return.grey": "<strong>Aguas grises no vaciadas:</strong> 20 € debitados de la fianza",
     "about.return.wc": "<strong>Inodoro no limpio:</strong> 50 € debitados de la fianza",
     "about.return.diesel": "<strong>Depósito de diésel no repostado:</strong> 30 € más el coste del diésel necesario para repostar, debitados de la fianza",
+    "about.return.viaverde": "<strong>Via Verde (peajes):</strong> la furgoneta tiene Via Verde para pasar los peajes sin parar. Tras la entrega, se retienen 100 € de la fianza para peajes durante una semana. Si no hay gastos de peaje, el importe se devuelve íntegramente; si los hay (p. ej.: 50 € en peajes), se devuelve el resto (p. ej.: 50 €).",
     "about.cta": "🚐 Alquilar esta autocaravana en Yescapa",
     "about.ctaNote": "Alquiler gestionado de forma segura por Yescapa — seguro incluido, asistencia 24/7, pago seguro.",
 
@@ -627,6 +633,7 @@ const translations = {
     "sections.exterior.connections.2": "Entrada de agua limpia.",
     "sections.exterior.connections.3": "Entrada de diésel — no confundir con la entrada de agua.",
     "sections.exterior.connections.4": "Cámara de marcha atrás.",
+    "sections.exterior.connections.5": "Via Verde — pasa los peajes sin parar. Los peajes se descuentan después de la fianza (ver « Condiciones de devolución »).",
     "sections.exterior.trunkTitle": "Maletero Trasero",
     "sections.exterior.trunk.1": "Mesa plegable y sillas (3 sillas: 1 pequeña + 2 grandes).",
     "sections.exterior.trunk.2": "Calzos para nivelar las ruedas.",
@@ -728,6 +735,7 @@ const translations = {
     "about.return.grey": "<strong>Grauwasser nicht entleert:</strong> 20 € von der Kaution abgezogen",
     "about.return.wc": "<strong>Toilette nicht gereinigt:</strong> 50 € von der Kaution abgezogen",
     "about.return.diesel": "<strong>Dieseltank nicht vollgetankt:</strong> 30 € plus die Kosten für den benötigten Diesel, von der Kaution abgezogen",
+    "about.return.viaverde": "<strong>Via Verde (Maut):</strong> der Van ist mit Via Verde ausgestattet, um Mautstellen ohne Anhalten zu passieren. Nach der Rückgabe werden 100 € der Kaution für eine Woche für Mautgebühren einbehalten. Gibt es keine Mautkosten, wird der Betrag vollständig zurückerstattet; gibt es welche (z. B. 50 € Maut), wird der Rest (z. B. 50 €) zurückerstattet.",
     "about.cta": "🚐 Diesen Campervan auf Yescapa mieten",
     "about.ctaNote": "Miete sicher verwaltet von Yescapa — Versicherung inklusive, 24/7-Assistenz, sichere Zahlung.",
 
@@ -852,6 +860,7 @@ const translations = {
     "sections.exterior.connections.2": "Frischwassereinfüllstutzen.",
     "sections.exterior.connections.3": "Diesel-Einfüllstutzen — nicht mit dem Wassereinfüllstutzen verwechseln.",
     "sections.exterior.connections.4": "Rückfahrkamera.",
+    "sections.exterior.connections.5": "Via Verde — passieren Sie Mautstellen ohne Anhalten. Die Maut wird anschließend von der Kaution abgezogen (siehe „Rückgabebedingungen“).",
     "sections.exterior.trunkTitle": "Heckkofferraum",
     "sections.exterior.trunk.1": "Klapptisch und Stühle (3 Stühle: 1 kleiner + 2 große).",
     "sections.exterior.trunk.2": "Unterlegkeile zum Nivellieren.",
