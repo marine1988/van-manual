@@ -4,7 +4,14 @@
  * EN, FR, ES, DE — traduções completas
  */
 const translations = {
-  pt: {}, // português é o default (texto no HTML)
+  pt: {
+    "about.returnTitle": "Condições de devolução",
+    "about.return.clean": "<strong>Carrinha não entregue limpa como foi recebida:</strong> debitar 50 € da caução",
+    "about.return.water": "<strong>Águas limpas não cheias:</strong> debitar 20 € da caução",
+    "about.return.grey": "<strong>Águas cinzentas não despejadas:</strong> debitar 20 € da caução",
+    "about.return.wc": "<strong>WC não limpa:</strong> debitar 50 € da caução",
+    "about.return.diesel": "<strong>Depósito de diesel não atestado:</strong> debitar 200 € da caução",
+  }, // português é o default (texto no HTML)
 
   en: {
     "site.title": "🚐 Campervan Manual",
@@ -40,6 +47,12 @@ const translations = {
     "about.conditions.smoking": "<strong>Smoking:</strong> not allowed",
     "about.conditions.abroad": "<strong>Travel abroad:</strong> allowed",
     "about.conditions.deposit": "<strong>Deposit:</strong> €500",
+    "about.returnTitle": "Return Conditions",
+    "about.return.clean": "<strong>Van not returned clean as received:</strong> €50 deducted from the deposit",
+    "about.return.water": "<strong>Clean water tank not full:</strong> €20 deducted from the deposit",
+    "about.return.grey": "<strong>Grey water not emptied:</strong> €20 deducted from the deposit",
+    "about.return.wc": "<strong>Toilet not cleaned:</strong> €50 deducted from the deposit",
+    "about.return.diesel": "<strong>Diesel tank not refilled:</strong> €200 deducted from the deposit",
     "about.cta": "🚐 Rent this campervan on Yescapa",
     "about.ctaNote": "Rental securely managed by Yescapa — insurance included, 24/7 assistance, secure payment.",
 
@@ -257,6 +270,12 @@ const translations = {
     "about.conditions.smoking": "<strong>Fumer :</strong> interdit",
     "about.conditions.abroad": "<strong>Voyage à l'étranger :</strong> autorisé",
     "about.conditions.deposit": "<strong>Caution :</strong> 500 €",
+    "about.returnTitle": "Conditions de retour",
+    "about.return.clean": "<strong>Camping-car non rendu propre comme à la réception :</strong> 50 € débités de la caution",
+    "about.return.water": "<strong>Eaux propres non remplies :</strong> 20 € débités de la caution",
+    "about.return.grey": "<strong>Eaux grises non vidangées :</strong> 20 € débités de la caution",
+    "about.return.wc": "<strong>WC non nettoyé :</strong> 50 € débités de la caution",
+    "about.return.diesel": "<strong>Réservoir de diesel non refait :</strong> 200 € débités de la caution",
     "about.cta": "🚐 Louer ce camping-car sur Yescapa",
     "about.ctaNote": "Location gérée en toute sécurité par Yescapa — assurance incluse, assistance 24/7, paiement sécurisé.",
 
@@ -474,6 +493,12 @@ const translations = {
     "about.conditions.smoking": "<strong>Fumar:</strong> no permitido",
     "about.conditions.abroad": "<strong>Viaje al extranjero:</strong> permitido",
     "about.conditions.deposit": "<strong>Fianza:</strong> 500 €",
+    "about.returnTitle": "Condiciones de devolución",
+    "about.return.clean": "<strong>Furgoneta no devuelta limpia como se recibió:</strong> 50 € debitados de la fianza",
+    "about.return.water": "<strong>Depósito de aguas limpias no lleno:</strong> 20 € debitados de la fianza",
+    "about.return.grey": "<strong>Aguas grises no vaciadas:</strong> 20 € debitados de la fianza",
+    "about.return.wc": "<strong>Inodoro no limpio:</strong> 50 € debitados de la fianza",
+    "about.return.diesel": "<strong>Depósito de diésel no repostado:</strong> 200 € debitados de la fianza",
     "about.cta": "🚐 Alquilar esta autocaravana en Yescapa",
     "about.ctaNote": "Alquiler gestionado de forma segura por Yescapa — seguro incluido, asistencia 24/7, pago seguro.",
 
@@ -691,6 +716,12 @@ const translations = {
     "about.conditions.smoking": "<strong>Rauchen:</strong> nicht erlaubt",
     "about.conditions.abroad": "<strong>Reisen ins Ausland:</strong> erlaubt",
     "about.conditions.deposit": "<strong>Kaution:</strong> 500 €",
+    "about.returnTitle": "Rückgabebedingungen",
+    "about.return.clean": "<strong>Fahrzeug nicht so sauber zurückgegeben wie erhalten:</strong> 50 € von der Kaution abgezogen",
+    "about.return.water": "<strong>Frischwassertank nicht befüllt:</strong> 20 € von der Kaution abgezogen",
+    "about.return.grey": "<strong>Grauwasser nicht entleert:</strong> 20 € von der Kaution abgezogen",
+    "about.return.wc": "<strong>Toilette nicht gereinigt:</strong> 50 € von der Kaution abgezogen",
+    "about.return.diesel": "<strong>Dieseltank nicht vollgetankt:</strong> 200 € von der Kaution abgezogen",
     "about.cta": "🚐 Diesen Campervan auf Yescapa mieten",
     "about.ctaNote": "Miete sicher verwaltet von Yescapa — Versicherung inklusive, 24/7-Assistenz, sichere Zahlung.",
 

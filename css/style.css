@@ -400,7 +400,8 @@ ul {
 
 .about-van__description h3,
 .about-van__specs h3,
-.about-van__conditions h3 {
+.about-van__conditions h3,
+.about-van__conditions h4 {
   font-size: 1.15rem;
   color: var(--color-primary);
   margin-bottom: 14px;
