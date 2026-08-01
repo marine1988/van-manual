@@ -472,12 +472,10 @@
 |----------|-----------|-----------------|
 | `img/van/van-01.jpg` | Interior — área de jantar com mesa, bancos, portátil | 🛏️ Cama & Mesa / ☕ Cozinha |
 | `img/van/van-02.jpg` | Interior — cama traseira (colchão às riscas), ventoinha Maxxair, painéis madeira | 🛏️ Cama & Mesa / 🌬️ Ventilação |
-| `img/van/van-03.jpg` | Exterior — vista lateral com rack tejadilho, toldo, suporte bicicletas | 🔧 Exterior |
-| `img/van/van-04.jpg` | Exterior — van ao pôr-do-sol na praia | 🚐 Hero / Header |
 | `img/van/van-05.jpg` | Interior — portas traseiras abertas, área lounge com bancos e mesa | 🛏️ Cama & Mesa |
-| `img/van/van-06.jpg` | Exterior — van na falésia com vista mar, pessoa no tejadilho | 🚐 Hero / Header |
+| `img/van/van-07-exterior-real.jpg` | Exterior — Renault Master branca, vista 3/4 (2500×1875, foto real) | 🚐 Hero / Header + 🖼️ Galeria |
 
-**⚠️ Verificar**: As imagens 04 e 06 podem ser genéricas do Yescapa — o Rogério deve confirmar quais são realmente da van dele.
+**✅ Verificado (2026-08-01)**: as imagens de vans de outras marcas (Ducato, Bedford, Sprinter) foram removidas. O site usa apenas fotos reais: van-01, van-02, van-05 e van-07-exterior-real.
 
 **URLs originais (Yescapa CDN):**
 ```

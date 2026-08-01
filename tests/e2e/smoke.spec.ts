@@ -151,7 +151,7 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(page.locator('#agua')).toBeVisible()
   })
 
-  test('galeria de imagens está presente com 6 fotos', async ({ page }) => {
+  test('galeria de imagens está presente com 4 fotos reais', async ({ page }) => {
     await page.goto(BASE_URL)
 
     // Secção galeria existe
@@ -161,9 +161,13 @@ test.describe('Manual da Van — Smoke Tests', () => {
     // Título visível
     await expect(page.locator('.gallery-section__title')).toBeVisible()
 
-    // Grid com 6 imagens
+    // Grid com 4 imagens (apenas fotos reais da van)
     const galleryItems = page.locator('.gallery-section__item')
-    await expect(galleryItems).toHaveCount(6)
+    await expect(galleryItems).toHaveCount(4)
+
+    // Nenhuma imagem de outra van (van-03, van-04, van-06 foram removidas)
+    const fakeRefs = await page.locator('img[src*="van-03"], img[src*="van-04"], img[src*="van-06"]').count()
+    expect(fakeRefs).toBe(0)
 
     // Todas as imagens têm loading=lazy
     const images = page.locator('.gallery-section__item img')
