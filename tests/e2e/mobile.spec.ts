@@ -46,10 +46,9 @@ test.describe('Manual da Van — Mobile (iPhone 390x844)', () => {
     await expect(page.locator('.header__nav')).not.toHaveClass(/is-open/)
     await expect(hamburger).toHaveAttribute('aria-expanded', 'false')
 
-    // Scroll aconteceu para a secção
+    // Scroll aconteceu para a secção (smooth scroll — esperar, não ler logo)
     await expect(page.locator('#agua')).toBeVisible()
-    const scrollY = await page.evaluate(() => window.scrollY)
-    expect(scrollY).toBeGreaterThan(0)
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0)
   })
 
   test('secções principais visíveis com scroll', async ({ page }) => {
