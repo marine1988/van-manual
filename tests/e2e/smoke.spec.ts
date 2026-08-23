@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const BASE_URL = process.env.BASE_URL || 'https://van-manual.vercel.app'
+const BASE_URL = process.env.BASE_URL || 'http://127.0.0.1:3000'
 
 test.describe('Manual da Van — Smoke Tests', () => {
   test('página carrega sem erros HTTP', async ({ page }) => {
@@ -151,7 +151,7 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(page.locator('#agua')).toBeVisible()
   })
 
-  test('galeria de imagens está presente com 8 fotos reais', async ({ page }) => {
+  test('galeria de imagens está presente com 10 fotos reais', async ({ page }) => {
     await page.goto(BASE_URL)
 
     // Secção galeria existe
@@ -161,9 +161,9 @@ test.describe('Manual da Van — Smoke Tests', () => {
     // Título visível
     await expect(page.locator('.gallery-section__title')).toBeVisible()
 
-    // Grid com 8 imagens (apenas fotos reais da van)
+    // Grid com 10 imagens (apenas fotos reais da van)
     const galleryItems = page.locator('.gallery-section__item')
-    await expect(galleryItems).toHaveCount(8)
+    await expect(galleryItems).toHaveCount(10)
 
     // Nenhuma imagem de outra van (van-03, van-04, van-06 foram removidas)
     const fakeRefs = await page.locator('img[src*="van-03"], img[src*="van-04"], img[src*="van-06"]').count()

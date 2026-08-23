@@ -65,7 +65,7 @@ test.describe('Manual da Van — Mobile (iPhone 390x844)', () => {
     await expect(page.locator('.faq-section__title')).toBeVisible()
   })
 
-  test('galeria faz scroll e as 8 fotos carregam', async ({ page }) => {
+  test('galeria faz scroll e as 10 fotos carregam', async ({ page }) => {
     await page.goto('/')
 
     // Scroll gradual até ao fundo da galeria para acionar o lazy loading
@@ -81,7 +81,7 @@ test.describe('Manual da Van — Mobile (iPhone 390x844)', () => {
     await page.waitForLoadState('networkidle')
 
     const items = page.locator('.gallery-section__item')
-    await expect(items).toHaveCount(8)
+    await expect(items).toHaveCount(10)
 
     // Cada imagem carregou de facto (naturalWidth > 0)
     const loaded = await page

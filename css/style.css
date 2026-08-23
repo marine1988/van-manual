@@ -1314,6 +1314,11 @@ ul {
   box-shadow: var(--shadow-lg);
 }
 
+/* Last figure fills the whole final row (avoids an orphan item) */
+.gallery-section__item:last-child {
+  grid-column: 1 / -1;
+}
+
 .gallery-section__item img {
   width: 100%;
   height: 240px;
@@ -1373,6 +1378,13 @@ ul {
 
   .gallery-section__item img {
     height: 280px;
+  }
+
+  /* Wide aspect ratio for the full-row last figure (desktop only) */
+  .gallery-section__item:last-child img {
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
   }
 }
 
