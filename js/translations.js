@@ -70,7 +70,7 @@ const translations = {
     "nav.wc": "Toilet",
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Exterior",
-    "nav.galeria": "📸 Gallery",
+    "nav.galeria": "Gallery",
     "nav.controlo": "Controls",
 
     "sections.eletrico.title": "Electrical System",
@@ -200,8 +200,8 @@ const translations = {
     "sections.controlo.4": "If there's an error on the solar panel/inverter, turn off and back on.",
     "sections.controlo.5": "Smoke and water sensors installed.",
 
-    "nav.bms": "📱 Battery",
-    "nav.faq": "❓ FAQ",
+    "nav.bms": "Battery",
+    "nav.faq": "FAQ",
 
     "sections.bms.title": "📱 Check the Van's Battery",
     "sections.bms.intro": "Download a free app and connect your phone via <strong>Bluetooth</strong> to the battery. You'll instantly see how much battery you have — like checking your phone's percentage, but for the van.",
@@ -299,7 +299,7 @@ const translations = {
     "nav.wc": "WC",
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Extérieur",
-    "nav.galeria": "📸 Galerie",
+    "nav.galeria": "Galerie",
     "nav.controlo": "Contrôles",
 
     "sections.eletrico.title": "Système Électrique",
@@ -429,8 +429,8 @@ const translations = {
     "sections.controlo.4": "En cas d'erreur sur le panneau solaire/onduleur, éteindre et rallumer.",
     "sections.controlo.5": "Détecteurs de fumée et d'eau installés.",
 
-    "nav.bms": "📱 Batterie",
-    "nav.faq": "❓ FAQ",
+    "nav.bms": "Batterie",
+    "nav.faq": "FAQ",
 
     "sections.bms.title": "📱 Vérifier la Batterie du Van",
     "sections.bms.intro": "Télécharge une application gratuite et connecte ton téléphone en <strong>Bluetooth</strong> à la batterie. Tu verras instantanément combien il te reste de batterie — comme vérifier le pourcentage de ton téléphone, mais pour le van.",
@@ -528,7 +528,7 @@ const translations = {
     "nav.wc": "Baño",
     "nav.ventilacao": "Ventilación",
     "nav.exterior": "Exterior",
-    "nav.galeria": "📸 Galería",
+    "nav.galeria": "Galería",
     "nav.controlo": "Controles",
 
     "sections.eletrico.title": "Sistema Eléctrico",
@@ -658,8 +658,8 @@ const translations = {
     "sections.controlo.4": "Si hay error en el panel solar/inversor, apagar y volver a encender.",
     "sections.controlo.5": "Sensores de humo y agua instalados.",
 
-    "nav.bms": "📱 Batería",
-    "nav.faq": "❓ FAQ",
+    "nav.bms": "Batería",
+    "nav.faq": "FAQ",
 
     "sections.bms.title": "📱 Consultar la Batería de la Furgoneta",
     "sections.bms.intro": "Descarga una aplicación gratuita y conecta tu teléfono por <strong>Bluetooth</strong> a la batería. Verás al instante cuánta batería tienes — como mirar el porcentaje de tu teléfono, pero para la furgoneta.",
@@ -757,7 +757,7 @@ const translations = {
     "nav.wc": "WC",
     "nav.ventilacao": "Lüftung",
     "nav.exterior": "Außen",
-    "nav.galeria": "📸 Galerie",
+    "nav.galeria": "Galerie",
     "nav.controlo": "Bedienelemente",
 
     "sections.eletrico.title": "Elektriksystem",
@@ -887,8 +887,8 @@ const translations = {
     "sections.controlo.4": "Bei einem Fehler am Solarmodul/Wechselrichter ausschalten und wieder einschalten.",
     "sections.controlo.5": "Rauch- und Wassermelder installiert.",
 
-    "nav.bms": "📱 Batterie",
-    "nav.faq": "❓ FAQ",
+    "nav.bms": "Batterie",
+    "nav.faq": "FAQ",
 
     "sections.bms.title": "📱 Batteriestand des Vans Prüfen",
     "sections.bms.intro": "Lade eine kostenlose App herunter und verbinde dein Telefon per <strong>Bluetooth</strong> mit der Batterie. Du siehst sofort, wie viel Batterie du hast — wie beim Überprüfen des Akkustands deines Handys, nur für den Van.",

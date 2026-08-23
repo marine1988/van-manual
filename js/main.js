@@ -242,6 +242,70 @@
     }
   }
 
+  /* ---------- Scroll-spy: marca o link da secção visível ---------- */
+  const navLinks = Array.from(
+    document.querySelectorAll(".header__nav-link[href^='#']")
+  );
+  const sections = navLinks
+    .map(function (link) {
+      return document.getElementById(link.getAttribute("href").slice(1));
+    })
+    .filter(Boolean);
+
+  if (navLinks.length && "IntersectionObserver" in window) {
+    const visible = new Map(); // section -> ratio visível
+
+    const spy = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            visible.set(entry.target, entry.intersectionRatio);
+          } else {
+            visible.delete(entry.target);
+          }
+        });
+
+        let current = null;
+        let bestRatio = 0;
+        visible.forEach(function (ratio, section) {
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            current = section;
+          }
+        });
+
+        /* Fallback: nenhuma secção cruza a linha — escolher a última acima do topo */
+        if (!current) {
+          var headerOffset =
+            parseInt(
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--header-height"
+              )
+            ) + 1;
+          for (var i = sections.length - 1; i >= 0; i--) {
+            if (sections[i].getBoundingClientRect().top <= headerOffset) {
+              current = sections[i];
+              break;
+            }
+          }
+        }
+
+        navLinks.forEach(function (link) {
+          link.classList.toggle(
+            "is-active",
+            !!current &&
+              link.getAttribute("href") === "#" + current.id
+          );
+        });
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: [0, 0.1, 0.25, 0.5] }
+    );
+
+    sections.forEach(function (section) {
+      spy.observe(section);
+    });
+  }
+
   /* ---------- Header shrink on scroll ---------- */
   let lastScrollY = 0;
 
