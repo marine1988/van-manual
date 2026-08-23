@@ -324,4 +324,365 @@
     lastScrollY = currentScrollY;
   }, { passive: true });
 
+  /* ---------- Search + Manual Index ---------- */
+  const ACCORDION_SECTIONS = [
+    "eletrico", "agua", "aquecimento", "cozinha", "cama",
+    "wc", "ventilacao", "exterior", "controlo"
+  ];
+  const BIG_SECTIONS = ["video", "galeria", "sobre", "bms"];
+
+  function normalizeText(str) {
+    return String(str)
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function stripHtml(el) {
+    return el ? el.textContent.replace(/\s+/g, " ").trim() : "";
+  }
+
+  function getCurrentLang() {
+    try {
+      return localStorage.getItem("van-manual-lang") || "pt";
+    } catch (_) {
+      return "pt";
+    }
+  }
+
+  function scrollToTarget(target) {
+    if (!target) return;
+    const headerHeight =
+      parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--header-height"
+        )
+      ) || 80;
+
+    /* A expansão de accordions (max-height transition) altera o layout acima
+       do alvo — esperar pelo fim da transição ANTES de medir e fazer scroll */
+    const body = target.querySelector(".accordion__body");
+    const pendingTransitions =
+      body && getComputedStyle(body).transitionDuration !== "0s";
+
+    const doScroll = function () {
+      const top =
+        target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+      window.scrollTo({ top: top, behavior: "smooth" });
+    };
+
+    let scrolled = false;
+    const scrollOnce = function () {
+      if (scrolled) return;
+      scrolled = true;
+      doScroll();
+    };
+
+    if (pendingTransitions) {
+      body.addEventListener("transitionend", scrollOnce, { once: true });
+      /* fallback determinístico caso a transição não dispare transitionend */
+      setTimeout(scrollOnce, 500);
+    } else {
+      /* Layout já estável (rAF duplo garante que a classe .open foi aplicada
+         e refluída antes de medir) */
+      requestAnimationFrame(function () {
+        requestAnimationFrame(scrollOnce);
+      });
+    }
+
+    target.classList.remove("search-highlight");
+    /* forçar reflow para o highlight reiniciar se já estiver presente */
+    void target.offsetWidth;
+    target.classList.add("search-highlight");
+    setTimeout(function () {
+      target.classList.remove("search-highlight");
+    }, 2000);
+  }
+
+  function openAccordionSection(sectionId) {
+    const accordion = document.getElementById(sectionId);
+    if (!accordion || !accordion.classList.contains("accordion")) return null;
+    const header = accordion.querySelector(".accordion__header");
+    if (header && header.getAttribute("aria-expanded") !== "true") {
+      header.click();
+    }
+    return accordion;
+  }
+
+  function goToSection(sectionId) {
+    const accordion = openAccordionSection(sectionId);
+    scrollToTarget(accordion || document.getElementById(sectionId));
+  }
+
+  /* --- Índice visual do manual (cards) --- */
+  const indexGrid = document.getElementById("manualIndexGrid");
+  if (indexGrid) {
+    ACCORDION_SECTIONS.forEach(function (id) {
+      const section = document.getElementById(id);
+      if (!section) return;
+      const icon = section.querySelector(".accordion__icon");
+      const titleEl = section.querySelector(".accordion__title");
+
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "manual-index__card";
+      card.setAttribute("data-target", id);
+
+      const iconSpan = document.createElement("span");
+      iconSpan.className = "manual-index__icon";
+      iconSpan.textContent = icon ? icon.textContent : "";
+      const titleSpan = document.createElement("span");
+      titleSpan.className = "manual-index__card-title";
+      titleSpan.textContent = titleEl ? titleEl.textContent : id;
+      const descSpan = document.createElement("span");
+      descSpan.className = "manual-index__desc";
+      descSpan.setAttribute("data-i18n", "index.cards." + id);
+      if (translations.pt && translations.pt["index.cards." + id]) {
+        descSpan.textContent = translations.pt["index.cards." + id];
+      }
+
+      card.appendChild(iconSpan);
+      card.appendChild(titleSpan);
+      card.appendChild(descSpan);
+      card.addEventListener("click", function () {
+        goToSection(id);
+      });
+      indexGrid.appendChild(card);
+    });
+  }
+
+  /* --- Construção do índice de pesquisa --- */
+  const searchIndex = [];
+
+  ACCORDION_SECTIONS.forEach(function (id) {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const title = stripHtml(section.querySelector(".accordion__title"));
+    const content = stripHtml(
+      section.querySelector(".accordion__content")
+    );
+    searchIndex.push({
+      sectionId: id,
+      title: title,
+      text: normalizeText(title + " " + content),
+      snippet: content,
+      target: section,
+      isAccordion: true,
+      faqQuestion: null
+    });
+  });
+
+  document.querySelectorAll(".faq-item").forEach(function (item) {
+    const q = item.querySelector(".faq-item__question");
+    const a = item.querySelector(".faq-item__answer");
+    if (!q || !a) return;
+    const question = stripHtml(q);
+    const answer = stripHtml(a);
+    searchIndex.push({
+      sectionId: "faq",
+      title: question,
+      text: normalizeText(question + " " + answer),
+      snippet: answer,
+      target: q.closest(".faq-item"),
+      isAccordion: false,
+      faqQuestion: q
+    });
+  });
+
+  BIG_SECTIONS.forEach(function (id) {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const sectionTitle = stripHtml(section.querySelector("h2")) || id;
+    section.querySelectorAll("h2, h3, p").forEach(function (el) {
+      const text = stripHtml(el);
+      if (!text) return;
+      searchIndex.push({
+        sectionId: id,
+        title: sectionTitle,
+        text: normalizeText(text),
+        snippet: text,
+        target: section,
+        isAccordion: false,
+        faqQuestion: null
+      });
+    });
+  });
+
+  /* --- Overlay de pesquisa --- */
+  const searchOverlay = document.getElementById("searchOverlay");
+  const searchToggle = document.getElementById("searchToggle");
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
+  let lastFocused = null;
+  let debounceTimer = null;
+  let activeResultIdx = -1;
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  function t(key, fallback) {
+    const lang = getCurrentLang();
+    const dict = typeof translations !== "undefined" ? translations[lang] : null;
+    return (dict && dict[key]) || fallback;
+  }
+
+  function buildSnippet(snippet, term) {
+    const normSnippet = normalizeText(snippet);
+    const idx = normSnippet.indexOf(term);
+    if (idx === -1) {
+      return escapeHtml(snippet.slice(0, 140)) + (snippet.length > 140 ? "…" : "");
+    }
+    const start = Math.max(0, idx - 40);
+    const end = Math.min(snippet.length, idx + term.length + 60);
+    const before = (start > 0 ? "…" : "") + snippet.slice(start, idx);
+    const match = snippet.slice(idx, idx + term.length);
+    const after =
+      snippet.slice(idx + term.length, end) + (end < snippet.length ? "…" : "");
+    return (
+      escapeHtml(before) +
+      "<mark>" +
+      escapeHtml(match) +
+      "</mark>" +
+      escapeHtml(after)
+    );
+  }
+
+  function renderResults(term) {
+    searchResults.innerHTML = "";
+    activeResultIdx = -1;
+
+    if (!term) {
+      const li = document.createElement("li");
+      li.className = "search-overlay__empty";
+      li.textContent = t(
+        "search.hint",
+        "Tenta: solar, água quente, cama, wifi..."
+      );
+      searchResults.appendChild(li);
+      return;
+    }
+
+    const matches = [];
+    for (let i = 0; i < searchIndex.length && matches.length < 10; i++) {
+      if (searchIndex[i].text.indexOf(term) !== -1) {
+        matches.push(searchIndex[i]);
+      }
+    }
+
+    if (!matches.length) {
+      const li = document.createElement("li");
+      li.className = "search-overlay__empty";
+      li.textContent = t("search.noResults", "Sem resultados.");
+      searchResults.appendChild(li);
+      return;
+    }
+
+    matches.forEach(function (entry) {
+      const li = document.createElement("li");
+      li.className = "search-overlay__result";
+      li.setAttribute("role", "option");
+      li.setAttribute("data-section", entry.sectionId);
+      li.innerHTML =
+        '<span class="search-overlay__result-title">' +
+        escapeHtml(entry.title) +
+        "</span>" +
+        '<span class="search-overlay__result-snippet">' +
+        buildSnippet(entry.snippet, term) +
+        "</span>";
+      li.addEventListener("click", function () {
+        closeSearch();
+        if (entry.faqQuestion) {
+          if (entry.faqQuestion.getAttribute("aria-expanded") !== "true") {
+            entry.faqQuestion.click();
+          }
+          scrollToTarget(entry.target);
+        } else if (entry.isAccordion) {
+          goToSection(entry.sectionId);
+        } else {
+          scrollToTarget(entry.target);
+        }
+      });
+      searchResults.appendChild(li);
+    });
+  }
+
+  function openSearch() {
+    lastFocused = document.activeElement;
+    searchOverlay.hidden = false;
+    searchToggle.setAttribute("aria-expanded", "true");
+    document.body.style.overflow = "hidden";
+    searchInput.value = "";
+    renderResults("");
+    searchInput.focus();
+  }
+
+  function closeSearch() {
+    searchOverlay.hidden = true;
+    searchToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+    if (lastFocused && typeof lastFocused.focus === "function") {
+      lastFocused.focus();
+    }
+  }
+
+  if (searchOverlay && searchToggle && searchInput && searchResults) {
+    searchToggle.addEventListener("click", openSearch);
+
+    searchOverlay
+      .querySelectorAll("[data-search-close]")
+      .forEach(function (el) {
+        el.addEventListener("click", closeSearch);
+      });
+
+    searchInput.addEventListener("input", function () {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function () {
+        renderResults(normalizeText(searchInput.value.trim()));
+      }, 120);
+    });
+
+    document.addEventListener("keydown", function (e) {
+      const isOpen = !searchOverlay.hidden;
+      if (e.key === "/" && !isOpen) {
+        const tag = document.activeElement
+          ? document.activeElement.tagName.toLowerCase()
+          : "";
+        if (tag !== "input" && tag !== "textarea") {
+          e.preventDefault();
+          openSearch();
+        }
+        return;
+      }
+      if (!isOpen) return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeSearch();
+      } else if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+        const items = searchResults.querySelectorAll(
+          ".search-overlay__result"
+        );
+        if (!items.length) return;
+        e.preventDefault();
+        activeResultIdx =
+          e.key === "ArrowDown"
+            ? Math.min(activeResultIdx + 1, items.length - 1)
+            : Math.max(activeResultIdx - 1, 0);
+        items.forEach(function (item, i) {
+          item.classList.toggle("is-active", i === activeResultIdx);
+        });
+        items[activeResultIdx].scrollIntoView({ block: "nearest" });
+      } else if (e.key === "Enter" && activeResultIdx >= 0) {
+        const items = searchResults.querySelectorAll(
+          ".search-overlay__result"
+        );
+        if (items[activeResultIdx]) {
+          items[activeResultIdx].click();
+        }
+      }
+    });
+  }
+
 })();

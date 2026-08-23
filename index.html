@@ -40,6 +40,12 @@
         </ul>
       </nav>
       <div class="header__controls">
+        <button id="searchToggle" class="header-search" aria-label="Pesquisar" aria-haspopup="dialog" aria-expanded="false">
+          <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" focusable="false">
+            <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
         <div class="language-switcher" role="group" aria-label="Seletor de idioma">
           <button class="language-switcher__current" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma atual: Português">
             <span class="language-switcher__flag">🇵🇹</span>
@@ -236,6 +242,15 @@
             </p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Índice visual do manual -->
+    <section id="indice" class="manual-index">
+      <div class="manual-index__container">
+        <h2 class="manual-index__title" data-i18n="index.title">📖 Índice do Manual</h2>
+        <p class="manual-index__intro" data-i18n="index.intro">Salta diretamente para a secção que precisas — o capítulo abre-se automaticamente.</p>
+        <div class="manual-index__grid" id="manualIndexGrid"></div>
       </div>
     </section>
 
@@ -671,6 +686,22 @@
       <p class="footer__meta" data-i18n="footer.copyright">Manual da Campervan — 2025</p>
     </div>
   </footer>
+
+  <!-- Search Overlay -->
+  <div id="searchOverlay" class="search-overlay" role="dialog" aria-modal="true" aria-label="Pesquisar no manual" hidden>
+    <div class="search-overlay__backdrop" data-search-close></div>
+    <div class="search-overlay__panel">
+      <div class="search-overlay__bar">
+        <svg class="search-overlay__icon" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
+          <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="searchInput" class="search-overlay__input" type="text" placeholder="Pesquisar no manual..." autocomplete="off" data-i18n-placeholder="search.placeholder">
+        <button class="search-overlay__close" aria-label="Fechar pesquisa" data-search-close>✕</button>
+      </div>
+      <ul id="searchResults" class="search-overlay__results" role="listbox"></ul>
+    </div>
+  </div>
 
   <script src="js/translations.js"></script>
   <script src="js/main.js"></script>

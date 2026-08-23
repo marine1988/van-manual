@@ -14,6 +14,22 @@ const translations = {
     "about.return.wc": "<strong>WC não limpa:</strong> debitar 50 € da caução",
     "about.return.diesel": "<strong>Depósito de diesel não atestado:</strong> debitar 30 € mais o custo do diesel necessário para atestar, da caução",
     "about.return.viaverde": "<strong>Via Verde (portagens):</strong> a carrinha tem Via Verde para passares nas portagens sem parar. Após a entrega, são retidos 100 € da caução para portagens durante uma semana. Se não houver gastos, o valor é devolvido na totalidade; se houver (ex.: 50 € em portagens), é devolvido o restante (ex.: 50 €).",
+
+    "search.placeholder": "Pesquisar no manual...",
+    "search.noResults": "Sem resultados. Tenta outra palavra.",
+    "search.hint": "Tenta: solar, água quente, cama, wifi...",
+
+    "index.title": "📖 Índice do Manual",
+    "index.intro": "Salta diretamente para a secção que precisas — o capítulo abre-se automaticamente.",
+    "index.cards.eletrico": "Painéis solares, baterias, USB e tomadas",
+    "index.cards.agua": "Depósitos, água quente e chuveiros",
+    "index.cards.aquecimento": "Aquecedor a gasóleo KROAK — como ligar",
+    "index.cards.cozinha": "Fogão, frigorífico, café e louça",
+    "index.cards.cama": "Como montar as 3 dormidas",
+    "index.cards.wc": "Casa de banho e químicos",
+    "index.cards.ventilacao": "Janelas, clarabóias e ventoinhas",
+    "index.cards.exterior": "Luzes, mangueiras e ligações externas",
+    "index.cards.controlo": "Painel de controlo e disjuntores",
   }, // português é o default (texto no HTML)
 
   en: {
@@ -243,6 +259,22 @@ const translations = {
 
     "footer.madeBy": "Made by Rogério",
     "footer.copyright": "Campervan Manual — 2025",
+
+    "search.placeholder": "Search the manual...",
+    "search.noResults": "No results. Try another word.",
+    "search.hint": "Try: solar, hot water, bed, wifi...",
+
+    "index.title": "📖 Manual Index",
+    "index.intro": "Jump straight to the section you need — the chapter opens automatically.",
+    "index.cards.eletrico": "Solar panels, battery, USB and sockets",
+    "index.cards.agua": "Tanks, hot water and showers",
+    "index.cards.aquecimento": "Diesel heater KROAK — how to switch on",
+    "index.cards.cozinha": "Hob, fridge, coffee and dishes",
+    "index.cards.cama": "How to set up the 3 beds",
+    "index.cards.wc": "Bathroom and chemicals",
+    "index.cards.ventilacao": "Windows, skylights and fans",
+    "index.cards.exterior": "Lights, hoses and external connections",
+    "index.cards.controlo": "Control panel and circuit breakers",
   },
 
   fr: {
@@ -472,6 +504,22 @@ const translations = {
 
     "footer.madeBy": "Fabriqué par Rogério",
     "footer.copyright": "Manuel du Campervan — 2025",
+
+    "search.placeholder": "Rechercher dans le manuel...",
+    "search.noResults": "Aucun résultat. Essayez un autre mot.",
+    "search.hint": "Essayez : solaire, eau chaude, lit, wifi...",
+
+    "index.title": "📖 Index du Manuel",
+    "index.intro": "Accédez directement à la section souhaitée — le chapitre s'ouvre automatiquement.",
+    "index.cards.eletrico": "Panneaux solaires, batterie, USB et prises",
+    "index.cards.agua": "Réservoirs, eau chaude et douches",
+    "index.cards.aquecimento": "Chauffage diesel KROAK — comment l'allumer",
+    "index.cards.cozinha": "Réchaud, frigo, café et vaisselle",
+    "index.cards.cama": "Comment installer les 3 couchages",
+    "index.cards.wc": "Salle de bain et produits chimiques",
+    "index.cards.ventilacao": "Fenêtres, lanterneaux et ventilateurs",
+    "index.cards.exterior": "Lumières, tuyaux et branchements extérieurs",
+    "index.cards.controlo": "Panneau de contrôle et disjoncteurs",
   },
 
   es: {
@@ -701,6 +749,22 @@ const translations = {
 
     "footer.madeBy": "Hecho por Rogério",
     "footer.copyright": "Manual de la Autocaravana — 2025",
+
+    "search.placeholder": "Buscar en el manual...",
+    "search.noResults": "Sin resultados. Prueba otra palabra.",
+    "search.hint": "Prueba: solar, agua caliente, cama, wifi...",
+
+    "index.title": "📖 Índice del Manual",
+    "index.intro": "Ve directamente a la sección que necesitas — el capítulo se abre automáticamente.",
+    "index.cards.eletrico": "Paneles solares, batería, USB y enchufes",
+    "index.cards.agua": "Depósitos, agua caliente y duchas",
+    "index.cards.aquecimento": "Calefacción diésel KROAK — cómo encender",
+    "index.cards.cozinha": "Fogón, nevera, café y vajilla",
+    "index.cards.cama": "Cómo montar las 3 camas",
+    "index.cards.wc": "Baño y productos químicos",
+    "index.cards.ventilacao": "Ventanas, claraboyas y ventiladores",
+    "index.cards.exterior": "Luces, mangueras y conexiones exteriores",
+    "index.cards.controlo": "Panel de control e interruptores",
   },
 
   de: {
@@ -930,6 +994,22 @@ const translations = {
 
     "footer.madeBy": "Gemacht von Rogério",
     "footer.copyright": "Campervan-Handbuch — 2025",
+
+    "search.placeholder": "Handbuch durchsuchen...",
+    "search.noResults": "Keine Ergebnisse. Versuche ein anderes Wort.",
+    "search.hint": "Versuche: Solar, Warmwasser, Bett, WLAN...",
+
+    "index.title": "📖 Handbuch-Index",
+    "index.intro": "Spring direkt zum Kapitel, das du brauchst — es öffnet sich automatisch.",
+    "index.cards.eletrico": "Solarmodule, Batterie, USB und Steckdosen",
+    "index.cards.agua": "Tanks, Warmwasser und Duschen",
+    "index.cards.aquecimento": "Dieselheizung KROAK — so einschalten",
+    "index.cards.cozinha": "Herd, Kühlschrank, Kaffee und Geschirr",
+    "index.cards.cama": "So baust du die 3 Schlafplätze auf",
+    "index.cards.wc": "Bad und Chemie",
+    "index.cards.ventilacao": "Fenster, Dachhauben und Lüfter",
+    "index.cards.exterior": "Lichter, Schläuche und Außenanschlüsse",
+    "index.cards.controlo": "Bedienpanel und Sicherungen",
   },
 };
 
@@ -940,6 +1020,12 @@ function applyTranslations(lang) {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
       el.innerHTML = dict[key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (dict[key]) {
+      el.setAttribute('placeholder', dict[key]);
     }
   });
   if (dict['meta.title']) {
