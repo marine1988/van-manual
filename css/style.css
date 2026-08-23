@@ -721,30 +721,35 @@ ul {
 .hero__subtitle { font-size: 1rem; }
 .hero__cta { font-size: 0.95rem; padding: 12px 20px; }
 
-/* Language switcher dropdown: hidden by default, shown via aria-expanded */
+/* Language switcher dropdown: hidden by default, shown via aria-expanded.
+   Absolute positioning em todos os breakpoints — antes, no desktop (>=768px) o
+   dropdown abria no fluxo de um header de altura fixa com flex-center, transbordando
+   pelo topo e deixando a opção "Portugues" fora do viewport (bug descoberto nos
+   testes da fase 2). */
+.language-switcher {
+  position: relative;
+}
+
 .language-switcher__dropdown {
   display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 200;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
 }
 
 .language-switcher__current[aria-expanded="true"] ~ .language-switcher__dropdown {
   display: block;
 }
 
-/* Mobile language switcher: always show dropdown above other content */
+/* Mobile: garantir que o dropdown fica acima do menu hamburger quando aberto */
 @media (max-width: 768px) {
   .header__controls { position: relative; z-index: 100; }
-  .language-switcher { position: relative; }
-  .language-switcher__dropdown {
-    position: absolute;
-    right: 0;
-    top: 100%;
-    z-index: 200;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-lg);
-    min-width: 180px;
-  }
 }
 
 /* Tablets (≥640px) */
