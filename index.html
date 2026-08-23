@@ -254,301 +254,76 @@
       </div>
     </section>
 
-    <!-- Secções do Manual (Accordion) -->
+    <!-- Secções do Manual (Tabs) -->
     <section class="manual">
       <div class="manual__container">
 
-        <!-- 1. Elétrico -->
-        <article id="eletrico" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">⚡</span>
-            <span class="accordion__title" data-i18n="sections.eletrico.title">Sistema Elétrico</span>
-            <span class="accordion__arrow">▼</span>
+        <!-- Barra de tabs dos capítulos do manual -->
+        <div class="manual-tabs" role="tablist" aria-label="Capítulos do manual">
+          <button type="button" class="manual-tabs__btn is-active" id="tab-eletrico" role="tab" aria-selected="true" aria-controls="eletrico" data-target="eletrico">
+            <span class="manual-tabs__icon">⚡</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.eletrico.title">Sistema Elétrico</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.eletrico">Elétrico</span>
           </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <p data-i18n="sections.eletrico.p1">
-                Aguenta <strong>2 dias sem sol</strong> com energia para o frigorífico, as luzes e carregar o telemóvel.
-                E se a carrinha estiver ao sol ou a andar, não precisa de estar ligada à tomada: os painéis solares e o alternador tratam de carregar.
-                A campervan tem três formas de carregar a bateria: painéis solares (590 W), alternador da viatura e ligação à rede 220 V.
-              </p>
-              <figure class="accordion__img">
-                <img src="img/van/van-solar-tejadilho.webp" width="1400" height="1050" alt="Painel solar montado no tejadilho da van" loading="lazy">
-                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Painel solar no tejadilho — carrega a bateria sempre que há sol, sem precisar de tomada</figcaption>
-              </figure>
-              <h4 data-i18n="sections.eletrico.usbTitle">USB e tomadas</h4>
-              <ul>
-                <li data-i18n="sections.eletrico.usb.1">20 portas USB no total, sendo 8 USB-C.</li>
-                <li data-i18n="sections.eletrico.usb.2">Conjuntos de USB-C e USB-A junto à cama e na cozinha.</li>
-                <li data-i18n="sections.eletrico.usb.3">Disponíveis cabos tipo-C, micro USB e outros para uso imediato.</li>
-                <li data-i18n="sections.eletrico.usb.4">Algumas tomadas USB têm botão de ligar/desligar.</li>
-              </ul>
-              <h4 data-i18n="sections.eletrico.lightsTitle">Luzes</h4>
-              <ul>
-                <li data-i18n="sections.eletrico.lights.1">Luzes interiores: vermelha, azul e laranja (ambiente).</li>
-                <li data-i18n="sections.eletrico.lights.2">Luz específica para a cozinha.</li>
-                <li data-i18n="sections.eletrico.lights.3">Luz exterior.</li>
-                <li data-i18n="sections.eletrico.lights.4">Luz no compartimento dos sapatos e no painel de água.</li>
-              </ul>
-              <h4 data-i18n="sections.eletrico.socketsTitle">Tomadas 220 V / 12 V</h4>
-              <ul>
-                <li data-i18n="sections.eletrico.sockets.1">Tomadas 220 V para máquina de café, fogão elétrico e micro-ondas.</li>
-                <li data-i18n="sections.eletrico.sockets.2">Apenas um destes aparelhos pode funcionar de cada vez.</li>
-                <li data-i18n="sections.eletrico.sockets.3">Tomada 12 V disponível na casa de banho.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
+          <button type="button" class="manual-tabs__btn" id="tab-agua" role="tab" tabindex="-1" aria-selected="false" aria-controls="agua" data-target="agua">
+            <span class="manual-tabs__icon">🚿</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.agua.title">Água & Chuveiro</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.agua">Água</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-aquecimento" role="tab" tabindex="-1" aria-selected="false" aria-controls="aquecimento" data-target="aquecimento">
+            <span class="manual-tabs__icon">🔥</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.aquecimento.title">Aquecimento</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.aquecimento">Calor</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-cozinha" role="tab" tabindex="-1" aria-selected="false" aria-controls="cozinha" data-target="cozinha">
+            <span class="manual-tabs__icon">☕</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.cozinha.title">Cozinha</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.cozinha">Cozinha</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-cama" role="tab" tabindex="-1" aria-selected="false" aria-controls="cama" data-target="cama">
+            <span class="manual-tabs__icon">🛏️</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.cama.title">Cama & Mesa</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.cama">Cama</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-wc" role="tab" tabindex="-1" aria-selected="false" aria-controls="wc" data-target="wc">
+            <span class="manual-tabs__icon">🚽</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.wc.title">WC</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.wc">WC</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-ventilacao" role="tab" tabindex="-1" aria-selected="false" aria-controls="ventilacao" data-target="ventilacao">
+            <span class="manual-tabs__icon">🌬️</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.ventilacao.title">Ventilação</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.ventilacao">Ventilação</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-exterior" role="tab" tabindex="-1" aria-selected="false" aria-controls="exterior" data-target="exterior">
+            <span class="manual-tabs__icon">🔧</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.exterior.title">Exterior</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.exterior">Exterior</span>
+          </button>
+          <button type="button" class="manual-tabs__btn" id="tab-controlo" role="tab" tabindex="-1" aria-selected="false" aria-controls="controlo" data-target="controlo">
+            <span class="manual-tabs__icon">📊</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.controlo.title">Controlo Elétrico</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.controlo">Controlo</span>
+          </button>
+        </div>
+
+        <!-- 1. Elétrico -->
 
         <!-- 2. Água -->
-        <article id="agua" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🚿</span>
-            <span class="accordion__title" data-i18n="sections.agua.title">Água & Chuveiro</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.agua.cleanTitle">Depósito de água limpa</h4>
-              <ul>
-                <li data-i18n="sections.agua.clean.1">Entrega sempre cheio.</li>
-                <li data-i18n="sections.agua.clean.2">Encher pela entrada exterior até a água começar a sair — não encher até ao topo para evitar fugas.</li>
-                <li data-i18n="sections.agua.clean.3">Botão de segurança da bomba: desliga a bomba se ficar sem água ou se a bomba não parar.</li>
-              </ul>
-              <h4 data-i18n="sections.agua.hotTitle">Água quente</h4>
-              <ul>
-                <li data-i18n="sections.agua.hot.1">Ligar o esquentador no painel interior.</li>
-                <li data-i18n="sections.agua.hot.2">Demora cerca de 1 hora a aquecer.</li>
-                <li data-i18n="sections.agua.hot.3">Desligar após o duche, exceto se houver sol abundante e bateria suficiente.</li>
-              </ul>
-              <h4 data-i18n="sections.agua.showerTitle">Chuveiros</h4>
-              <ul>
-                <li data-i18n="sections.agua.shower.1">Chuveiro interior com água quente e fria na casa de banho.</li>
-                <li data-i18n="sections.agua.shower.2">Chuveiro exterior de água fria na mala traseira (opcional de aluguer).</li>
-                <li data-i18n="sections.agua.shower.3">Usar a cortina da casa de banho para não molhar o interior.</li>
-              </ul>
-              <h4 data-i18n="sections.agua.greyTitle">Águas cinzentas</h4>
-              <ul>
-                <li data-i18n="sections.agua.grey.1">Depósito de águas cinzentas na parte inferior traseira do lado direito.</li>
-                <li data-i18n="sections.agua.grey.2">Abrir a válvula para esvaziar.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 3. Aquecimento -->
-        <article id="aquecimento" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🔥</span>
-            <span class="accordion__title" data-i18n="sections.aquecimento.title">Aquecimento</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <p data-i18n="sections.aquecimento.p1">
-                Aquecimento a gasóleo KROAK F1 (diesel heater) com saída de ar quente no interior — ideal para épocas frias: em minutos a carrinha fica quente, sem gastar eletricidade.
-              </p>
-              <ul>
-                <li data-i18n="sections.aquecimento.1">Premir e segurar o botão de energia durante 2 segundos para ligar.</li>
-                <li data-i18n="sections.aquecimento.2">Usar as teclas + e - para ajustar: no modo manual escolhe a potência (H1 a H6, H6 = máxima); no modo automático escolhe a temperatura (0 a 40 °C).</li>
-                <li data-i18n="sections.aquecimento.3">Para alternar entre modo manual e automático, premir e segurar a tecla Mode durante 2 segundos.</li>
-                <li data-i18n="sections.aquecimento.4">O ar quente começa a sair 3-5 minutos após ligar (fase de pré-aquecimento e ignição) — é normal, ter paciência. O barulho da bomba no exterior também é normal.</li>
-                <li data-i18n="sections.aquecimento.5">Premir e segurar o botão de energia até aparecer OFF. NÃO cortar a energia: a ventoinha continua 3-5 minutos a arrefecer o aparelho — desligar a energia antes disso pode danificar o aquecedor.</li>
-                <li data-i18n="sections.aquecimento.6">Com o aquecedor desligado, premir e segurar a tecla de engrenagem 2 segundos para só ventilar (sem aquecimento); + e - mudam a velocidade; premir engrenagem ou energia 2s para sair.</li>
-                <li data-i18n="sections.aquecimento.7">Em zonas de montanha (acima de ~3000m), premir e segurar engrenagem + OK durante 2 segundos para ativar o modo planalto (aparece o ícone de montanha).</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 4. Cozinha -->
-        <article id="cozinha" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">☕</span>
-            <span class="accordion__title" data-i18n="sections.cozinha.title">Cozinha</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.cozinha.fridgeTitle">Frigorífico</h4>
-              <ul>
-                <li data-i18n="sections.cozinha.fridge.1">Frigorífico de 93 L a 220 V.</li>
-                <li data-i18n="sections.cozinha.fridge.2">Parte inferior para refrigerados, parte superior para congelados.</li>
-                <li data-i18n="sections.cozinha.fridge.3">Tem uma cinta de segurança — colocar antes de conduzir.</li>
-              </ul>
-              <h4 data-i18n="sections.cozinha.coffeeTitle">Máquina de café</h4>
-              <ul>
-                <li data-i18n="sections.cozinha.coffee.1">Máquina Dolce Gusto: as cápsulas compram-se em qualquer supermercado.</li>
-                <li data-i18n="sections.cozinha.coffee.2">Vem com cápsulas de oferta: café, leite com chocolate e capuccino, para começares já.</li>
-              </ul>
-              <h4 data-i18n="sections.cozinha.cookerTitle">Fogão elétrico</h4>
-              <ul>
-                <li data-i18n="sections.cozinha.cooker.1">2 bicos elétricos.</li>
-                <li data-i18n="sections.cozinha.cooker.2">Se usar os dois bicos, regular até ao nível 3 (máximo).</li>
-                <li data-i18n="sections.cozinha.cooker.3">Se usar um bico, pode usar até ao nível 4 ou 5.</li>
-                <li data-i18n="sections.cozinha.cooker.4">Nunca colocar no máximo — a eletricidade pode cair e é necessário esperar que volte.</li>
-              </ul>
-              <h4 data-i18n="sections.cozinha.utensilsTitle">Louça e utensílios</h4>
-              <ul>
-                <li data-i18n="sections.cozinha.utensils.1">Talheres completos: garfos, facas, colheres, etc.</li>
-                <li data-i18n="sections.cozinha.utensils.2">Copos e taças.</li>
-                <li data-i18n="sections.cozinha.utensils.3">Abridor de vinho, cortadores e outros acessórios.</li>
-                <li data-i18n="sections.cozinha.utensils.4">Papel de cozinha e produtos de limpeza.</li>
-              </ul>
-              <h4 data-i18n="sections.cozinha.powerTitle">Restrições de energia</h4>
-              <ul>
-                <li data-i18n="sections.cozinha.power.1">Máquina de café, fogão elétrico e micro-ondas funcionam um de cada vez.</li>
-                <li data-i18n="sections.cozinha.power.2">Cuidado com o nível da bateria ao usar estes aparelhos.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 5. Cama -->
-        <article id="cama" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🛏️</span>
-            <span class="accordion__title" data-i18n="sections.cama.title">Cama & Mesa</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.cama.tableTitle">Mesa</h4>
-              <ul>
-                <li data-i18n="sections.cama.table.1">A mesa pode ser removida para converter o espaço em cama.</li>
-                <li data-i18n="sections.cama.table.2">Desapertar, premir e rodar o mecanismo para soltar o tampo.</li>
-                <li data-i18n="sections.cama.table.3">Retirar a perna e guardar as partes.</li>
-              </ul>
-              <figure class="accordion__img">
-                <img src="img/van/van-01.webp" width="1200" height="800" alt="Interior da van — área de jantar com mesa montada e bancos, o espaço de convívio diurno" loading="lazy">
-                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Área de jantar — de dia, é mesa e bancos; de noite, transforma-se em cama</figcaption>
-              </figure>
-              <h4 data-i18n="sections.cama.bedTitle">Como fazer a cama</h4>
-              <ul>
-                <li data-i18n="sections.cama.bed.1">Retirar o tampo da mesa e colocá-lo no espaço entre os sofás.</li>
-                <li data-i18n="sections.cama.bed.2">O maior sofá fica do lado da água; o menor do lado elétrico.</li>
-                <li data-i18n="sections.cama.bed.3">Colocar as chapas de madeira e depois os lençóis.</li>
-                <li data-i18n="sections.cama.bed.4">A cama deve ser desfeita durante o dia para permitir o uso da mesa.</li>
-              </ul>
-              <figure class="accordion__img">
-                <img src="img/van/van-02.webp" width="1200" height="800" alt="Interior da van — cama traseira arrumada com ventoinha de tecto e clarabóia, o espaço de dormir" loading="lazy">
-                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Cama traseira (145×184 cm) com ventoinha e clarabóia — dormida tranquila mesmo em noites quentes</figcaption>
-              </figure>
-            </div>
-          </div>
-        </article>
 
         <!-- 6. WC -->
-        <article id="wc" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🚽</span>
-            <span class="accordion__title" data-i18n="sections.wc.title">WC</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.wc.toiletTitle">Sanita</h4>
-              <ul>
-                <li data-i18n="sections.wc.toilet.1">Abrir a sanita antes de usar.</li>
-                <li data-i18n="sections.wc.toilet.2">Usar o líquido azul para descarga e controlo de odores.</li>
-                <li data-i18n="sections.wc.toilet.3">Papel higiénico disponível.</li>
-              </ul>
-              <h4 data-i18n="sections.wc.showerTitle">Chuveiro</h4>
-              <ul>
-                <li data-i18n="sections.wc.shower.1">Chuveiro interior com água quente e fria.</li>
-                <li data-i18n="sections.wc.shower.2">Usar a cortina para reter a água dentro da zona de duche.</li>
-                <li data-i18n="sections.wc.shower.3">As paredes da zona de duche são preparadas para água; as restantes não.</li>
-              </ul>
-              <h4 data-i18n="sections.wc.storageTitle">Arrumação</h4>
-              <ul>
-                <li data-i18n="sections.wc.storage.1">Ganchos para toalhas e objetos.</li>
-                <li data-i18n="sections.wc.storage.2">Prateleira para champô e produtos.</li>
-                <li data-i18n="sections.wc.storage.3">Lixeira e produtos de limpeza.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 7. Ventilação -->
-        <article id="ventilacao" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🌬️</span>
-            <span class="accordion__title" data-i18n="sections.ventilacao.title">Ventilação</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.ventilacao.roofTitle">Clarabóia</h4>
-              <ul>
-                <li data-i18n="sections.ventilacao.roof.1">Clarabóia com ventoinha elétrica e comando remoto.</li>
-                <li data-i18n="sections.ventilacao.roof.2">Botão grande para abrir até à posição desejada.</li>
-                <li data-i18n="sections.ventilacao.roof.3">Modo de entrada de ar (interior) ou saída de ar (exterior).</li>
-                <li data-i18n="sections.ventilacao.roof.4">Recomendado modo saída ao duchar; modo entrada ao cozinhar (com janela aberta).</li>
-                <li data-i18n="sections.ventilacao.roof.5">Modo blackout para bloquear a luz exterior.</li>
-                <li data-i18n="sections.ventilacao.roof.6">Modo rede para manter aberta sem insetos.</li>
-              </ul>
-              <h4 data-i18n="sections.ventilacao.windowsTitle">Janelas</h4>
-              <ul>
-                <li data-i18n="sections.ventilacao.windows.1">Janelas com abertura em duas posições clicáveis.</li>
-                <li data-i18n="sections.ventilacao.windows.2">Modo blackout e modo rede anti-insetos.</li>
-                <li data-i18n="sections.ventilacao.windows.3">Para fechar, puxar para cima em vez de empurrar.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 8. Exterior -->
-        <article id="exterior" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">🔧</span>
-            <span class="accordion__title" data-i18n="sections.exterior.title">Exterior</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <h4 data-i18n="sections.exterior.connectionsTitle">Ligações</h4>
-              <ul>
-                <li data-i18n="sections.exterior.connections.1">Conector 220 V para ligar à rede elétrica (cabo e adaptadores na mala).</li>
-                <li data-i18n="sections.exterior.connections.2">Entrada de água limpa.</li>
-                <li data-i18n="sections.exterior.connections.3">Entrada de gasóleo — não confundir com a entrada de água.</li>
-                <li data-i18n="sections.exterior.connections.4">Câmara de marcha-atrás.</li>
-                <li data-i18n="sections.exterior.connections.5">Via Verde — passas nas portagens sem parar. As portagens são depois descontadas da caução (ver "Condições de devolução").</li>
-              </ul>
-              <h4 data-i18n="sections.exterior.trunkTitle">Mala traseira</h4>
-              <ul>
-                <li data-i18n="sections.exterior.trunk.1">Mesa desmontável e cadeiras (3 cadeiras: 1 pequena + 2 grandes).</li>
-                <li data-i18n="sections.exterior.trunk.2">Calços para nivelar as rodas.</li>
-                <li data-i18n="sections.exterior.trunk.3">Cordas para transporte de carga exterior (ex: scooter).</li>
-                <li data-i18n="sections.exterior.trunk.4">Tenda (nova, opcional de aluguer) e chuveiro exterior.</li>
-                <li data-i18n="sections.exterior.trunk.5">Pá, ferramentas básicas e acessórios de água/eletricidade.</li>
-                <li data-i18n="sections.exterior.trunk.6">Guarda-sol.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
         <!-- 9. Controlo -->
-        <article id="controlo" class="accordion">
-          <button class="accordion__header" aria-expanded="false">
-            <span class="accordion__icon">📊</span>
-            <span class="accordion__title" data-i18n="sections.controlo.title">Controlo Elétrico</span>
-            <span class="accordion__arrow">▼</span>
-          </button>
-          <div class="accordion__body">
-            <div class="accordion__content">
-              <p data-i18n="sections.controlo.p1">
-                Painel de controlo elétrico no lado direito da viatura, junto aos sofás.
-              </p>
-              <ul>
-                <li data-i18n="sections.controlo.1">Mostra o consumo, produção solar e nível da bateria (315 Ah).</li>
-                <li data-i18n="sections.controlo.2">Corte geral (botão vermelho): desliga toda a eletricidade da campervan em emergência.</li>
-                <li data-i18n="sections.controlo.3">Botão do inversor 220 V: ligar/desligar a parte 220 V e solar.</li>
-                <li data-i18n="sections.controlo.4">Se houver erro no painel solar/inversor, desligar e voltar a ligar.</li>
-                <li data-i18n="sections.controlo.5">Sensores de fumo e água instalados.</li>
-              </ul>
-            </div>
-          </div>
-        </article>
 
       </div>
     </section>
@@ -593,6 +368,261 @@
           <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.android">🤖 Android (Google Play)</a>
           <a href="https://apps.apple.com/app/jbd-bms/id6449322803" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.ios">🍎 iPhone (App Store)</a>
         </div>
+        <!-- Sistema Elétrico -->
+        <article id="eletrico" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-eletrico">
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.eletrico.title">Sistema Elétrico</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <p data-i18n="sections.eletrico.p1">
+                Aguenta <strong>2 dias sem sol</strong> com energia para o frigorífico, as luzes e carregar o telemóvel.
+                E se a carrinha estiver ao sol ou a andar, não precisa de estar ligada à tomada: os painéis solares e o alternador tratam de carregar.
+                A campervan tem três formas de carregar a bateria: painéis solares (590 W), alternador da viatura e ligação à rede 220 V.
+              </p>
+              <figure class="accordion__img">
+                <img src="img/van/van-solar-tejadilho.webp" width="1400" height="1050" alt="Painel solar montado no tejadilho da van" loading="lazy">
+                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Painel solar no tejadilho — carrega a bateria sempre que há sol, sem precisar de tomada</figcaption>
+              </figure>
+              <h4 data-i18n="sections.eletrico.usbTitle">USB e tomadas</h4>
+              <ul>
+                <li data-i18n="sections.eletrico.usb.1">20 portas USB no total, sendo 8 USB-C.</li>
+                <li data-i18n="sections.eletrico.usb.2">Conjuntos de USB-C e USB-A junto à cama e na cozinha.</li>
+                <li data-i18n="sections.eletrico.usb.3">Disponíveis cabos tipo-C, micro USB e outros para uso imediato.</li>
+                <li data-i18n="sections.eletrico.usb.4">Algumas tomadas USB têm botão de ligar/desligar.</li>
+              </ul>
+              <h4 data-i18n="sections.eletrico.lightsTitle">Luzes</h4>
+              <ul>
+                <li data-i18n="sections.eletrico.lights.1">Luzes interiores: vermelha, azul e laranja (ambiente).</li>
+                <li data-i18n="sections.eletrico.lights.2">Luz específica para a cozinha.</li>
+                <li data-i18n="sections.eletrico.lights.3">Luz exterior.</li>
+                <li data-i18n="sections.eletrico.lights.4">Luz no compartimento dos sapatos e no painel de água.</li>
+              </ul>
+              <h4 data-i18n="sections.eletrico.socketsTitle">Tomadas 220 V / 12 V</h4>
+              <ul>
+                <li data-i18n="sections.eletrico.sockets.1">Tomadas 220 V para máquina de café, fogão elétrico e micro-ondas.</li>
+                <li data-i18n="sections.eletrico.sockets.2">Apenas um destes aparelhos pode funcionar de cada vez.</li>
+                <li data-i18n="sections.eletrico.sockets.3">Tomada 12 V disponível na casa de banho.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Água & Chuveiro -->
+        <article id="agua" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-agua" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.agua.title">Água & Chuveiro</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.agua.cleanTitle">Depósito de água limpa</h4>
+              <ul>
+                <li data-i18n="sections.agua.clean.1">Entrega sempre cheio.</li>
+                <li data-i18n="sections.agua.clean.2">Encher pela entrada exterior até a água começar a sair — não encher até ao topo para evitar fugas.</li>
+                <li data-i18n="sections.agua.clean.3">Botão de segurança da bomba: desliga a bomba se ficar sem água ou se a bomba não parar.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.hotTitle">Água quente</h4>
+              <ul>
+                <li data-i18n="sections.agua.hot.1">Ligar o esquentador no painel interior.</li>
+                <li data-i18n="sections.agua.hot.2">Demora cerca de 1 hora a aquecer.</li>
+                <li data-i18n="sections.agua.hot.3">Desligar após o duche, exceto se houver sol abundante e bateria suficiente.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.showerTitle">Chuveiros</h4>
+              <ul>
+                <li data-i18n="sections.agua.shower.1">Chuveiro interior com água quente e fria na casa de banho.</li>
+                <li data-i18n="sections.agua.shower.2">Chuveiro exterior de água fria na mala traseira (opcional de aluguer).</li>
+                <li data-i18n="sections.agua.shower.3">Usar a cortina da casa de banho para não molhar o interior.</li>
+              </ul>
+              <h4 data-i18n="sections.agua.greyTitle">Águas cinzentas</h4>
+              <ul>
+                <li data-i18n="sections.agua.grey.1">Depósito de águas cinzentas na parte inferior traseira do lado direito.</li>
+                <li data-i18n="sections.agua.grey.2">Abrir a válvula para esvaziar.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Aquecimento -->
+        <article id="aquecimento" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-aquecimento" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.aquecimento.title">Aquecimento</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <p data-i18n="sections.aquecimento.p1">
+                Aquecimento a gasóleo KROAK F1 (diesel heater) com saída de ar quente no interior — ideal para épocas frias: em minutos a carrinha fica quente, sem gastar eletricidade.
+              </p>
+              <ul>
+                <li data-i18n="sections.aquecimento.1">Premir e segurar o botão de energia durante 2 segundos para ligar.</li>
+                <li data-i18n="sections.aquecimento.2">Usar as teclas + e - para ajustar: no modo manual escolhe a potência (H1 a H6, H6 = máxima); no modo automático escolhe a temperatura (0 a 40 °C).</li>
+                <li data-i18n="sections.aquecimento.3">Para alternar entre modo manual e automático, premir e segurar a tecla Mode durante 2 segundos.</li>
+                <li data-i18n="sections.aquecimento.4">O ar quente começa a sair 3-5 minutos após ligar (fase de pré-aquecimento e ignição) — é normal, ter paciência. O barulho da bomba no exterior também é normal.</li>
+                <li data-i18n="sections.aquecimento.5">Premir e segurar o botão de energia até aparecer OFF. NÃO cortar a energia: a ventoinha continua 3-5 minutos a arrefecer o aparelho — desligar a energia antes disso pode danificar o aquecedor.</li>
+                <li data-i18n="sections.aquecimento.6">Com o aquecedor desligado, premir e segurar a tecla de engrenagem 2 segundos para só ventilar (sem aquecimento); + e - mudam a velocidade; premir engrenagem ou energia 2s para sair.</li>
+                <li data-i18n="sections.aquecimento.7">Em zonas de montanha (acima de ~3000m), premir e segurar engrenagem + OK durante 2 segundos para ativar o modo planalto (aparece o ícone de montanha).</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Cozinha -->
+        <article id="cozinha" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-cozinha" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.cozinha.title">Cozinha</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.cozinha.fridgeTitle">Frigorífico</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.fridge.1">Frigorífico de 93 L a 220 V.</li>
+                <li data-i18n="sections.cozinha.fridge.2">Parte inferior para refrigerados, parte superior para congelados.</li>
+                <li data-i18n="sections.cozinha.fridge.3">Tem uma cinta de segurança — colocar antes de conduzir.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.coffeeTitle">Máquina de café</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.coffee.1">Máquina Dolce Gusto: as cápsulas compram-se em qualquer supermercado.</li>
+                <li data-i18n="sections.cozinha.coffee.2">Vem com cápsulas de oferta: café, leite com chocolate e capuccino, para começares já.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.cookerTitle">Fogão elétrico</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.cooker.1">2 bicos elétricos.</li>
+                <li data-i18n="sections.cozinha.cooker.2">Se usar os dois bicos, regular até ao nível 3 (máximo).</li>
+                <li data-i18n="sections.cozinha.cooker.3">Se usar um bico, pode usar até ao nível 4 ou 5.</li>
+                <li data-i18n="sections.cozinha.cooker.4">Nunca colocar no máximo — a eletricidade pode cair e é necessário esperar que volte.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.utensilsTitle">Louça e utensílios</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.utensils.1">Talheres completos: garfos, facas, colheres, etc.</li>
+                <li data-i18n="sections.cozinha.utensils.2">Copos e taças.</li>
+                <li data-i18n="sections.cozinha.utensils.3">Abridor de vinho, cortadores e outros acessórios.</li>
+                <li data-i18n="sections.cozinha.utensils.4">Papel de cozinha e produtos de limpeza.</li>
+              </ul>
+              <h4 data-i18n="sections.cozinha.powerTitle">Restrições de energia</h4>
+              <ul>
+                <li data-i18n="sections.cozinha.power.1">Máquina de café, fogão elétrico e micro-ondas funcionam um de cada vez.</li>
+                <li data-i18n="sections.cozinha.power.2">Cuidado com o nível da bateria ao usar estes aparelhos.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Cama & Mesa -->
+        <article id="cama" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-cama" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.cama.title">Cama & Mesa</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.cama.tableTitle">Mesa</h4>
+              <ul>
+                <li data-i18n="sections.cama.table.1">A mesa pode ser removida para converter o espaço em cama.</li>
+                <li data-i18n="sections.cama.table.2">Desapertar, premir e rodar o mecanismo para soltar o tampo.</li>
+                <li data-i18n="sections.cama.table.3">Retirar a perna e guardar as partes.</li>
+              </ul>
+              <figure class="accordion__img">
+                <img src="img/van/van-01.webp" width="1200" height="800" alt="Interior da van — área de jantar com mesa montada e bancos, o espaço de convívio diurno" loading="lazy">
+                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Área de jantar — de dia, é mesa e bancos; de noite, transforma-se em cama</figcaption>
+              </figure>
+              <h4 data-i18n="sections.cama.bedTitle">Como fazer a cama</h4>
+              <ul>
+                <li data-i18n="sections.cama.bed.1">Retirar o tampo da mesa e colocá-lo no espaço entre os sofás.</li>
+                <li data-i18n="sections.cama.bed.2">O maior sofá fica do lado da água; o menor do lado elétrico.</li>
+                <li data-i18n="sections.cama.bed.3">Colocar as chapas de madeira e depois os lençóis.</li>
+                <li data-i18n="sections.cama.bed.4">A cama deve ser desfeita durante o dia para permitir o uso da mesa.</li>
+              </ul>
+              <figure class="accordion__img">
+                <img src="img/van/van-02.webp" width="1200" height="800" alt="Interior da van — cama traseira arrumada com ventoinha de tecto e clarabóia, o espaço de dormir" loading="lazy">
+                <figcaption style="padding: 8px 0 0; font-size: 0.85rem; color: var(--color-text-muted);">Cama traseira (145×184 cm) com ventoinha e clarabóia — dormida tranquila mesmo em noites quentes</figcaption>
+              </figure>
+            </div>
+            </div>
+        </article>
+
+        <!-- WC -->
+        <article id="wc" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-wc" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.wc.title">WC</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.wc.toiletTitle">Sanita</h4>
+              <ul>
+                <li data-i18n="sections.wc.toilet.1">Abrir a sanita antes de usar.</li>
+                <li data-i18n="sections.wc.toilet.2">Usar o líquido azul para descarga e controlo de odores.</li>
+                <li data-i18n="sections.wc.toilet.3">Papel higiénico disponível.</li>
+              </ul>
+              <h4 data-i18n="sections.wc.showerTitle">Chuveiro</h4>
+              <ul>
+                <li data-i18n="sections.wc.shower.1">Chuveiro interior com água quente e fria.</li>
+                <li data-i18n="sections.wc.shower.2">Usar a cortina para reter a água dentro da zona de duche.</li>
+                <li data-i18n="sections.wc.shower.3">As paredes da zona de duche são preparadas para água; as restantes não.</li>
+              </ul>
+              <h4 data-i18n="sections.wc.storageTitle">Arrumação</h4>
+              <ul>
+                <li data-i18n="sections.wc.storage.1">Ganchos para toalhas e objetos.</li>
+                <li data-i18n="sections.wc.storage.2">Prateleira para champô e produtos.</li>
+                <li data-i18n="sections.wc.storage.3">Lixeira e produtos de limpeza.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Ventilação -->
+        <article id="ventilacao" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-ventilacao" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.ventilacao.title">Ventilação</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.ventilacao.roofTitle">Clarabóia</h4>
+              <ul>
+                <li data-i18n="sections.ventilacao.roof.1">Clarabóia com ventoinha elétrica e comando remoto.</li>
+                <li data-i18n="sections.ventilacao.roof.2">Botão grande para abrir até à posição desejada.</li>
+                <li data-i18n="sections.ventilacao.roof.3">Modo de entrada de ar (interior) ou saída de ar (exterior).</li>
+                <li data-i18n="sections.ventilacao.roof.4">Recomendado modo saída ao duchar; modo entrada ao cozinhar (com janela aberta).</li>
+                <li data-i18n="sections.ventilacao.roof.5">Modo blackout para bloquear a luz exterior.</li>
+                <li data-i18n="sections.ventilacao.roof.6">Modo rede para manter aberta sem insetos.</li>
+              </ul>
+              <h4 data-i18n="sections.ventilacao.windowsTitle">Janelas</h4>
+              <ul>
+                <li data-i18n="sections.ventilacao.windows.1">Janelas com abertura em duas posições clicáveis.</li>
+                <li data-i18n="sections.ventilacao.windows.2">Modo blackout e modo rede anti-insetos.</li>
+                <li data-i18n="sections.ventilacao.windows.3">Para fechar, puxar para cima em vez de empurrar.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Exterior -->
+        <article id="exterior" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-exterior" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.exterior.title">Exterior</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <h4 data-i18n="sections.exterior.connectionsTitle">Ligações</h4>
+              <ul>
+                <li data-i18n="sections.exterior.connections.1">Conector 220 V para ligar à rede elétrica (cabo e adaptadores na mala).</li>
+                <li data-i18n="sections.exterior.connections.2">Entrada de água limpa.</li>
+                <li data-i18n="sections.exterior.connections.3">Entrada de gasóleo — não confundir com a entrada de água.</li>
+                <li data-i18n="sections.exterior.connections.4">Câmara de marcha-atrás.</li>
+                <li data-i18n="sections.exterior.connections.5">Via Verde — passas nas portagens sem parar. As portagens são depois descontadas da caução (ver "Condições de devolução").</li>
+              </ul>
+              <h4 data-i18n="sections.exterior.trunkTitle">Mala traseira</h4>
+              <ul>
+                <li data-i18n="sections.exterior.trunk.1">Mesa desmontável e cadeiras (3 cadeiras: 1 pequena + 2 grandes).</li>
+                <li data-i18n="sections.exterior.trunk.2">Calços para nivelar as rodas.</li>
+                <li data-i18n="sections.exterior.trunk.3">Cordas para transporte de carga exterior (ex: scooter).</li>
+                <li data-i18n="sections.exterior.trunk.4">Tenda (nova, opcional de aluguer) e chuveiro exterior.</li>
+                <li data-i18n="sections.exterior.trunk.5">Pá, ferramentas básicas e acessórios de água/eletricidade.</li>
+                <li data-i18n="sections.exterior.trunk.6">Guarda-sol.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
+
+        <!-- Controlo Elétrico -->
+        <article id="controlo" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-controlo" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.controlo.title">Controlo Elétrico</h2>
+            <div class="accordion__content">
+            <div class="accordion__content">
+              <p data-i18n="sections.controlo.p1">
+                Painel de controlo elétrico no lado direito da viatura, junto aos sofás.
+              </p>
+              <ul>
+                <li data-i18n="sections.controlo.1">Mostra o consumo, produção solar e nível da bateria (315 Ah).</li>
+                <li data-i18n="sections.controlo.2">Corte geral (botão vermelho): desliga toda a eletricidade da campervan em emergência.</li>
+                <li data-i18n="sections.controlo.3">Botão do inversor 220 V: ligar/desligar a parte 220 V e solar.</li>
+                <li data-i18n="sections.controlo.4">Se houver erro no painel solar/inversor, desligar e voltar a ligar.</li>
+                <li data-i18n="sections.controlo.5">Sensores de fumo e água instalados.</li>
+              </ul>
+            </div>
+            </div>
+        </article>
       </div>
     </section>
 

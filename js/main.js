@@ -113,32 +113,111 @@
     });
   }
 
-  /* ---------- Accordion ---------- */
-  const accordions = document.querySelectorAll(".accordion");
+  /* ---------- Manual Tabs ---------- */
+  /* Os capítulos do manual são TABS; só a FAQ mantém accordion. */
+  const MANUAL_SECTIONS = [
+    "eletrico", "agua", "aquecimento", "cozinha", "cama",
+    "wc", "ventilacao", "exterior", "controlo"
+  ];
+  const tabButtons = Array.from(
+    document.querySelectorAll(".manual-tabs .manual-tabs__btn")
+  );
+  const tabPanels = new Map(
+    MANUAL_SECTIONS
+      .map(function (id) {
+        const panel = document.getElementById(id);
+        return panel ? [id, panel] : null;
+      })
+      .filter(Boolean)
+  );
 
-  accordions.forEach(function (accordion) {
-    const header = accordion.querySelector(".accordion__header");
-    const body = accordion.querySelector(".accordion__body");
+  /* Indicador de scroll da tabbar em mobile: fades nas bordas.
+     Apenas classes visuais — não interfere com a ativação/deep-link. */
+  (function initTabScrollIndicator() {
+    const tabBar = document.querySelector(".manual-tabs");
+    if (!tabBar) return;
 
-    if (!header || !body) return;
+    function updateScrollState() {
+      var maxScroll = tabBar.scrollWidth - tabBar.clientWidth;
+      tabBar.classList.toggle(
+        "can-scroll-right",
+        maxScroll > 1 && tabBar.scrollLeft < maxScroll - 1
+      );
+      tabBar.classList.toggle("is-scrolled-left", tabBar.scrollLeft > 1);
+    }
 
-    header.addEventListener("click", function () {
-      const isOpen = header.getAttribute("aria-expanded") === "true";
+    tabBar.addEventListener("scroll", updateScrollState, { passive: true });
+    window.addEventListener("resize", updateScrollState);
+    updateScrollState();
+  })();
 
-      /* Fechar todos os outros accordions (comportamento accordion,
-         não acordeão — cada um abre individualmente) */
+  function activateTab(sectionId) {
+    const panel = tabPanels.get(sectionId);
+    if (!panel) return null;
 
-      if (isOpen) {
-        /* Fechar */
-        header.setAttribute("aria-expanded", "false");
-        body.classList.remove("is-open");
-      } else {
-        /* Abrir */
-        header.setAttribute("aria-expanded", "true");
-        body.classList.add("is-open");
-      }
+    let activeIndex = 0;
+    tabButtons.forEach(function (btn, i) {
+      const isActive = btn.getAttribute("data-target") === sectionId;
+      btn.classList.toggle("is-active", isActive);
+      btn.setAttribute("aria-selected", isActive ? "true" : "false");
+      btn.setAttribute("tabindex", isActive ? "0" : "-1");
+      if (isActive) activeIndex = i;
+    });
+
+    tabPanels.forEach(function (p, id) {
+      p.hidden = id !== sectionId;
+    });
+
+    /* Sincronizar hash para deep-links sem saltar a página */
+    if ("#" + sectionId !== window.location.hash) {
+      try {
+        history.replaceState(null, "", "#" + sectionId);
+      } catch (_) { /* noop */ }
+    }
+
+    return {
+      panel: panel,
+      button: tabButtons[activeIndex],
+      index: activeIndex,
+    };
+  }
+
+  /* Navegação por setas entre tabs (ARIA) */
+  if (tabButtons.length) {
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener("keydown", function (e) {
+        const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
+        if (!keys.includes(e.key)) return;
+        e.preventDefault();
+        const idx = tabButtons.indexOf(btn);
+        let next = idx;
+        if (e.key === "ArrowRight") next = (idx + 1) % tabButtons.length;
+        else if (e.key === "ArrowLeft")
+          next = (idx - 1 + tabButtons.length) % tabButtons.length;
+        else if (e.key === "Home") next = 0;
+        else next = tabButtons.length - 1;
+        tabButtons[next].focus();
+        activateTab(tabButtons[next].getAttribute("data-target"));
+      });
+    });
+  }
+
+  /* Clique nas tabs */
+  tabButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      const res = activateTab(btn.getAttribute("data-target"));
+      if (res) scrollToTarget(res.panel);
     });
   });
+
+  /* Deep-link: #agua ao carregar ativa a tab Água */
+  (function initFromHash() {
+    const initialId =
+      window.location.hash && tabPanels.has(window.location.hash.slice(1))
+        ? window.location.hash.slice(1)
+        : "eletrico";
+    activateTab(initialId);
+  })();
 
   /* ---------- FAQ Accordion ---------- */
   const faqQuestions = document.querySelectorAll(".faq-item__question");
@@ -167,6 +246,11 @@
     if (!target) return;
 
     e.preventDefault();
+
+    /* Se o alvo é um painel do manual, ativar primeiro a tab correspondente */
+    if (tabPanels.has(targetId)) {
+      activateTab(targetId);
+    }
 
     const headerHeight = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue(
@@ -325,10 +409,7 @@
   }, { passive: true });
 
   /* ---------- Search + Manual Index ---------- */
-  const ACCORDION_SECTIONS = [
-    "eletrico", "agua", "aquecimento", "cozinha", "cama",
-    "wc", "ventilacao", "exterior", "controlo"
-  ];
+  const ACCORDION_SECTIONS = MANUAL_SECTIONS;
   const BIG_SECTIONS = ["video", "galeria", "sobre", "bms"];
 
   function normalizeText(str) {
@@ -366,8 +447,15 @@
       body && getComputedStyle(body).transitionDuration !== "0s";
 
     const doScroll = function () {
+      /* A barra de tabs sticky cobre o topo do painel — somar à altura do header */
+      const tabBar = document.querySelector(".manual-tabs");
+      const extra = tabBar ? tabBar.getBoundingClientRect().height : 0;
+      const isTabPanel = target.classList.contains("manual-tab-panel");
       const top =
-        target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
+        target.getBoundingClientRect().top +
+        window.scrollY -
+        headerHeight -
+        (isTabPanel ? extra + 8 : 16);
       window.scrollTo({ top: top, behavior: "smooth" });
     };
 
@@ -400,13 +488,9 @@
   }
 
   function openAccordionSection(sectionId) {
-    const accordion = document.getElementById(sectionId);
-    if (!accordion || !accordion.classList.contains("accordion")) return null;
-    const header = accordion.querySelector(".accordion__header");
-    if (header && header.getAttribute("aria-expanded") !== "true") {
-      header.click();
-    }
-    return accordion;
+    /* Os capítulos passaram a tabs: ativar a tab e devolver o painel */
+    if (!tabPanels.has(sectionId)) return null;
+    return activateTab(sectionId).panel;
   }
 
   function goToSection(sectionId) {
@@ -420,8 +504,8 @@
     ACCORDION_SECTIONS.forEach(function (id) {
       const section = document.getElementById(id);
       if (!section) return;
-      const icon = section.querySelector(".accordion__icon");
-      const titleEl = section.querySelector(".accordion__title");
+      const icon = section.querySelector(".manual-tabs__icon");
+      const titleEl = section.querySelector(".manual-tab-panel__heading");
 
       const card = document.createElement("button");
       card.type = "button";
@@ -457,7 +541,7 @@
   ACCORDION_SECTIONS.forEach(function (id) {
     const section = document.getElementById(id);
     if (!section) return;
-    const title = stripHtml(section.querySelector(".accordion__title"));
+    const title = stripHtml(section.querySelector(".manual-tab-panel__heading"));
     const content = stripHtml(
       section.querySelector(".accordion__content")
     );
@@ -582,17 +666,18 @@
 
     matches.forEach(function (entry) {
       const li = document.createElement("li");
-      li.className = "search-overlay__result";
-      li.setAttribute("role", "option");
-      li.setAttribute("data-section", entry.sectionId);
-      li.innerHTML =
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "search-overlay__result";
+      btn.setAttribute("data-section", entry.sectionId);
+      btn.innerHTML =
         '<span class="search-overlay__result-title">' +
         escapeHtml(entry.title) +
         "</span>" +
         '<span class="search-overlay__result-snippet">' +
         buildSnippet(entry.snippet, term) +
         "</span>";
-      li.addEventListener("click", function () {
+      btn.addEventListener("click", function () {
         closeSearch();
         if (entry.faqQuestion) {
           if (entry.faqQuestion.getAttribute("aria-expanded") !== "true") {
@@ -605,6 +690,7 @@
           scrollToTarget(entry.target);
         }
       });
+      li.appendChild(btn);
       searchResults.appendChild(li);
     });
   }

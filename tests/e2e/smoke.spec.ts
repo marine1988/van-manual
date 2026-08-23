@@ -74,43 +74,42 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(page.locator('.about-van__specs')).toContainText('Carta de condução: B')
   })
 
-  test('accordion sections expandem e recolhem', async ({ page }) => {
+  test('tabs do manual: 9 tabs, eletrico ativa por defeito', async ({ page }) => {
     await page.goto(BASE_URL)
 
-    // Devem existir 9 secções accordion
-    const accordions = page.locator('.accordion')
-    await expect(accordions).toHaveCount(9)
+    // Barra de tabs com 9 botões
+    const tabs = page.locator('.manual-tabs__btn')
+    await expect(tabs).toHaveCount(9)
+    await expect(tabs.first()).toHaveAttribute('aria-selected', 'true')
 
-    // Verificar que todos os accordions começam fechados
-    const headers = page.locator('.accordion__header')
-    const headerCount = await headers.count()
-    expect(headerCount).toBe(9)
-
-    for (let i = 0; i < headerCount; i++) {
-      const body = headers.nth(i).locator('~ .accordion__body')
-      // O body não deve estar visível inicialmente
-      await expect(body).toBeHidden()
+    // Painel #eletrico visível, os restantes escondidos
+    await expect(page.locator('#eletrico')).toBeVisible()
+    const panels = page.locator('.manual-tab-panel')
+    expect(await panels.count()).toBe(9)
+    for (let i = 1; i < 9; i++) {
+      await expect(panels.nth(i)).toBeHidden()
     }
 
-    // Clicar no primeiro accordion (Elétrico) e verificar que expande
-    const primeiroHeader = page.locator('.accordion__header').first()
-    await primeiroHeader.click()
+    // Clicar na tab Água mostra o painel dela e esconde o anterior
+    await page.locator('.manual-tabs__btn[data-target="agua"]').click()
 
-    const primeiroBody = page.locator('.accordion__body').first()
-    await expect(primeiroBody).toBeVisible()
-    await expect(primeiroBody).toContainText('A campervan tem três formas de carregar')
+    await expect(page.locator('#agua')).toBeVisible()
+    await expect(page.locator('#agua')).toContainText('Depósito de água limpa')
+    await expect(page.locator('#eletrico')).toBeHidden()
+    await expect(page.locator('.manual-tabs__btn[data-target="agua"]')).toHaveAttribute('aria-selected', 'true')
+    await expect(page.locator('.manual-tabs__btn[data-target="eletrico"]')).toHaveAttribute('aria-selected', 'false')
 
-    // Clicar novamente para recolher
-    await primeiroHeader.click()
-    await expect(primeiroBody).toBeHidden()
+    // Voltar à tab Elétrico via clique
+    await page.locator('.manual-tabs__btn[data-target="eletrico"]').click()
+    await expect(page.locator('#eletrico')).toBeVisible()
+    await expect(page.locator('#agua')).toBeHidden()
+  })
 
-    // Clicar no accordion de Água (segundo) e verificar
-    const segundoHeader = page.locator('.accordion__header').nth(1)
-    await segundoHeader.click()
-
-    const segundoBody = page.locator('.accordion__body').nth(1)
-    await expect(segundoBody).toBeVisible()
-    await expect(segundoBody).toContainText('Depósito de água limpa')
+  test('deep-link #agua abre a tab Agua diretamente', async ({ page }) => {
+    await page.goto(BASE_URL + '#agua')
+    await expect(page.locator('#agua')).toBeVisible()
+    await expect(page.locator('#eletrico')).toBeHidden()
+    await expect(page.locator('.manual-tabs__btn[data-target="agua"]')).toHaveAttribute('aria-selected', 'true')
   })
 
   test('modo escuro toggle funciona', async ({ page }) => {

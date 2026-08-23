@@ -360,7 +360,13 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 100%;
   padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: background var(--transition);
@@ -830,18 +836,199 @@ ul {
 /* --- Campervan Presentation Section (deprecated) --- */
 .campervan { display: none; }
 
-/* --- Manual / Accordion Section --- */
+/* --- Manual / Tabs Section --- */
 .manual {
   padding: 60px 20px;
 }
 
 .manual__container {
-  max-width: var(--max-width);
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
+/* --- Barra de tabs dos capítulos do manual --- */
+.manual-tabs {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 40;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  padding: 10px 4px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+/* Mesmo fundo translúcido blur do header quando suportado */
+@supports (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) and (background: color-mix(in srgb, red 50%, transparent)) {
+  .manual-tabs {
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+.manual-tabs__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.manual-tabs__btn:hover {
+  background: var(--color-bg-alt);
+}
+
+.manual-tabs__btn.is-active {
+  background: var(--color-bg-alt);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.manual-tabs__btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.manual-tabs__icon {
+  font-size: 1.1rem;
+}
+
+/* Label curto: só visível em desktop (>=960px) */
+.manual-tabs__label--short {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .manual-tabs__label--long {
+    display: none;
+  }
+
+  .manual-tabs__label--short {
+    display: inline;
+  }
+}
+
+/* Compactar tabs em desktop para caberem todas sem scroll */
+@media (min-width: 960px) {
+  .manual-tabs {
+    gap: 3px;
+    padding: 8px 2px;
+    flex-wrap: nowrap;
+  }
+
+  .manual-tabs__btn {
+    padding: 8px 9px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .manual-tabs__icon {
+    font-size: 0.9rem;
+  }
+}
+
+/* Indicador de deslize da tabbar quando há scroll (<1280px) */
+@media (max-width: 1279.98px) {
+  .manual-tabs {
+    scrollbar-width: none;
+    scroll-snap-type: x proximity;
+  }
+
+  .manual-tabs__btn {
+    scroll-snap-align: start;
+  }
+
+  /* Fade na borda direita por omissão (há conteúdo fora do ecrã) */
+  .manual-tabs.can-scroll-right {
+    mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 calc(100% - 28px),
+      transparent
+    );
+  }
+
+  /* Fade adicional na esquerda quando já foi deslizada */
+  .manual-tabs.is-scrolled-left.can-scroll-right {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 28px,
+      #000 calc(100% - 28px),
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 28px,
+      #000 calc(100% - 28px),
+      transparent
+    );
+  }
+
+  /* Só fade à esquerda: chegámos ao fim da lista */
+  .manual-tabs.is-scrolled-left:not(.can-scroll-right) {
+    mask-image: linear-gradient(to right, transparent, #000 28px);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 28px);
+  }
+
+  .manual-tabs::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --- Painel da tab ativa --- */
+.manual-tab-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  animation: tabFadeIn 0.15s ease both;
+}
+
+.manual-tab-panel[hidden] {
+  display: none;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.manual-tab-panel__heading {
+  font-size: 1.35rem;
+  color: var(--color-primary);
+  padding: 24px 24px 0;
+  margin-bottom: 12px;
+}
+
 
 /* --- Accordion --- */
 .accordion {
@@ -1121,9 +1308,9 @@ ul {
     font-size: 3.5rem;
   }
 
-  .accordion__header {
-    padding: 20px 28px;
-    font-size: 1.15rem;
+  .manual-tabs__btn {
+    padding: 9px 16px;
+    font-size: 1rem;
   }
 
   .accordion__content {
@@ -1143,6 +1330,14 @@ ul {
 
   .manual {
     padding: 80px 20px;
+  }
+}
+
+/* Desktop grande (≥1280px): tabs maiores, ainda sem scroll */
+@media (min-width: 1280px) {
+  .manual-tabs__btn {
+    padding: 8px 12px;
+    font-size: 0.82rem;
   }
 }
 
@@ -1351,16 +1546,13 @@ ul {
   animation-delay: 0.15s;
 }
 
-.accordion {
+.manual-tab-panel {
   animation: fadeInUp 0.5s ease both;
 }
 
-.accordion:nth-child(1) { animation-delay: 0.05s; }
-.accordion:nth-child(2) { animation-delay: 0.1s; }
-.accordion:nth-child(3) { animation-delay: 0.15s; }
-.accordion:nth-child(4) { animation-delay: 0.2s; }
-.accordion:nth-child(5) { animation-delay: 0.25s; }
-.accordion:nth-child(6) { animation-delay: 0.3s; }
+.manual-tab-panel:nth-child(2) { animation-delay: 0.05s; }
+.manual-tab-panel:nth-child(3) { animation-delay: 0.1s; }
+.manual-tab-panel:nth-child(4) { animation-delay: 0.15s; }
 
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {

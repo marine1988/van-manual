@@ -28,9 +28,8 @@ test('search: solar -> resultados só solar/painel, clique abre #eletrico', asyn
   await results.first().click();
   await expect(page.locator('#searchOverlay')).toBeHidden();
   await page.waitForTimeout(1200); // scroll suave
-  const expanded = await page.getAttribute('#eletrico .accordion__header', 'aria-expanded');
-  console.log('ELETRICO_EXPANDED=' + expanded);
-  expect(expanded).toBe('true');
+  await expect(page.locator('.manual-tabs__btn[data-target="eletrico"]')).toHaveAttribute('aria-selected', 'true');
+  console.log('ELETRICO_TAB_ACTIVE=true');
 
   const inView = await page.evaluate(() => {
     const r = document.getElementById('eletrico').getBoundingClientRect();
@@ -67,7 +66,8 @@ test('índice visual: 9 cards, clique em Cama abre #cama', async ({ page }) => {
 
   await page.locator('.manual-index__card[data-target="cama"]').click();
   await page.waitForTimeout(1200);
-  expect(await page.getAttribute('#cama .accordion__header', 'aria-expanded')).toBe('true');
+  await expect(page.locator('.manual-tabs__btn[data-target="cama"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#cama')).toBeVisible();
 
   // grid responsivo
   await page.setViewportSize({ width: 1280, height: 800 });

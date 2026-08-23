@@ -55,7 +55,7 @@ test('QA a-c: solar, agua quente, normalização acentos + focus', async ({ page
   console.log('PAGE_ERRORS=' + JSON.stringify(errors));
 });
 
-test('QA d: clique resultado accordion fechado #aquecimento abre e scroll abaixo do header', async ({ page }) => {
+test('QA d: clique resultado tab #aquecimento ativa tab e scroll abaixo do header', async ({ page }) => {
   await page.goto(BASE + '/');
   const headerH = await page.evaluate(() => document.querySelector('header')?.getBoundingClientRect().height || 0);
   console.log('HEADER_H=' + headerH);
@@ -69,7 +69,8 @@ test('QA d: clique resultado accordion fechado #aquecimento abre e scroll abaixo
 
   await expect(page.locator('#searchOverlay')).toBeHidden();
   await page.waitForTimeout(1400); // scroll suave + highlight
-  expect(await page.getAttribute('#aquecimento .accordion__header', 'aria-expanded')).toBe('true');
+  await expect(page.locator('.manual-tabs__btn[data-target="aquecimento"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#aquecimento')).toBeVisible();
 
   const top = await page.evaluate(() => document.getElementById('aquecimento').getBoundingClientRect().top);
   console.log('AQUEC_TOP=' + top);
@@ -89,7 +90,7 @@ test('QA e: Escape fecha, / abre', async ({ page }) => {
   console.log('ESCAPE_SLASH_OK=true');
 });
 
-test('QA f: card índice Cozinha -> scroll #cozinha + accordion abre', async ({ page }) => {
+test('QA f: card índice Cozinha -> scroll #cozinha + tab ativa', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(String(e.message)));
   await page.goto(BASE + '/');
@@ -98,7 +99,8 @@ test('QA f: card índice Cozinha -> scroll #cozinha + accordion abre', async ({ 
   console.log('INDEX_CARDS=' + await cards.count());
   await page.locator('.manual-index__card[data-target="cozinha"]').click();
   await page.waitForTimeout(1400);
-  expect(await page.getAttribute('#cozinha .accordion__header', 'aria-expanded')).toBe('true');
+  await expect(page.locator('.manual-tabs__btn[data-target="cozinha"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#cozinha')).toBeVisible();
   const top = await page.evaluate(() => document.getElementById('cozinha').getBoundingClientRect().top);
   const headerH = await page.evaluate(() => document.querySelector('header')?.getBoundingClientRect().height || 0);
   console.log(`COZINHA_TOP=${top} HEADER_H=${headerH}`);
