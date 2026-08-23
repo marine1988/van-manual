@@ -23,11 +23,6 @@
   <header class="header">
     <div class="header__container">
       <a href="#hero" class="header__logo" data-i18n="site.title">🚐 Manual da Campervan</a>
-      <button class="header__hamburger" aria-label="Abrir menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
       <nav class="header__nav" role="navigation" aria-label="Navegação principal">
         <ul class="header__nav-list">
           <li><a href="#eletrico" class="header__nav-link" data-i18n="nav.eletrico">Elétrico</a></li>
@@ -49,7 +44,9 @@
           <button class="language-switcher__current" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma atual: Português">
             <span class="language-switcher__flag">🇵🇹</span>
             <span class="language-switcher__code">PT</span>
-            <span class="language-switcher__arrow">▼</span>
+            <svg class="language-switcher__arrow" viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
+              <path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </button>
           <ul class="language-switcher__dropdown" role="listbox" tabindex="-1">
             <li role="option" data-lang="pt" aria-selected="true"><span class="language-switcher__flag">🇵🇹</span> <span>Português</span></li>
@@ -61,6 +58,11 @@
         </div>
         <button id="themeToggle" class="theme-toggle" aria-label="Alternar modo escuro">
           <span class="theme-toggle__icon">🌙</span>
+        </button>
+        <button class="header__hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>

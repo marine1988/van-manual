@@ -17,3 +17,6 @@ test-results/
 
 # Galeria: originais JPG (backup local, nunca commitados)
 img/originals/
+
+# Verificação visual do redesign (não commitar)
+design-review/
