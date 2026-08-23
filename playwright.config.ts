@@ -7,6 +7,12 @@ export default defineConfig({
   retries: 1,
   workers: 1,
   reporter: [['list'], ['html', { open: 'never' }]],
+  webServer: {
+    command: 'npm run dev',
+    port: 3000,
+    reuseExistingServer: true,
+    timeout: 30_000,
+  },
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
     trace: 'on-first-retry',

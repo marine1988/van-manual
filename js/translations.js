@@ -5,6 +5,8 @@
  */
 const translations = {
   pt: {
+    "meta.title": "Manual da Campervan",
+    "meta.description": "Manual da campervan — tudo o que precisas de saber para a tua viagem.",
     "about.returnTitle": "Condições de devolução",
     "about.return.clean": "<strong>Carrinha não entregue limpa como foi recebida:</strong> debitar 50 € da caução",
     "about.return.water": "<strong>Águas limpas não cheias:</strong> debitar 10 € da caução",
@@ -15,6 +17,8 @@ const translations = {
   }, // português é o default (texto no HTML)
 
   en: {
+    "meta.title": "Campervan Manual",
+    "meta.description": "Everything you need to know for your campervan trip — water, electrics, heating, kitchen and more.",
     "site.title": "🚐 Campervan Manual",
 
     "hero.title": "Rogério's Converted Van",
@@ -242,6 +246,8 @@ const translations = {
   },
 
   fr: {
+    "meta.title": "Manuel du Camping-Car",
+    "meta.description": "Tout ce qu'il faut savoir pour votre voyage en camping-car — eau, électricité, chauffage, cuisine et plus.",
     "site.title": "🚐 Manuel du Campervan",
 
     "hero.title": "Furgon Aménagé de Rogério",
@@ -469,6 +475,8 @@ const translations = {
   },
 
   es: {
+    "meta.title": "Manual de la Autocaravana",
+    "meta.description": "Todo lo que necesitas saber para tu viaje en autocaravana — agua, electricidad, calefacción, cocina y más.",
     "site.title": "🚐 Manual de la Autocaravana",
 
     "hero.title": "Furgoneta Camperizada de Rogério",
@@ -696,6 +704,8 @@ const translations = {
   },
 
   de: {
+    "meta.title": "Campervan-Handbuch",
+    "meta.description": "Alles, was du für deine Campervan-Reise wissen musst — Wasser, Strom, Heizung, Küche und mehr.",
     "site.title": "🚐 Campervan-Handbuch",
 
     "hero.title": "Rogérios Ausgebauter Van",
@@ -932,6 +942,13 @@ function applyTranslations(lang) {
       el.innerHTML = dict[key];
     }
   });
+  if (dict['meta.title']) {
+    document.title = dict['meta.title'];
+  }
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc && dict['meta.description']) {
+    metaDesc.setAttribute('content', dict['meta.description']);
+  }
   document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang === 'en' ? 'en-GB' : lang === 'fr' ? 'fr-FR' : lang === 'es' ? 'es-ES' : 'de-DE';
   localStorage.setItem('van-manual-lang', lang);
 }
