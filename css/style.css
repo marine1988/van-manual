@@ -783,8 +783,8 @@ ul {
   }
 }
 
-/* Mobile hamburger (≤767px) */
-@media (max-width: 767px) {
+/* Mobile/tablet hamburger (<1280px) */
+@media (max-width: 1279px) {
   .header__hamburger {
     display: flex;
   }
@@ -819,6 +819,35 @@ ul {
   .header__nav-link {
     width: 100%;
     padding: 12px 14px;
+  }
+}
+
+/* Desktop (≥1280px): os 12 itens numa ÚNICA linha compacta.
+   A 1280px exata o container útil é 1240px — a medição (5 línguas,
+   Chromium) mostra que só a partir daqui ES/DE/FR cabem com folga;
+   abaixo disto o hamburger evita o menu partido em 2-3 filas. */
+@media (min-width: 1280px) {
+  .header__container {
+    max-width: 1280px;
+    gap: 12px;
+  }
+
+  .header__logo {
+    font-size: 1rem;
+  }
+
+  .header__nav-list {
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .header__nav-link {
+    padding: 6px 8px;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
   }
 }
 
