@@ -57,12 +57,12 @@ test('search: tecla / abre, Escape fecha, acentos normalizados', async ({ page }
   expect(count).toBeGreaterThan(0);
 });
 
-test('índice visual: 9 cards, clique em Cama abre #cama', async ({ page }) => {
+test('índice visual: 10 cards, clique em Cama abre #cama', async ({ page }) => {
   await page.goto('http://127.0.0.1:3000/');
   const cards = page.locator('.manual-index__card');
   const n = await cards.count();
   console.log('INDEX_CARDS=' + n);
-  expect(n).toBe(9);
+  expect(n).toBe(10);
 
   await page.locator('.manual-index__card[data-target="cama"]').click();
   await page.waitForTimeout(1200);

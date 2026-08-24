@@ -305,6 +305,11 @@
             <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.controlo.title">Controlo Elétrico</span>
             <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.controlo">Controlo</span>
           </button>
+          <button type="button" class="manual-tabs__btn" id="tab-bms" role="tab" tabindex="-1" aria-selected="false" aria-controls="bms" data-target="bms">
+            <span class="manual-tabs__icon">🔋</span>
+            <span class="manual-tabs__label manual-tabs__label--long" data-i18n="sections.bms.title">Ver a Bateria da Carrinha</span>
+            <span class="manual-tabs__label manual-tabs__label--short" data-i18n="tabs.short.bms">Bateria</span>
+          </button>
         </div>
 
         <!-- 1. Elétrico -->
@@ -325,49 +330,6 @@
 
         <!-- 9. Controlo -->
 
-      </div>
-    </section>
-
-    <!-- App Bateria -->
-    <section id="bms" class="bms-section">
-      <div class="bms-section__container">
-        <h2 class="bms-section__title" data-i18n="sections.bms.title">📱 Ver a Bateria da Carrinha</h2>
-        <p class="bms-section__intro" data-i18n="sections.bms.intro">Saca uma app grátis e liga o telemóvel por <strong>Bluetooth</strong> à bateria. Ficas logo a saber quanta bateria tens — como ver a percentagem do telemóvel, mas para a carrinha.</p>
-
-        <div class="bms-section__steps">
-          <h3 data-i18n="sections.bms.stepsTitle">Como Funciona (é fácil!)</h3>
-          <ol>
-            <li data-i18n="sections.bms.steps.1">Saca a app <strong>JBD BMS</strong> na loja do telemóvel (é grátis)</li>
-            <li data-i18n="sections.bms.steps.2">Abre a app e entra como <strong>Convidado</strong> (não precisas de criar conta)</li>
-            <li data-i18n="sections.bms.steps.3">Liga o <strong>Bluetooth</strong> do telemóvel</li>
-            <li data-i18n="sections.bms.steps.4">A app encontra a bateria da carrinha — clica <strong>Connect</strong></li>
-            <li data-i18n="sections.bms.steps.5">Pronto! Já vês a percentagem da bateria no ecrã</li>
-          </ol>
-        </div>
-
-        <div class="bms-section__data">
-          <h3 data-i18n="sections.bms.dataTitle">O que Vês no Ecrã</h3>
-          <ul>
-            <li data-i18n="sections.bms.data.1">🔋 <strong>Percentagem da bateria</strong> — tipo o telemóvel, mas maior</li>
-            <li data-i18n="sections.bms.data.2">⚡ Se está a carregar (com sol ou tomada) ou a gastar</li>
-            <li data-i18n="sections.bms.data.3">⏱️ Quanto tempo dura com o que está ligado</li>
-          </ul>
-        </div>
-
-        <div class="bms-section__screenshots">
-          <h3 data-i18n="sections.bms.screenshotsTitle">Aspecto da App</h3>
-          <div class="bms-section__gallery">
-            <figure><img src="img/bms/bms-03.webp" alt="Procurar a bateria" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.1">Procurar a bateria</figcaption></figure>
-            <figure><img src="img/bms/bms-04.webp" alt="Ecrã principal — 85%" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.2">Ecrã principal — 85%</figcaption></figure>
-            <figure><img src="img/bms/bms-05.webp" alt="Alertas" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.3">Alertas de bateria</figcaption></figure>
-            <figure><img src="img/bms/bms-06.webp" alt="Bateria cheia" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.4">Bateria cheia — 100%</figcaption></figure>
-          </div>
-        </div>
-
-        <div class="bms-section__links">
-          <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.android">🤖 Android (Google Play)</a>
-          <a href="https://apps.apple.com/app/jbd-bms/id6449322803" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.ios">🍎 iPhone (App Store)</a>
-        </div>
         <!-- Sistema Elétrico -->
         <article id="eletrico" class="manual-tab-panel" role="tabpanel" aria-labelledby="tab-eletrico">
             <h2 class="manual-tab-panel__heading" data-i18n="sections.eletrico.title">Sistema Elétrico</h2>
@@ -621,6 +583,49 @@
                 <li data-i18n="sections.controlo.5">Sensores de fumo e água instalados.</li>
               </ul>
             </div>
+            </div>
+        </article>
+
+        <!-- 10. Bateria (app BMS) -->
+        <article id="bms" class="manual-tab-panel manual-tab-panel--bms" role="tabpanel" aria-labelledby="tab-bms" hidden>
+            <h2 class="manual-tab-panel__heading" data-i18n="sections.bms.title">📱 Ver a Bateria da Carrinha</h2>
+            <div class="accordion__content">
+        <p class="bms-section__intro" data-i18n="sections.bms.intro">Saca uma app grátis e liga o telemóvel por <strong>Bluetooth</strong> à bateria. Ficas logo a saber quanta bateria tens — como ver a percentagem do telemóvel, mas para a carrinha.</p>
+
+        <div class="bms-section__steps">
+          <h3 data-i18n="sections.bms.stepsTitle">Como Funciona (é fácil!)</h3>
+          <ol>
+            <li data-i18n="sections.bms.steps.1">Saca a app <strong>JBD BMS</strong> na loja do telemóvel (é grátis)</li>
+            <li data-i18n="sections.bms.steps.2">Abre a app e entra como <strong>Convidado</strong> (não precisas de criar conta)</li>
+            <li data-i18n="sections.bms.steps.3">Liga o <strong>Bluetooth</strong> do telemóvel</li>
+            <li data-i18n="sections.bms.steps.4">A app encontra a bateria da carrinha — clica <strong>Connect</strong></li>
+            <li data-i18n="sections.bms.steps.5">Pronto! Já vês a percentagem da bateria no ecrã</li>
+          </ol>
+        </div>
+
+        <div class="bms-section__data">
+          <h3 data-i18n="sections.bms.dataTitle">O que Vês no Ecrã</h3>
+          <ul>
+            <li data-i18n="sections.bms.data.1">🔋 <strong>Percentagem da bateria</strong> — tipo o telemóvel, mas maior</li>
+            <li data-i18n="sections.bms.data.2">⚡ Se está a carregar (com sol ou tomada) ou a gastar</li>
+            <li data-i18n="sections.bms.data.3">⏱️ Quanto tempo dura com o que está ligado</li>
+          </ul>
+        </div>
+
+        <div class="bms-section__screenshots">
+          <h3 data-i18n="sections.bms.screenshotsTitle">Aspecto da App</h3>
+          <div class="bms-section__gallery">
+            <figure><img src="img/bms/bms-03.webp" alt="Procurar a bateria" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.1">Procurar a bateria</figcaption></figure>
+            <figure><img src="img/bms/bms-04.webp" alt="Ecrã principal — 85%" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.2">Ecrã principal — 85%</figcaption></figure>
+            <figure><img src="img/bms/bms-05.webp" alt="Alertas" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.3">Alertas de bateria</figcaption></figure>
+            <figure><img src="img/bms/bms-06.webp" alt="Bateria cheia" loading="lazy"><figcaption data-i18n="sections.bms.screenshots.4">Bateria cheia — 100%</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="bms-section__links">
+          <a href="https://play.google.com/store/apps/details?id=com.jiabaida.xiaoxiangcloud" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.android">🤖 Android (Google Play)</a>
+          <a href="https://apps.apple.com/app/jbd-bms/id6449322803" target="_blank" rel="noopener noreferrer" class="bms-section__btn" data-i18n="sections.bms.links.ios">🍎 iPhone (App Store)</a>
+        </div>
             </div>
         </article>
       </div>

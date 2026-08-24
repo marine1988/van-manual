@@ -2,10 +2,10 @@ import { test, expect } from '@playwright/test'
 
 const BASE_URL = process.env.BASE_URL || 'http://127.0.0.1:3000'
 
-test('a) 9 tabs visiveis; #eletrico ativa por defeito', async ({ page }) => {
+test('a) 10 tabs visiveis; #eletrico ativa por defeito', async ({ page }) => {
   await page.goto(BASE_URL)
   const tabs = page.locator('[role="tablist"] [role="tab"]')
-  await expect(tabs).toHaveCount(9)
+  await expect(tabs).toHaveCount(10)
   const active = page.locator('[role="tab"][aria-selected="true"]')
   await expect(active).toHaveAttribute('id', /eletrico/i)
   const panel = page.locator('[role="tabpanel"]:not([hidden])')

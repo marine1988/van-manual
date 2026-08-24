@@ -30,6 +30,7 @@ const translations = {
     "index.cards.ventilacao": "Janelas, clarabóias e ventoinhas",
     "index.cards.exterior": "Luzes, mangueiras e ligações externas",
     "index.cards.controlo": "Painel de controlo e disjuntores",
+    "index.cards.bms": "App JBD, Bluetooth e percentagem da bateria",
   }, // português é o default (texto no HTML)
 
   en: {
@@ -250,6 +251,7 @@ const translations = {
     "tabs.short.ventilacao": "Air",
     "tabs.short.exterior": "Exterior",
     "tabs.short.controlo": "Control",
+    "tabs.short.bms": "Battery",
     "sections.faq.q1": "🔋 How do I know how much battery I have?",
     "sections.faq.a1": "Download the free app, turn on Bluetooth, and you'll see the percentage on screen. <a href=\"#bms\">See how ↑</a>",
     "sections.faq.q2": "🚿 How many showers does the hot water last for?",
@@ -285,6 +287,7 @@ const translations = {
     "index.cards.ventilacao": "Windows, skylights and fans",
     "index.cards.exterior": "Lights, hoses and external connections",
     "index.cards.controlo": "Control panel and circuit breakers",
+    "index.cards.bms": "JBD app, Bluetooth and battery percentage",
   },
 
   fr: {
@@ -505,6 +508,7 @@ const translations = {
     "tabs.short.ventilacao": "Aération",
     "tabs.short.exterior": "Extérieur",
     "tabs.short.controlo": "Contrôle",
+    "tabs.short.bms": "Batterie",
     "sections.faq.q1": "🔋 Comment savoir combien il reste de batterie ?",
     "sections.faq.a1": "Télécharge l'application gratuite, active le Bluetooth et tu verras le pourcentage à l'écran. <a href=\"#bms\">Voir comment faire ↑</a>",
     "sections.faq.q2": "🚿 L'eau chaude dure pour combien de douches ?",
@@ -540,6 +544,7 @@ const translations = {
     "index.cards.ventilacao": "Fenêtres, lanterneaux et ventilateurs",
     "index.cards.exterior": "Lumières, tuyaux et branchements extérieurs",
     "index.cards.controlo": "Panneau de contrôle et disjoncteurs",
+    "index.cards.bms": "Appli JBD, Bluetooth et pourcentage de batterie",
   },
 
   es: {
@@ -760,6 +765,7 @@ const translations = {
     "tabs.short.ventilacao": "Ventilación",
     "tabs.short.exterior": "Exterior",
     "tabs.short.controlo": "Control",
+    "tabs.short.bms": "Batería",
     "sections.faq.q1": "🔋 ¿Cómo sé cuánta batería tengo?",
     "sections.faq.a1": "Descarga la aplicación gratuita, activa el Bluetooth y verás el porcentaje en la pantalla. <a href=\"#bms\">Ver cómo hacer ↑</a>",
     "sections.faq.q2": "🚿 ¿El agua caliente alcanza para cuántas duchas?",
@@ -795,6 +801,7 @@ const translations = {
     "index.cards.ventilacao": "Ventanas, claraboyas y ventiladores",
     "index.cards.exterior": "Luces, mangueras y conexiones exteriores",
     "index.cards.controlo": "Panel de control e interruptores",
+    "index.cards.bms": "App JBD, Bluetooth y porcentaje de batería",
   },
 
   de: {
@@ -1015,6 +1022,7 @@ const translations = {
     "tabs.short.ventilacao": "Lüftung",
     "tabs.short.exterior": "Außen",
     "tabs.short.controlo": "Steuerung",
+    "tabs.short.bms": "Batterie",
     "sections.faq.q1": "🔋 Wie weiß ich, wie viel Batterie ich habe?",
     "sections.faq.a1": "Lade die kostenlose App herunter, schalte Bluetooth ein und du siehst den Prozentsatz auf dem Bildschirm. <a href=\"#bms\">Siehe hier ↑</a>",
     "sections.faq.q2": "🚿 Für wie viele Duschen reicht das Warmwasser?",
@@ -1050,6 +1058,7 @@ const translations = {
     "index.cards.ventilacao": "Fenster, Dachhauben und Lüfter",
     "index.cards.exterior": "Lichter, Schläuche und Außenanschlüsse",
     "index.cards.controlo": "Bedienpanel und Sicherungen",
+    "index.cards.bms": "JBD-App, Bluetooth und Batteriestand",
   },
 };
 

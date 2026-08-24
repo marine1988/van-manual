@@ -1576,6 +1576,10 @@ ul {
   padding: 4rem 1.5rem;
   background: var(--color-surface-alt);
 }
+/* BMS como tab do manual: o painel substitui a section antiga */
+.manual-tab-panel--bms {
+  background: var(--color-surface-alt);
+}
 .bms-section__container {
   max-width: 900px;
   margin: 0 auto;

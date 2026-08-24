@@ -74,19 +74,19 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(page.locator('.about-van__specs')).toContainText('Carta de condução: B')
   })
 
-  test('tabs do manual: 9 tabs, eletrico ativa por defeito', async ({ page }) => {
+  test('tabs do manual: 10 tabs, eletrico ativa por defeito', async ({ page }) => {
     await page.goto(BASE_URL)
 
-    // Barra de tabs com 9 botões
+    // Barra de tabs com 10 botões
     const tabs = page.locator('.manual-tabs__btn')
-    await expect(tabs).toHaveCount(9)
+    await expect(tabs).toHaveCount(10)
     await expect(tabs.first()).toHaveAttribute('aria-selected', 'true')
 
     // Painel #eletrico visível, os restantes escondidos
     await expect(page.locator('#eletrico')).toBeVisible()
     const panels = page.locator('.manual-tab-panel')
-    expect(await panels.count()).toBe(9)
-    for (let i = 1; i < 9; i++) {
+    expect(await panels.count()).toBe(10)
+    for (let i = 1; i < 10; i++) {
       await expect(panels.nth(i)).toBeHidden()
     }
 
@@ -110,6 +110,26 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(page.locator('#agua')).toBeVisible()
     await expect(page.locator('#eletrico')).toBeHidden()
     await expect(page.locator('.manual-tabs__btn[data-target="agua"]')).toHaveAttribute('aria-selected', 'true')
+  })
+
+  test('deep-link #bms abre a tab Bateria diretamente', async ({ page }) => {
+    await page.goto(BASE_URL + '#bms')
+    await expect(page.locator('#bms')).toBeVisible()
+    await expect(page.locator('#bms')).toContainText('JBD BMS')
+    await expect(page.locator('#eletrico')).toBeHidden()
+    await expect(page.locator('.manual-tabs__btn[data-target="bms"]')).toHaveAttribute('aria-selected', 'true')
+  })
+
+  test('pesquisa "JBD" abre a tab Bateria', async ({ page }) => {
+    await page.goto(BASE_URL)
+    await page.locator('#searchToggle').click()
+    await page.locator('#searchInput').fill('JBD')
+    const first = page.locator('#searchResults button').first()
+    await expect(first).toBeVisible({ timeout: 5000 })
+    await expect(first).toContainText(/Bateria/i)
+    await first.click()
+    await expect(page.locator('.manual-tabs__btn[data-target="bms"]')).toHaveAttribute('aria-selected', 'true')
+    await expect(page.locator('#bms')).toBeVisible()
   })
 
   test('modo escuro toggle funciona', async ({ page }) => {

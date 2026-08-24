@@ -117,7 +117,7 @@
   /* Os capítulos do manual são TABS; só a FAQ mantém accordion. */
   const MANUAL_SECTIONS = [
     "eletrico", "agua", "aquecimento", "cozinha", "cama",
-    "wc", "ventilacao", "exterior", "controlo"
+    "wc", "ventilacao", "exterior", "controlo", "bms"
   ];
   const tabButtons = Array.from(
     document.querySelectorAll(".manual-tabs .manual-tabs__btn")
@@ -410,7 +410,7 @@
 
   /* ---------- Search + Manual Index ---------- */
   const ACCORDION_SECTIONS = MANUAL_SECTIONS;
-  const BIG_SECTIONS = ["video", "galeria", "sobre", "bms"];
+  const BIG_SECTIONS = ["video", "galeria", "sobre"];
 
   function normalizeText(str) {
     return String(str)
