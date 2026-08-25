@@ -364,7 +364,11 @@
     .map(function (link) {
       return document.getElementById(link.getAttribute("href").slice(1));
     })
-    .filter(Boolean);
+    .filter(function (el) {
+      /* Excluir paineis escondidos (ex.: tabs do manual) — getBoundingClientRect
+         de elementos hidden devolve 0 e engana o scrollspy. */
+      return Boolean(el) && el.offsetParent !== null;
+    });
 
   if (navLinks.length && "IntersectionObserver" in window) {
     const visible = new Map(); // section -> ratio visível
