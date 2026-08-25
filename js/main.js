@@ -168,8 +168,11 @@
       p.hidden = id !== sectionId;
     });
 
-    /* Sincronizar hash para deep-links sem saltar a página */
-    if ("#" + sectionId !== window.location.hash) {
+    /* Sincronizar hash para deep-links sem saltar a página.
+       NÃO escrever durante o load: um replaceState com fragmento antes de
+       "complete" dispara o scroll nativo do browser para a âncora e a página
+       salta do hero para o manual. Depois do load é seguro (não faz scroll). */
+    if ("#" + sectionId !== window.location.hash && document.readyState === "complete") {
       try {
         history.replaceState(null, "", "#" + sectionId);
       } catch (_) { /* noop */ }
