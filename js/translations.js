@@ -19,22 +19,9 @@ const translations = {
     "search.noResults": "Sem resultados. Tenta outra palavra.",
     "search.hint": "Tenta: solar, água quente, cama, wifi...",
 
-    "index.title": "📖 Índice do Manual",
-    "index.intro": "Salta diretamente para a secção que precisas — o capítulo abre-se automaticamente.",
-    "index.cards.eletrico": "Painéis solares, baterias, USB e tomadas",
-    "index.cards.agua": "Depósitos, água quente e chuveiros",
-    "index.cards.aquecimento": "Aquecedor a gasóleo KROAK — como ligar",
-    "index.cards.cozinha": "Fogão, frigorífico, café e louça",
-    "index.cards.cama": "Como montar as 3 dormidas",
-    "index.cards.wc": "Casa de banho e químicos",
-    "index.cards.ventilacao": "Janelas, clarabóias e ventoinhas",
-    "index.cards.exterior": "Luzes, mangueiras e ligações externas",
-    "index.cards.controlo": "Painel de controlo e disjuntores",
-    "index.cards.bms": "App JBD, Bluetooth e percentagem da bateria",
     "nav.manual": "Manual",
     "nav.bmsShort": "Bateria",
     "nav.alugar": "Alugar ↗",
-    "nav.manualIndex": "Índice do Manual",
     "hero.meta": "3 dormidas · 590 W de painéis solares · Renault Master 2010",
   }, // português é o default (texto no HTML)
 
@@ -97,7 +84,6 @@ const translations = {
     "nav.manual": "Manual",
     "nav.bmsShort": "Battery",
     "nav.alugar": "Rent ↗",
-    "nav.manualIndex": "Manual Index",
     "nav.controlo": "Controls",
 
     "sections.eletrico.title": "Electrical System",
@@ -286,18 +272,6 @@ const translations = {
     "search.noResults": "No results. Try another word.",
     "search.hint": "Try: solar, hot water, bed, wifi...",
 
-    "index.title": "📖 Manual Index",
-    "index.intro": "Jump straight to the section you need — the chapter opens automatically.",
-    "index.cards.eletrico": "Solar panels, battery, USB and sockets",
-    "index.cards.agua": "Tanks, hot water and showers",
-    "index.cards.aquecimento": "Diesel heater KROAK — how to switch on",
-    "index.cards.cozinha": "Hob, fridge, coffee and dishes",
-    "index.cards.cama": "How to set up the 3 beds",
-    "index.cards.wc": "Bathroom and chemicals",
-    "index.cards.ventilacao": "Windows, skylights and fans",
-    "index.cards.exterior": "Lights, hoses and external connections",
-    "index.cards.controlo": "Control panel and circuit breakers",
-    "index.cards.bms": "JBD app, Bluetooth and battery percentage",
   },
 
   fr: {
@@ -359,7 +333,6 @@ const translations = {
     "nav.manual": "Manuel",
     "nav.bmsShort": "Batterie",
     "nav.alugar": "Louer ↗",
-    "nav.manualIndex": "Index du Manuel",
     "nav.controlo": "Contrôles",
 
     "sections.eletrico.title": "Système Électrique",
@@ -548,18 +521,6 @@ const translations = {
     "search.noResults": "Aucun résultat. Essayez un autre mot.",
     "search.hint": "Essayez : solaire, eau chaude, lit, wifi...",
 
-    "index.title": "📖 Index du Manuel",
-    "index.intro": "Accédez directement à la section souhaitée — le chapitre s'ouvre automatiquement.",
-    "index.cards.eletrico": "Panneaux solaires, batterie, USB et prises",
-    "index.cards.agua": "Réservoirs, eau chaude et douches",
-    "index.cards.aquecimento": "Chauffage diesel KROAK — comment l'allumer",
-    "index.cards.cozinha": "Réchaud, frigo, café et vaisselle",
-    "index.cards.cama": "Comment installer les 3 couchages",
-    "index.cards.wc": "Salle de bain et produits chimiques",
-    "index.cards.ventilacao": "Fenêtres, lanterneaux et ventilateurs",
-    "index.cards.exterior": "Lumières, tuyaux et branchements extérieurs",
-    "index.cards.controlo": "Panneau de contrôle et disjoncteurs",
-    "index.cards.bms": "Appli JBD, Bluetooth et pourcentage de batterie",
   },
 
   es: {
@@ -621,7 +582,6 @@ const translations = {
     "nav.manual": "Manual",
     "nav.bmsShort": "Batería",
     "nav.alugar": "Alquilar ↗",
-    "nav.manualIndex": "Índice del Manual",
     "nav.controlo": "Controles",
 
     "sections.eletrico.title": "Sistema Eléctrico",
@@ -810,18 +770,6 @@ const translations = {
     "search.noResults": "Sin resultados. Prueba otra palabra.",
     "search.hint": "Prueba: solar, agua caliente, cama, wifi...",
 
-    "index.title": "📖 Índice del Manual",
-    "index.intro": "Ve directamente a la sección que necesitas — el capítulo se abre automáticamente.",
-    "index.cards.eletrico": "Paneles solares, batería, USB y enchufes",
-    "index.cards.agua": "Depósitos, agua caliente y duchas",
-    "index.cards.aquecimento": "Calefacción diésel KROAK — cómo encender",
-    "index.cards.cozinha": "Fogón, nevera, café y vajilla",
-    "index.cards.cama": "Cómo montar las 3 camas",
-    "index.cards.wc": "Baño y productos químicos",
-    "index.cards.ventilacao": "Ventanas, claraboyas y ventiladores",
-    "index.cards.exterior": "Luces, mangueras y conexiones exteriores",
-    "index.cards.controlo": "Panel de control e interruptores",
-    "index.cards.bms": "App JBD, Bluetooth y porcentaje de batería",
   },
 
   de: {
@@ -883,7 +831,6 @@ const translations = {
     "nav.manual": "Handbuch",
     "nav.bmsShort": "Batterie",
     "nav.alugar": "Mieten ↗",
-    "nav.manualIndex": "Handbuch-Index",
     "nav.controlo": "Bedienelemente",
 
     "sections.eletrico.title": "Elektriksystem",
@@ -1072,18 +1019,6 @@ const translations = {
     "search.noResults": "Keine Ergebnisse. Versuche ein anderes Wort.",
     "search.hint": "Versuche: Solar, Warmwasser, Bett, WLAN...",
 
-    "index.title": "📖 Handbuch-Index",
-    "index.intro": "Spring direkt zum Kapitel, das du brauchst — es öffnet sich automatisch.",
-    "index.cards.eletrico": "Solarmodule, Batterie, USB und Steckdosen",
-    "index.cards.agua": "Tanks, Warmwasser und Duschen",
-    "index.cards.aquecimento": "Dieselheizung KROAK — so einschalten",
-    "index.cards.cozinha": "Herd, Kühlschrank, Kaffee und Geschirr",
-    "index.cards.cama": "So baust du die 3 Schlafplätze auf",
-    "index.cards.wc": "Bad und Chemie",
-    "index.cards.ventilacao": "Fenster, Dachhauben und Lüfter",
-    "index.cards.exterior": "Lichter, Schläuche und Außenanschlüsse",
-    "index.cards.controlo": "Bedienpanel und Sicherungen",
-    "index.cards.bms": "JBD-App, Bluetooth und Batteriestand",
   },
 };
 
