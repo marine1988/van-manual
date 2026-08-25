@@ -52,7 +52,7 @@ test.describe('Manual da Van — Header desktop (hotfix menu)', () => {
     await expect(page.locator('.header__nav')).toHaveClass(/is-open/)
     // 4 grupos de topo (Manual, Galeria, Bateria, FAQ) + 10 capítulos no dropdown
     await expect(page.locator('.header__nav > ul > li > .header__nav-link')).toHaveCount(4)
-    await expect(page.locator('.header__nav-link--sub')).toHaveCount(10)
+    await expect(page.locator('.header__nav-link--sub')).toHaveCount(9)
   })
 
   test('390x844 — hamburger visível e nav fechado', async ({ page }) => {

@@ -57,32 +57,20 @@ test('search: tecla / abre, Escape fecha, acentos normalizados', async ({ page }
   expect(count).toBeGreaterThan(0);
 });
 
-test('índice visual: 10 cards, clique em Cama abre #cama', async ({ page }) => {
+test('índice removido: sem secção/cards; deep-link #cama abre a tab Cama', async ({ page }) => {
   await page.goto('http://127.0.0.1:3000/');
-  const cards = page.locator('.manual-index__card');
-  const n = await cards.count();
-  console.log('INDEX_CARDS=' + n);
-  expect(n).toBe(10);
 
-  await page.locator('.manual-index__card[data-target="cama"]').click();
+  // A secção índice e os cards foram removidos (redundante com as tabs)
+  expect(await page.locator('#indice').count()).toBe(0);
+  expect(await page.locator('.manual-index').count()).toBe(0);
+  console.log('INDEX_REMOVED=true');
+
+  // Deep-link para um capítulo continua a abrir a tab certa
+  await page.goto('about:blank');
+  await page.goto('http://127.0.0.1:3000/#cama');
   await page.waitForTimeout(1200);
   await expect(page.locator('.manual-tabs__btn[data-target="cama"]')).toHaveAttribute('aria-selected', 'true');
   await expect(page.locator('#cama')).toBeVisible();
-
-  // grid responsivo
-  await page.setViewportSize({ width: 1280, height: 800 });
-  const colsDesktop = await page.evaluate(() =>
-    getComputedStyle(document.querySelector('.manual-index__grid')).gridTemplateColumns.split(' ').length);
-  await page.setViewportSize({ width: 768, height: 800 });
-  const colsTablet = await page.evaluate(() =>
-    getComputedStyle(document.querySelector('.manual-index__grid')).gridTemplateColumns.split(' ').length);
-  await page.setViewportSize({ width: 390, height: 800 });
-  const colsMobile = await page.evaluate(() =>
-    getComputedStyle(document.querySelector('.manual-index__grid')).gridTemplateColumns.split(' ').length);
-  console.log(`COLS desktop=${colsDesktop} tablet=${colsTablet} mobile=${colsMobile}`);
-  expect(colsDesktop).toBe(5);
-  expect(colsTablet).toBe(2);
-  expect(colsMobile).toBe(1);
 
   await page.screenshot({ path: '/tmp/search-index/mobile-390.png', fullPage: false });
 });

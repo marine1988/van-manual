@@ -23,7 +23,7 @@ test.describe('Manual da Van — Smoke Tests', () => {
     // Navegação com 4 grupos + dropdown "Manual" (10 capítulos dentro)
     const navLinks = page.locator('.header__nav > ul > li > .header__nav-link')
     await expect(navLinks).toHaveCount(4)
-    await expect(page.locator('.header__nav-link--sub')).toHaveCount(10)
+    await expect(page.locator('.header__nav-link--sub')).toHaveCount(9)
 
     // Grupos de topo visíveis
     const linkTexts = await navLinks.allTextContents()

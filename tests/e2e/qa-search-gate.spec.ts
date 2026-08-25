@@ -90,14 +90,19 @@ test('QA e: Escape fecha, / abre', async ({ page }) => {
   console.log('ESCAPE_SLASH_OK=true');
 });
 
-test('QA f: card índice Cozinha -> scroll #cozinha + tab ativa', async ({ page }) => {
+test('QA f: dropdown Manual sem item índice + deep-link #cozinha abre tab', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', e => errors.push(String(e.message)));
   await page.goto(BASE + '/');
 
-  const cards = page.locator('.manual-index__card');
-  console.log('INDEX_CARDS=' + await cards.count());
-  await page.locator('.manual-index__card[data-target="cozinha"]').click();
+  // Dropdown do header não tem mais o item "Índice do Manual"
+  const manualIndexLinks = await page.locator('a[href="#indice"]').count();
+  console.log('HEADER_INDICE_LINKS=' + manualIndexLinks);
+  expect(manualIndexLinks).toBe(0);
+
+  // Deep-link para Cozinha abre a tab certa
+  await page.goto('about:blank');
+  await page.goto(BASE + '/#cozinha');
   await page.waitForTimeout(1400);
   await expect(page.locator('.manual-tabs__btn[data-target="cozinha"]')).toHaveAttribute('aria-selected', 'true');
   await expect(page.locator('#cozinha')).toBeVisible();
@@ -105,11 +110,11 @@ test('QA f: card índice Cozinha -> scroll #cozinha + tab ativa', async ({ page 
   const headerH = await page.evaluate(() => document.querySelector('header')?.getBoundingClientRect().height || 0);
   console.log(`COZINHA_TOP=${top} HEADER_H=${headerH}`);
   expect(top).toBeGreaterThanOrEqual(headerH - 2);
-  await page.screenshot({ path: SHOTS + '/desktop-1440-indice-cozinha.png' });
+  await page.screenshot({ path: SHOTS + '/desktop-1440-deeplink-cozinha.png' });
   console.log('PAGE_ERRORS=' + JSON.stringify(errors));
 });
 
-test('QA mobile-390: overlay solar + indice, zero overflow horizontal', async ({ page }) => {
+test('QA mobile-390: tabs + pesquisa, zero overflow horizontal', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(BASE + '/');
 
@@ -118,10 +123,10 @@ test('QA mobile-390: overlay solar + indice, zero overflow horizontal', async ({
   console.log('MOBILE_OVERFLOW_PX=' + overflow);
   expect(overflow).toBeLessThanOrEqual(1);
 
-  // screenshot do índice em mobile
-  await page.locator('#indice').scrollIntoViewIfNeeded();
+  // screenshot da zona onde estava o índice (agora direto às tabs)
+  await page.locator('.manual-tabs').scrollIntoViewIfNeeded();
   await page.waitForTimeout(400);
-  await page.screenshot({ path: SHOTS + '/mobile-390-indice.png' });
+  await page.screenshot({ path: SHOTS + '/mobile-390-tabs.png' });
 
   // overlay com resultados
   await page.click('#searchToggle');

@@ -532,42 +532,6 @@
     scrollToTarget(accordion || document.getElementById(sectionId));
   }
 
-  /* --- Índice visual do manual (cards) --- */
-  const indexGrid = document.getElementById("manualIndexGrid");
-  if (indexGrid) {
-    ACCORDION_SECTIONS.forEach(function (id) {
-      const section = document.getElementById(id);
-      if (!section) return;
-      const icon = document.querySelector('.manual-tabs__btn[data-target="' + id + '"] .manual-tabs__icon');
-      const titleEl = section.querySelector(".manual-tab-panel__heading");
-
-      const card = document.createElement("button");
-      card.type = "button";
-      card.className = "manual-index__card";
-      card.setAttribute("data-target", id);
-
-      const iconSpan = document.createElement("span");
-      iconSpan.className = "manual-index__icon";
-      iconSpan.textContent = icon ? icon.textContent : "";
-      const titleSpan = document.createElement("span");
-      titleSpan.className = "manual-index__card-title";
-      titleSpan.textContent = titleEl ? titleEl.textContent : id;
-      const descSpan = document.createElement("span");
-      descSpan.className = "manual-index__desc";
-      descSpan.setAttribute("data-i18n", "index.cards." + id);
-      if (translations.pt && translations.pt["index.cards." + id]) {
-        descSpan.textContent = translations.pt["index.cards." + id];
-      }
-
-      card.appendChild(iconSpan);
-      card.appendChild(titleSpan);
-      card.appendChild(descSpan);
-      card.addEventListener("click", function () {
-        goToSection(id);
-      });
-      indexGrid.appendChild(card);
-    });
-  }
 
   /* --- Construção do índice de pesquisa --- */
   const searchIndex = [];

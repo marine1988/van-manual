@@ -38,10 +38,11 @@ test('c) pesquisar solar -> resultado abre tab Eletrico com scroll >=72px', asyn
   expect(box!.y).toBeGreaterThanOrEqual(72)
 })
 
-test('d) card indice Cozinha -> tab Cozinha ativa + scroll >=72px', async ({ page }) => {
+test('d) deep-link #cozinha -> tab Cozinha ativa + scroll >=72px (indice removido)', async ({ page }) => {
   await page.goto(BASE_URL)
-  const card = page.locator('.index-card, [class*="index"] a, [class*="index"] button', { hasText: /cozinha/i }).first()
-  await card.click()
+  await expect(page.locator('#indice')).toHaveCount(0)
+  await page.goto('about:blank')
+  await page.goto(`${BASE_URL}#cozinha`)
   await page.waitForTimeout(800)
   const active = page.locator('[role="tab"][aria-selected="true"]')
   await expect(active).toHaveAttribute('id', /cozinha/i)
