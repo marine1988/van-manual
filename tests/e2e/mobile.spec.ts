@@ -38,8 +38,8 @@ test.describe('Manual da Van — Mobile (iPhone 390x844)', () => {
     await hamburger.click()
     await expect(page.locator('.header__nav')).toHaveClass(/is-open/)
 
-    // Clicar em "Água" dentro do menu
-    const linkAgua = page.locator('.header__nav-link').filter({ hasText: 'Água' }).first()
+    // Clicar em "Água" dentro do dropdown do menu (sempre aberto em mobile)
+    const linkAgua = page.locator('.header__dropdown a').filter({ hasText: 'Água' }).first()
     await linkAgua.click()
 
     // Menu fecha automaticamente

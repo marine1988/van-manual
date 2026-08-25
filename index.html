@@ -25,17 +25,23 @@
       <a href="#hero" class="header__logo" data-i18n="site.title">🚐 Manual da Campervan</a>
       <nav class="header__nav" role="navigation" aria-label="Navegação principal">
         <ul class="header__nav-list">
-          <li><a href="#eletrico" class="header__nav-link" data-i18n="nav.eletrico">Elétrico</a></li>
-          <li><a href="#agua" class="header__nav-link" data-i18n="nav.agua">Água</a></li>
-          <li><a href="#aquecimento" class="header__nav-link" data-i18n="nav.aquecimento">Aquecimento</a></li>
-          <li><a href="#cozinha" class="header__nav-link" data-i18n="nav.cozinha">Cozinha</a></li>
-          <li><a href="#cama" class="header__nav-link" data-i18n="nav.cama">Cama</a></li>
-          <li><a href="#wc" class="header__nav-link" data-i18n="nav.wc">WC</a></li>
-          <li><a href="#ventilacao" class="header__nav-link" data-i18n="nav.ventilacao">Ventilação</a></li>
-          <li><a href="#exterior" class="header__nav-link" data-i18n="nav.exterior">Exterior</a></li>
+          <li class="header__nav-item header__nav-item--dropdown">
+            <a href="#indice" class="header__nav-link" data-i18n="nav.manual">Manual</a>
+            <ul class="header__dropdown" aria-label="Capítulos do manual">
+              <li><a href="#indice" class="header__nav-link header__nav-link--sub" data-i18n="nav.manualIndex">Índice do Manual</a></li>
+              <li><a href="#eletrico" class="header__nav-link header__nav-link--sub" data-i18n="nav.eletrico">Elétrico</a></li>
+              <li><a href="#agua" class="header__nav-link header__nav-link--sub" data-i18n="nav.agua">Água</a></li>
+              <li><a href="#aquecimento" class="header__nav-link header__nav-link--sub" data-i18n="nav.aquecimento">Aquecimento</a></li>
+              <li><a href="#cozinha" class="header__nav-link header__nav-link--sub" data-i18n="nav.cozinha">Cozinha</a></li>
+              <li><a href="#cama" class="header__nav-link header__nav-link--sub" data-i18n="nav.cama">Cama</a></li>
+              <li><a href="#wc" class="header__nav-link header__nav-link--sub" data-i18n="nav.wc">WC</a></li>
+              <li><a href="#ventilacao" class="header__nav-link header__nav-link--sub" data-i18n="nav.ventilacao">Ventilação</a></li>
+              <li><a href="#exterior" class="header__nav-link header__nav-link--sub" data-i18n="nav.exterior">Exterior</a></li>
+              <li><a href="#controlo" class="header__nav-link header__nav-link--sub" data-i18n="nav.controlo">Controlo</a></li>
+            </ul>
+          </li>
           <li><a href="#galeria" class="header__nav-link" data-i18n="nav.galeria">Galeria</a></li>
-          <li><a href="#controlo" class="header__nav-link" data-i18n="nav.controlo">Controlo</a></li>
-          <li><a href="#bms" class="header__nav-link" data-i18n="nav.bms">Bateria</a></li>
+          <li><a href="#bms" class="header__nav-link" data-i18n="nav.bmsShort">Bateria</a></li>
           <li><a href="#faq" class="header__nav-link" data-i18n="nav.faq">FAQ</a></li>
         </ul>
       </nav>
@@ -46,6 +52,7 @@
             <line x1="13" y1="13" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
+        <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="header__cta" data-i18n="nav.alugar">Alugar <span class="header__cta-arrow" aria-hidden="true">↗</span></a>
         <div class="language-switcher" role="group" aria-label="Seletor de idioma">
           <button class="language-switcher__current" aria-haspopup="listbox" aria-expanded="false" aria-label="Idioma atual: Português">
             <span class="language-switcher__flag">🇵🇹</span>
@@ -83,8 +90,12 @@
         <p class="hero__subtitle" data-i18n="hero.subtitle">
           Renault Master 2.5 dCi — Tour Completo
         </p>
-        <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="hero__cta" data-i18n="hero.cta">
-          🚐 Alugar no Yescapa
+        <p class="hero__meta" data-i18n="hero.meta">3 dormidas · 590 W de painéis solares · Renault Master 2010</p>
+        <a href="https://www.yescapa.pt/campers/115174" target="_blank" rel="noopener noreferrer" class="hero__cta">
+          <span data-i18n="hero.cta">Alugar no Yescapa</span>
+          <svg class="hero__cta-icon" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false">
+            <path d="M6 3h7v7M13 3L3 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </a>
       </div>
     </section>

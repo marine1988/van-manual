@@ -281,6 +281,33 @@
   const hamburger = document.querySelector(".header__hamburger");
   const nav = document.querySelector(".header__nav");
 
+  /* ---------- Dropdown "Manual" no header desktop ---------- */
+  const dropdownItem = document.querySelector(".header__nav-item--dropdown");
+  if (dropdownItem) {
+    const dropdownToggle = dropdownItem.querySelector(".header__nav-link");
+
+    dropdownToggle.addEventListener("click", function (e) {
+      /* Em <1280px o dropdown está sempre aberto (sublista); deixar o link
+         comportar-se como âncora normal. Em desktop, alternar o painel. */
+      if (window.matchMedia("(min-width: 1280px)").matches) {
+        e.preventDefault();
+        const open = dropdownItem.classList.toggle("is-open");
+        dropdownToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        e.stopPropagation();
+      }
+    });
+
+    document.addEventListener("click", function (e) {
+      if (
+        dropdownItem.classList.contains("is-open") &&
+        !dropdownItem.contains(e.target)
+      ) {
+        dropdownItem.classList.remove("is-open");
+        dropdownToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
   if (hamburger && nav) {
     hamburger.addEventListener("click", function () {
       const isOpen = hamburger.getAttribute("aria-expanded") === "true";
@@ -507,7 +534,7 @@
     ACCORDION_SECTIONS.forEach(function (id) {
       const section = document.getElementById(id);
       if (!section) return;
-      const icon = section.querySelector(".manual-tabs__icon");
+      const icon = document.querySelector('.manual-tabs__btn[data-target="' + id + '"] .manual-tabs__icon');
       const titleEl = section.querySelector(".manual-tab-panel__heading");
 
       const card = document.createElement("button");

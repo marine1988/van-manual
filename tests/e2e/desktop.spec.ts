@@ -21,9 +21,9 @@ test.describe('Manual da Van — Header desktop (hotfix menu)', () => {
       expect(height).toBeLessThanOrEqual(45)
       expect(height).toBeGreaterThan(20)
 
-      // Todos os 12 links no mesmo offsetTop → 1 única linha
+      // Todos os links de topo no mesmo offsetTop → 1 única linha
       const rows = await page
-        .locator('.header__nav-link')
+        .locator('.header__nav-list > li > .header__nav-link')
         .evaluateAll((links) => new Set(links.map((l) => Math.round(l.getBoundingClientRect().top))).size)
       expect(rows).toBe(1)
 
@@ -42,15 +42,17 @@ test.describe('Manual da Van — Header desktop (hotfix menu)', () => {
     await page.setViewportSize({ width: 1200, height: 800 })
     await page.goto('/')
 
-    // Abaixo de 1280px o menu desktop não cabe numa linha (12 itens), por isso
-    // entra o hamburger — o menu nunca parte
+    // Abaixo de 1280px o menu desktop não cabe, por isso entra o hamburger —
+    // o menu nunca parte. No menu mobile os capítulos aparecem como sublista.
     await expect(page.locator('.header__hamburger')).toBeVisible()
     await expect(page.locator('.header__nav')).not.toHaveClass(/is-open/)
 
-    // Abrir e confirmar que os 12 itens estão acessíveis
+    // Abrir e confirmar que todos os itens estão acessíveis
     await page.locator('.header__hamburger').click()
     await expect(page.locator('.header__nav')).toHaveClass(/is-open/)
-    await expect(page.locator('.header__nav-link')).toHaveCount(12)
+    // 4 grupos de topo (Manual, Galeria, Bateria, FAQ) + 10 capítulos no dropdown
+    await expect(page.locator('.header__nav > ul > li > .header__nav-link')).toHaveCount(4)
+    await expect(page.locator('.header__nav-link--sub')).toHaveCount(10)
   })
 
   test('390x844 — hamburger visível e nav fechado', async ({ page }) => {

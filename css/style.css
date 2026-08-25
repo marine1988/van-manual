@@ -162,17 +162,153 @@ ul {
   color: var(--color-primary);
 }
 
-.header__nav-link:active {
+.header__nav-link.is-active {
   background: var(--color-bg-alt);
-  color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+/* Dropdown "Manual" no header desktop */
+.header__nav-item--dropdown {
+  position: relative;
+}
+.header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 190px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  padding: 6px;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 60;
+}
+.header__nav-item--dropdown:hover .header__dropdown,
+.header__nav-item--dropdown:focus-within .header__dropdown,
+.header__nav-item--dropdown.is-open .header__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.header__dropdown a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.header__dropdown a:hover,
+.header__dropdown a:focus-visible {
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+}
+
+.header__cta-arrow {
+  font-size: 0.9em;
 }
 
 .header__nav-link.is-active {
   background: var(--color-bg-alt);
-  color: var(--color-primary);
+  color: var(--color-accent);
+  font-weight: 700;
 }
 
 .header__nav-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* --- Dropdown "Manual" no header desktop --- */
+.header__nav-item--dropdown {
+  position: relative;
+}
+
+.header__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 210px;
+  padding: 6px;
+  margin: 4px 0 0;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 60;
+}
+
+.header__nav-item--dropdown.is-open .header__dropdown {
+  display: block;
+}
+
+.header__dropdown a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: background var(--transition), color var(--transition);
+}
+
+.header__dropdown a:hover,
+.header__dropdown a:focus-visible {
+  background: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+/* Setinha do dropdown toggle */
+.header__nav-link[data-i18n="nav.manual"]::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-left: 5px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-3px) rotate(45deg);
+  transition: transform var(--transition);
+}
+
+.header__nav-item--dropdown.is-open .header__nav-link::after {
+  transform: translateY(-2px) rotate(-135deg);
+}
+
+/* --- CTA "Alugar ↗" destacado (laranja) --- */
+.header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-accent);
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.header__cta:hover {
+  background: var(--color-accent-light);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__cta:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
@@ -434,7 +570,8 @@ ul {
 
 .manual-index__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* 10 capítulos = 5 + 5 em desktop (sem card órfão) */
+  grid-template-columns: repeat(5, 1fr);
   gap: 16px;
 }
 
@@ -488,12 +625,10 @@ ul {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 @media (max-width: 600px) {
   .manual-index__grid {
     grid-template-columns: 1fr;
   }
-
   .manual-index__title {
     font-size: 1.5rem;
   }
@@ -538,21 +673,23 @@ ul {
   justify-content: center;
   padding: calc(var(--header-height) + 40px) 20px 60px;
   text-align: center;
+  /* Gradiente neutro de fallback atrás da foto (não verde) */
   background:
-    linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
+    linear-gradient(180deg, #1b1b1e 0%, #0d0d10 100%);
   background-image:
     url('../img/van/hero-van.webp'),
-    linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
+    linear-gradient(180deg, #1b1b1e 0%, #0d0d10 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: var(--color-text-on-primary);
 }
 
+/* Overlay neutro: preto->transparente. A foto fica natural, o texto legível. */
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 61, 26, 0.85) 0%, rgba(45, 90, 39, 0.80) 50%, rgba(10, 20, 8, 0.83) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 55%, rgba(0, 0, 0, 0.55) 100%);
   z-index: 1;
 }
 
@@ -568,16 +705,35 @@ ul {
   margin-bottom: 16px;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .hero__subtitle {
   font-size: 1.4rem;
-  margin: 0 auto 40px;
+  margin: 0 auto 14px;
   opacity: 0.95;
   line-height: 1.5;
   font-weight: 500;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Linha de meta sob o subtitle — specs reais da carrinha */
+.hero__meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 0;
+  margin: 0 auto 32px;
+  padding: 8px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .hero__cta {
@@ -594,6 +750,10 @@ ul {
   box-shadow: var(--shadow-md);
   text-decoration: none;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.hero__cta-icon {
+  flex-shrink: 0;
 }
 
 .hero__cta:hover {
@@ -1392,7 +1552,7 @@ ul {
   }
 
   /* Separadores subtis entre itens do menu */
-  .header__nav-list li + li {
+  .header__nav-list > li + li {
     border-top: 1px solid var(--color-border-light);
   }
 
@@ -1401,6 +1561,41 @@ ul {
     padding: 13px 14px;
     font-size: 0.95rem;
     border-radius: var(--radius-sm);
+  }
+
+  /* No menu mobile o dropdown "Manual" fica SEMPRE aberto (sublista de capítulos) */
+  .header__nav-item--dropdown .header__dropdown {
+    display: block;
+    position: static;
+    min-width: 0;
+    margin: 0;
+    padding: 0 0 4px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .header__nav-item--dropdown .header__nav-link[data-i18n="nav.manual"]::after {
+    content: none;
+  }
+
+  .header__dropdown a {
+    padding: 10px 14px 10px 26px;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+  }
+
+  .header__dropdown li:last-child a {
+    margin-bottom: 6px;
+  }
+
+  /* CTA "Alugar" dentro do header mobile: compacto */
+  .header__cta {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }
 
@@ -1478,7 +1673,17 @@ ul {
   }
 }
 
-/* Very small screens (<360px) */
+/* Very small screens (<400px): wordmark encolhe para o ícone 🚐 */
+@media (max-width: 400px) {
+  .header__logo {
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    width: 1.6rem;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 360px) {
   .header__logo {
     font-size: 1rem;
@@ -1668,8 +1873,15 @@ ul {
   background: var(--color-bg-alt);
 }
 .faq-section__container {
-  max-width: 800px;
+  max-width: 860px;
   margin: 0 auto;
+}
+
+/* Desktop: container alargado para melhor leitura */
+@media (min-width: 1024px) {
+  .faq-section__container {
+    max-width: 860px;
+  }
 }
 .faq-section__title {
   font-size: 2rem;
@@ -1702,8 +1914,21 @@ ul {
   cursor: pointer;
   text-align: left;
 }
-.faq-item__question:hover { background: var(--color-bg-alt); }
-.faq-item__arrow { transition: transform 0.3s; font-size: 0.8rem; }
+.faq-item__question:hover,
+.faq-item__question:focus-visible {
+  background: var(--color-bg-alt);
+  color: var(--color-accent);
+}
+.faq-item__question:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+.faq-item__arrow {
+  transition: transform 0.3s;
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-left: 12px;
+}
 .faq-item__question[aria-expanded="true"] .faq-item__arrow { transform: rotate(180deg); }
 .faq-item__answer {
   max-height: 0;

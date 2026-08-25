@@ -20,13 +20,14 @@ test.describe('Manual da Van — Smoke Tests', () => {
     await expect(logo).toBeVisible()
     await expect(logo).toHaveText(/Manual da Campervan/)
 
-    // Navegação com links para as 12 secções
-    const navLinks = page.locator('.header__nav-link')
-    await expect(navLinks).toHaveCount(12)
+    // Navegação com 4 grupos + dropdown "Manual" (10 capítulos dentro)
+    const navLinks = page.locator('.header__nav > ul > li > .header__nav-link')
+    await expect(navLinks).toHaveCount(4)
+    await expect(page.locator('.header__nav-link--sub')).toHaveCount(10)
 
-    const expectedLinks = ['Elétrico', 'Água', 'Aquecimento', 'Cozinha', 'Cama', 'WC', 'Ventilação', 'Exterior', 'Galeria', 'Controlo', 'Bateria', 'FAQ']
+    // Grupos de topo visíveis
     const linkTexts = await navLinks.allTextContents()
-    for (const expected of expectedLinks) {
+    for (const expected of ['Manual', 'Galeria', 'Bateria', 'FAQ']) {
       expect(linkTexts.some(t => t.includes(expected))).toBeTruthy()
     }
 
@@ -162,8 +163,9 @@ test.describe('Manual da Van — Smoke Tests', () => {
   test('navegação por âncoras faz scroll para a secção correta', async ({ page }) => {
     await page.goto(BASE_URL)
 
-    // Clicar no link "Água" da navegação
-    const linkAgua = page.locator('.header__nav-link').filter({ hasText: 'Água' })
+    // Abrir o dropdown "Manual" e clicar no link "Água"
+    await page.locator('.header__nav-list > li > .header__nav-link').filter({ hasText: 'Manual' }).click()
+    const linkAgua = page.locator('.header__dropdown a').filter({ hasText: 'Água' })
     await linkAgua.click()
 
     // Verificar que fizemos scroll para a secção #agua

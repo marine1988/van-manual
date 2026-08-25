@@ -80,7 +80,7 @@ test('índice visual: 10 cards, clique em Cama abre #cama', async ({ page }) => 
   const colsMobile = await page.evaluate(() =>
     getComputedStyle(document.querySelector('.manual-index__grid')).gridTemplateColumns.split(' ').length);
   console.log(`COLS desktop=${colsDesktop} tablet=${colsTablet} mobile=${colsMobile}`);
-  expect(colsDesktop).toBe(3);
+  expect(colsDesktop).toBe(5);
   expect(colsTablet).toBe(2);
   expect(colsMobile).toBe(1);
 

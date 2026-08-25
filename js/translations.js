@@ -31,6 +31,11 @@ const translations = {
     "index.cards.exterior": "Luzes, mangueiras e ligações externas",
     "index.cards.controlo": "Painel de controlo e disjuntores",
     "index.cards.bms": "App JBD, Bluetooth e percentagem da bateria",
+    "nav.manual": "Manual",
+    "nav.bmsShort": "Bateria",
+    "nav.alugar": "Alugar ↗",
+    "nav.manualIndex": "Índice do Manual",
+    "hero.meta": "3 dormidas · 590 W de painéis solares · Renault Master 2010",
   }, // português é o default (texto no HTML)
 
   en: {
@@ -40,6 +45,7 @@ const translations = {
 
     "hero.title": "Rogério's Converted Van",
     "hero.subtitle": "Renault Master 2.5 dCi — Complete Tour",
+    "hero.meta": "Sleeps 3 · 590 W of solar panels · Renault Master 2010",
     "hero.cta": "🚐 Rent on Yescapa",
 
     "video.title": "Complete Video Tour",
@@ -88,6 +94,10 @@ const translations = {
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Exterior",
     "nav.galeria": "Gallery",
+    "nav.manual": "Manual",
+    "nav.bmsShort": "Battery",
+    "nav.alugar": "Rent ↗",
+    "nav.manualIndex": "Manual Index",
     "nav.controlo": "Controls",
 
     "sections.eletrico.title": "Electrical System",
@@ -297,6 +307,7 @@ const translations = {
 
     "hero.title": "Furgon Aménagé de Rogério",
     "hero.subtitle": "Renault Master 2.5 dCi — Visite Complète",
+    "hero.meta": "3 couchages · 590 W de panneaux solaires · Renault Master 2010",
     "hero.cta": "🚐 Louer sur Yescapa",
 
     "video.title": "Visite Vidéo Complète",
@@ -345,6 +356,10 @@ const translations = {
     "nav.ventilacao": "Ventilation",
     "nav.exterior": "Extérieur",
     "nav.galeria": "Galerie",
+    "nav.manual": "Manuel",
+    "nav.bmsShort": "Batterie",
+    "nav.alugar": "Louer ↗",
+    "nav.manualIndex": "Index du Manuel",
     "nav.controlo": "Contrôles",
 
     "sections.eletrico.title": "Système Électrique",
@@ -554,6 +569,7 @@ const translations = {
 
     "hero.title": "Furgoneta Camperizada de Rogério",
     "hero.subtitle": "Renault Master 2.5 dCi — Tour Completo",
+    "hero.meta": "3 plazas para dormir · 590 W de paneles solares · Renault Master 2010",
     "hero.cta": "🚐 Alquilar en Yescapa",
 
     "video.title": "Vídeo Tour Completo",
@@ -602,6 +618,10 @@ const translations = {
     "nav.ventilacao": "Ventilación",
     "nav.exterior": "Exterior",
     "nav.galeria": "Galería",
+    "nav.manual": "Manual",
+    "nav.bmsShort": "Batería",
+    "nav.alugar": "Alquilar ↗",
+    "nav.manualIndex": "Índice del Manual",
     "nav.controlo": "Controles",
 
     "sections.eletrico.title": "Sistema Eléctrico",
@@ -811,6 +831,7 @@ const translations = {
 
     "hero.title": "Rogérios Ausgebauter Van",
     "hero.subtitle": "Renault Master 2.5 dCi — Komplette Tour",
+    "hero.meta": "3 Schlafplätze · 590 W Solarpaneele · Renault Master 2010",
     "hero.cta": "🚐 Mieten auf Yescapa",
 
     "video.title": "Komplette Videotour",
@@ -859,6 +880,10 @@ const translations = {
     "nav.ventilacao": "Lüftung",
     "nav.exterior": "Außen",
     "nav.galeria": "Galerie",
+    "nav.manual": "Handbuch",
+    "nav.bmsShort": "Batterie",
+    "nav.alugar": "Mieten ↗",
+    "nav.manualIndex": "Handbuch-Index",
     "nav.controlo": "Bedienelemente",
 
     "sections.eletrico.title": "Elektriksystem",
