@@ -541,7 +541,7 @@ ul {
   background:
     linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
   background-image:
-    url('../img/van/van-07-exterior-real.jpg'),
+    url('../img/van/hero-van.webp'),
     linear-gradient(135deg, #1a3a1a 0%, #2d5a27 40%, #1e3d1a 70%, #0f1f0f 100%);
   background-size: cover;
   background-position: center;
@@ -552,7 +552,7 @@ ul {
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30, 61, 26, 0.82) 0%, rgba(45, 90, 39, 0.72) 50%, rgba(10, 20, 8, 0.80) 100%);
+  background: linear-gradient(135deg, rgba(30, 61, 26, 0.85) 0%, rgba(45, 90, 39, 0.80) 50%, rgba(10, 20, 8, 0.83) 100%);
   z-index: 1;
 }
 
@@ -568,6 +568,7 @@ ul {
   margin-bottom: 16px;
   letter-spacing: -0.02em;
   line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
 }
 
 .hero__subtitle {
@@ -576,6 +577,7 @@ ul {
   opacity: 0.95;
   line-height: 1.5;
   font-weight: 500;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
 }
 
 .hero__cta {
