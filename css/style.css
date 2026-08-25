@@ -936,6 +936,7 @@ ul {
     gap: 3px;
     padding: 8px 2px;
     flex-wrap: nowrap;
+    justify-content: center;
   }
 
   .manual-tabs__btn {
